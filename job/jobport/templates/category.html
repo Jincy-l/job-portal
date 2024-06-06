@@ -32,19 +32,19 @@
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    {% comment %} <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
+        <!-- Spinner End --> {% endcomment %}
 
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-            <a href="static/index.html" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
+            <a href="index" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
                 <h1 class="m-0 text-primary">JobEntry</h1>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -52,26 +52,26 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="static/index.html" class="nav-item nav-link">Home</a>
-                    <a href="static/about.html" class="nav-item nav-link">About</a>
+                    <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                    <a href="about" class="nav-item nav-link">About</a>
                     <div class="nav-item dropdown">
-                        <a href="static/#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
+                        <a href="index" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="static/job-list.html" class="dropdown-item">Job List</a>
-                            <a href="static/job-detail.html" class="dropdown-item">Job Detail</a>
+                            <a href="joblist" class="dropdown-item">Job List</a>
+                            <a href="jobdetail" class="dropdown-item">Job Detail</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="static/#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
+                        <a href="index" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="static/category.html" class="dropdown-item active">Job Category</a>
-                            <a href="static/testimonial.html" class="dropdown-item">Testimonial</a>
-                            <a href="static/404.html" class="dropdown-item">404</a>
+                            <a href="category" class="dropdown-item active">Job Category</a>
+                            <a href="testimonial" class="dropdown-item">Testimonial</a>
+                            <a href="error" class="dropdown-item">404</a>
                         </div>
                     </div>
-                    <a href="static/contact.html" class="nav-item nav-link">Contact</a>
+                    <a href="contact" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="static/" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+                <a href="index" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
         <!-- Navbar End -->
@@ -83,8 +83,8 @@
                 <h1 class="display-3 text-white mb-3 animated slideInDown">Category</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb text-uppercase">
-                        <li class="breadcrumb-item"><a href="static/#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="static/#">Pages</a></li>
+                        <li class="breadcrumb-item"><a href="index">Home</a></li>
+                        <li class="breadcrumb-item"><a href="index">Pages</a></li>
                         <li class="breadcrumb-item text-white active" aria-current="page">Category</li>
                     </ol>
                 </nav>
@@ -99,56 +99,56 @@
                 <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
                 <div class="row g-4">
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
                             <h6 class="mb-3">Marketing</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-headset text-primary mb-4"></i>
                             <h6 class="mb-3">Customer Service</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
                             <h6 class="mb-3">Human Resource</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
                             <h6 class="mb-3">Project Management</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
                             <h6 class="mb-3">Business Development</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
                             <h6 class="mb-3">Sales & Communication</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
                             <h6 class="mb-3">Teaching & Education</h6>
                             <p class="mb-0">123 Vacancy</p>
                         </a>
                     </div>
                     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <a class="cat-item rounded p-4" href="static/">
+                        <a class="cat-item rounded p-4" href="index">
                             <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
                             <h6 class="mb-3">Design & Creative</h6>
                             <p class="mb-0">123 Vacancy</p>
@@ -166,19 +166,19 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Company</h5>
-                        <a class="btn btn-link text-white-50" href="static/">About Us</a>
-                        <a class="btn btn-link text-white-50" href="static/">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="static/">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="static/">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="static/">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="index">About Us</a>
+                        <a class="btn btn-link text-white-50" href="index">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="index">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="index">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="static/">About Us</a>
-                        <a class="btn btn-link text-white-50" href="static/">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="static/">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="static/">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="static/">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="index">About Us</a>
+                        <a class="btn btn-link text-white-50" href="index">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="index">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="index">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Contact</h5>
@@ -186,10 +186,10 @@
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="static/"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="static/"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="static/"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="static/"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -206,17 +206,17 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="static/#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="index">Your Site Name</a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 							Designed By <a class="border-bottom" href="static/https://htmlcodex.com">HTML Codex</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="static/">Home</a>
-                                <a href="static/">Cookies</a>
-                                <a href="static/">Help</a>
-                                <a href="static/">FQAs</a>
+                                <a href="index">Home</a>
+                                <a href="index">Cookies</a>
+                                <a href="index">Help</a>
+                                <a href="index">FQAs</a>
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
 
 
         <!-- Back to Top -->
-        <a href="static/#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="index" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
