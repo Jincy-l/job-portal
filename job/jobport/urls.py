@@ -12,6 +12,8 @@ urlpatterns = [
     path("jobdetail",views.jobdetail,name='jobdetail'),
     path("joblist",views.joblist,name='joblist'),
     path("testimonial",views.testimonial,name='testimonial'),
-    path()
+    # path("indexemp",views.indexemp,name='indexemp'),
+    path("login",views.login,name='login'),
+    # path ("loginemployer",views.loginemployer,name='loginemployer'),
     
 ]

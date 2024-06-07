@@ -17,3 +17,9 @@ def joblist(request):
     return render(request,"joblist.html")
 def testimonial(request):
     return render(request,"testimonial.html")
+# def indexemp(request):
+    # return render(request,"indexemp.html")
+def login(request):
+    return render(request,"login.html")
+# def loginemployer(request):
+    # return render(request,"loginemployer")
