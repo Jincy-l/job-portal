@@ -12,6 +12,6 @@ urlpatterns = [
     path("jobdetail",views.jobdetail,name='jobdetail'),
     path("joblist",views.joblist,name='joblist'),
     path("testimonial",views.testimonial,name='testimonial'),
-    pa
+    path()
     
 ]
