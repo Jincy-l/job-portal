@@ -618,3 +618,13 @@ input.input100 {
   background: #333333;
   color: #fff;
 }
+.app-register {
+  position: absolute;
+  bottom: 0;
+  height: 10vh;
+  line-height: 10vh;
+  
+  color: #00B074
+  
+  
+}

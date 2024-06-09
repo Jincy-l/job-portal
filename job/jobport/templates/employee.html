@@ -28,61 +28,53 @@
 <!--===============================================================================================-->
 </head>
 <body style="background-color: #666666;">
-	 <!-- Navbar Start -->
-	 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
-		<a href="index" class="navbar-brand d-flex align-items-center text-center py-0 px-4 px-lg-5">
-			<h1 class="m-0 text-primary">JobEntry</h1>
-		</a>
-		<button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<div class="navbar-nav ms-auto p-4 p-lg-0">
-				<a href= "{% url 'index' %}"class="nav-item nav-link active">Home</a>
-				<a href="about" class="nav-item nav-link">About</a>
-				<div class="nav-item dropdown">
-					<a href="index" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
-					<div class="dropdown-menu rounded-0 m-0">
-						<a href="joblist" class="dropdown-item">Job List</a>
-						<a href="jobdetail" class="dropdown-item">Job Detail</a>
-					</div>
-				</div>
-				<div class="nav-item dropdown">
-					<a href="index" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-					<div class="dropdown-menu rounded-0 m-0">
-						<a href="category" class="dropdown-item">Job Category</a>
-						<a href="testimonial" class="dropdown-item">Testimonial</a>
-						<a href="error" class="dropdown-item">404</a>
-					</div>
-				</div>
-				<a href="contact" class="nav-item nav-link">Contact</a>
-			  <a href="login" class="nav-item nav-link">login</a>
-			</div>
-			<a href="index" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
-		</div>
-	</nav>
-	
 	
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-form validate-form">
+                    
+				    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div> 
 					
+					
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<input class="input100" type="password" name="pass">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div> 
+
+					<div class="flex-sb-m w-full p-t-3 p-b-32">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								Remember me
+							</label>
+						</div> 
+
+					     <div>
+							<a href="static/#" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+			 
 
 					<div class="container-login100-form-btn">
-						<a style="width: 100%;" href="employer">
-				    	<button  class="login100-form-btn">
+						<button class="login100-form-btn">
 							 Employer Login
 						</button>
-					</a>
 					</div><br>
-					<div class="container-login100-form-btn">
-						<a style="width: 100%;" href="employee">
-						<button class="login100-form-btn" >
-							 Employee Login
-						</button>
-					 </a>	
-					</div>
+					  <div class="app-register">
+						Don't have an account? <a href="regemp">Sign Up</a>
+					  </div>
+					
+
+					
+					
 					<div class="text-center p-t-46 p-b-20">
 						<span class="txt2">
 							or sign up using
@@ -100,7 +92,7 @@
 					</div>
 				</div>
 
-				<div class="login100-more" style="background-image: url('static/images/bs.jpg');">
+				<div class="login100-more" style="background-image: url('static/images/ep.jpg');">
 				</div>
 			</div>
 		</div>

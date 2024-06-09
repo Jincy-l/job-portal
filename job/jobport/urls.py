@@ -15,5 +15,8 @@ urlpatterns = [
     # path("indexemp",views.indexemp,name='indexemp'),
     path("login",views.login,name='login'),
     # path ("loginemployer",views.loginemployer,name='loginemployer'),
-    
+    path("employer",views.employerlogin,name='employerlogin'),
+    path("employee",views.employee,name='employee'),
+    path("regemplr",views.regemplr,name='regemplr'),
+    path("regemp",views.regemp,name='regemp')
 ]

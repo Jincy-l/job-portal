@@ -23,3 +23,11 @@ def login(request):
     return render(request,"login.html")
 # def loginemployer(request):
     # return render(request,"loginemployer")
+def employerlogin(request):
+    return render(request,"employerlogin.html")    
+def employee(request):
+    return render(request,'employee.html')
+def regemplr(request):
+    return render(request,'regemplr.html')
+def regemp(request):
+    return render(request,'regemp.html')
