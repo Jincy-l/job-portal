@@ -54,7 +54,7 @@
 						<div class="form-row form-row-3">
 							<input type="text" name="business" class="business" id="business" placeholder="Business Arena" required>
 						</div>
-						<div class="form-row form-row-4">
+						{% comment %} <div class="form-row form-row-4">
 							<select name="employees">
 							    <option value="employees">Employees</option>
 							    <option value="trainee">Trainee</option>
@@ -64,7 +64,7 @@
 							<span class="select-btn">
 							  	<i class="zmdi zmdi-chevron-down"></i>
 							</span>
-						</div>
+						</div> {% endcomment %}
 					</div>
 				</div>
 				<div class="form-right">
@@ -113,6 +113,12 @@
 					<div class="form-row">
 						<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Your Email">
 					</div>
+					<div class="form-row">
+						<input type="password" placeholder="enter password">
+				    </div>	
+					<div class="form-row">
+						<input type="password" placeholder="confirm password">
+				    </div>	
 					<div class="form-checkbox">
 						<label class="container"><p>I do accept the <a href="static/#" class="text">Terms and Conditions</a> of your site.</p>
 						  	<input type="checkbox" name="checkbox">

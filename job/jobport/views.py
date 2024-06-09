@@ -28,6 +28,7 @@ def employerlogin(request):
 def employee(request):
     return render(request,'employee.html')
 def regemplr(request):
+    
     return render(request,'regemplr.html')
 def regemp(request):
     return render(request,'regemp.html')
