@@ -15,4 +15,5 @@ class employer(models.Model):
       code=models.IntegerField
       phonenumber=models.IntegerField
       email=models.EmailField
-      password=models.CharField(max_length=100)
+      password=models.CharField(max_length=10)
+      confirm=models.CharField(max_length=10)

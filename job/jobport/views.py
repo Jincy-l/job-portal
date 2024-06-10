@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from . models import *
 
 # Create your views here.
 def index(request):
@@ -28,7 +29,24 @@ def employerlogin(request):
 def employee(request):
     return render(request,'employee.html')
 def regemplr(request):
-    
-    return render(request,'regemplr.html')
+     if request.method =="POST":
+        Name = request.POST['name']
+        lastname= request.POST['lastname']
+        company = request.POST['company']
+        business = request.POST['business']
+        street = request.POST['street']
+        additional = request.POST['additional']
+        phone = request.POST['phone']
+        place = request.POST['place']
+        country = request.POST['country']
+        code = request.POST('code')
+        
+        email = request.POST['email']
+        password = request.POST['password']
+        Confirm = request.POST['confirm']
+            
+        employer(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional, pin = code, phonenumber = phone, email = email, password=password,  Confirm=Confirm).save()
+        
+     return render(request,'regemplr.html')
 def regemp(request):
     return render(request,'regemp.html')
