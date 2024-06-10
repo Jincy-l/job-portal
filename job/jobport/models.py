@@ -17,3 +17,9 @@ class employer(models.Model):
       email=models.EmailField
       password=models.CharField(max_length=10)
       confirm=models.CharField(max_length=10)
+class employee(models.Model):
+       first_name=models.CharField(max_length=100)
+       last_name=models.CharField(max_length=100)
+       Street=models.CharField(max_length=50)
+       Pin=models.IntegerField
+          
