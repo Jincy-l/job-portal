@@ -18,5 +18,7 @@ urlpatterns = [
     path("employer",views.employerlogin,name='employerlogin'),
     path("employee",views.employee,name='employee'),
     path("regemplr",views.regemplr,name='regemplr'),
-    path("regemp",views.regemp,name='regemp')
+    path("regemp",views.regemp,name='regemp'),
+    path("otpempr",views.otpempr,name='otpempr'),
+    path("profileemlr",views.profileemplr,name='profileemlr')
 ]
