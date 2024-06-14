@@ -14,11 +14,10 @@ urlpatterns = [
     path("testimonial",views.testimonial,name='testimonial'),
     # path("indexemp",views.indexemp,name='indexemp'),
     path("login",views.login,name='login'),
-    # path ("loginemployer",views.loginemployer,name='loginemployer'),
-    path("employer",views.employerlogin,name='employerlogin'),
-    path("employee",views.employee,name='employee'),
+    path("employerlogin",views.employerlogin,name='employerlogin'),
+    path("employe",views.employe,name='employe'),
     path("regemplr",views.regemplr,name='regemplr'),
     path("regemp",views.regemp,name='regemp'),
     path("otpempr",views.otpempr,name='otpempr'),
-    path("profileemlr",views.profileemplr,name='profileemlr')
+    # path("profileemlr",views.profileemplr,name='profileemlr'),
 ]

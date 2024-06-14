@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -86,7 +86,7 @@
                    
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration.name }}" name="name"></div>
-                        <div class="col-md-6"><label class="labels">Father Name</label><input type="text" class="form-control" value=" {{ registration.fname }}" name="fathername" ></div>
+                        {% comment %} <div class="col-md-6"><label class="labels">Father Name</label><input type="text" class="form-control" value=" {{ registration.fname }}" name="fathername" ></div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value=" {{ registration.address }}" name="add"></div>
@@ -103,7 +103,7 @@
                         <div class="col-md-12"><label class="labels">DOB</label><input type="text" class="form-control" value="{{ registration.dob }}" name="date"></div>
                         {% comment %} <div class="col-md-12"><label class="labels">Image</label><input type="file" class="form-control" value="{{ registration.image }}" name="photo"></div>
                         <div class="col-md-12"><label class="labels">File</label><input type="file" class="form-control" value="{{ registration.file }}" name="file"></div>       {% endcomment %}
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="mailid"></div>
+                        {% comment %} <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="mailid"></div>
                         <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control"value="{{ registration.password }}" name="pswd"></div>
                     </div>
                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button"><input type="submit" value="Save Profile"></button></div>
@@ -117,4 +117,4 @@
     {% endfor %}
 </form>
 </body>
-</html>
+</html> {% endcomment %} 

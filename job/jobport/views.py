@@ -1,5 +1,14 @@
 from django.shortcuts import render,redirect
 from . models import *
+import random
+
+from django.core.mail import settings,send_mail,EmailMessage
+from django.template.loader import render_to_string
+# Create your views here.
+
+
+
+
 
 # Create your views here.
 def index(request):
@@ -18,12 +27,10 @@ def joblist(request):
     return render(request,"joblist.html")
 def testimonial(request):
     return render(request,"testimonial.html")
-# def indexemp(request):
-    # return render(request,"indexemp.html")
+
 def login(request):
     return render(request,"login.html")
-# def loginemployer(request):
-    # return render(request,"loginemployer")
+
 def employerlogin(request):
      if request.method == "POST":
         
@@ -35,16 +42,21 @@ def employerlogin(request):
         if user.exists():
             request.session['email'] = mail
             employer.objects.filter(email = mail, password = pswd).update()
-            return redirect("dashboard")
+            return redirect("index")
        
         else:
-            return redirect('login')
-        return render(request,"employerlogin.html")    
-def employee(request):
-    return render(request,'employee.html')
+            return redirect('employerlogin')
+        
+     return render(request,"employerlogin.html")    
+
+def employe(request):
+
+    return render(request,'employe.html')
+
 def regemplr(request):
+     
      if request.method =="POST":
-        Name = request.POST['name']
+        Name = request.POST['firstname']
         lastname= request.POST['lastname']
         company = request.POST['company']
         business = request.POST['business']
@@ -53,18 +65,47 @@ def regemplr(request):
         phone = request.POST['phone']
         place = request.POST['place']
         country = request.POST['country']
-        code = request.POST('code')
-        
+        code = request.POST['code']
         email = request.POST['email']
         password = request.POST['password']
         Confirm = request.POST['confirm']
+        pin=request.POST['zip']
             
-        employer(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional, pin = code, phonenumber = phone, email = email, password=password,  Confirm=Confirm).save()
+        employer(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional, code = code, phonenumber = phone, email = email, password=password,  confirm=Confirm,pin=pin).save()
         
      return render(request,'regemplr.html')
+
 def regemp(request):
+    if request.method=="POST":
+     firstname=request.POST['firstname']
+     lastname=request.POST['lastname']
+     street=request.POST['street']
+     pin=request.POST['zip']
+     skills=request.POST['skills']
+     highqua=request.POST['qua']
+     job=request.POST['job']
+     place=request.POST['place']
+     country=request.POST['country']
+     code=request.POST['code']
+     phonenumber=request.POST['phone']
+     email=request.POST['email']
+     passworde=request.POST['password']
+     con=request.POST['confirm']
+     employee(first_name=firstname,last_name=lastname,Street=street,Pin=pin,skills=skills,highqua=highqua,job=job,place=place,country=country,code=code,phonenumber=phonenumber,email=email,passworde=passworde,con=con).save()
     return render(request,'regemp.html')
 def otpempr(request):
-    return render(request,'otpempr.html')
+     if request.method=='POST':
+        email=request.POST['email']
+        print(email)
+        otp = random.randint(1000, 9999)
+        print(otp)
+        subject='project'
+        message=str(otp)
+        send_mail(subject,message,settings.EMAIL_HOST_USER,[email],fail_silently=False)
+    
+        return render(request,'otpempr.html')
+     
 def profileemplr(request):
     return render(request,'profileemplr.html')
+
+
