@@ -14,7 +14,7 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="{% url 'employee'%}" method="post" id="myform">
+			<form class="form-detail" action="{% url 'employe'%}" method="post" id="myform">
 				{% csrf_token %}
 				<div class="form-left">
 					<h2>General Infomation</h2>
@@ -43,11 +43,9 @@
 				    <div class="form-row form-row-2">
 						<input type="text" name="qua" id="qua" class="input-text" placeholder="highest qualification" required>
 					</div>
-					<div class="form-group">
-						
-						<label for="course"  placeholder="Upload Resume"></label>
-						<input type="file" name="file" >
-						
+					<div class="form-row form-row-3" id="resume">
+						<label for="company">Upload Resume:</label>
+						<input type="file" name="job" class="business" id="job" placeholder="Job preference" required>
 					</div>
 					{% comment %} <div class="form-row">
 						<input type="text" name="company" class="company" id="company" placeholder="Company" required>

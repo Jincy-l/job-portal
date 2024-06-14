@@ -20,10 +20,11 @@
       <form action={% url 'otpempr'%}   method="post">
         {% csrf_token %}
         <div class="input-field">
-          <input type="number" />
-          <input type="number"  />
-          <input type="number"  />
-          <input type="number"  />
+          <input type="number" maxlength="1" oninput="moveToNextInput(event, 1)" />
+          <input type="number"  maxlength="1" oninput="moveToNextInput(event, 2)"/>
+          <input type="number"  maxlength="1" oninput="moveToNextInput(event, 3)" />
+          <input type="number"  maxlength="1" oninput="moveToNextInput(event, 4)" />
+        
         </div>
         <a href="employerlogin">
         <button>Verify OTP</button>

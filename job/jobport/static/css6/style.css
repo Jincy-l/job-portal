@@ -21,6 +21,9 @@ body {
     background-image: -webkit-linear-gradient( 136deg, rgb(149,153,226) 0%, rgb(139,198,236) 100%);
     background-image: -ms-linear-gradient( 136deg, rgb(149,153,226) 0%, rgb(139,198,236) 100%);
 }
+#resume{
+	display: flex;
+}
 .form-v10-content  {
 	background: #fff;
 	width: 1100px;

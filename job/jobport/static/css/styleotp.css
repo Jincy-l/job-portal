@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #00B074;
+  background: #bee3d8;
 }
 :where(.container, form, .input-field, header) {
   display: flex;
@@ -62,7 +62,7 @@ form .input-field {
 form button {
   margin-top: 25px;
   width: 100%;
-  color: #fff;
+  color: #ece6e6;
   font-size: 1rem;
   border: none;
   padding: 9px 0;
@@ -73,7 +73,7 @@ form button {
   transition: all 0.2s ease;
 }
 form button.active {
-  background:#00B074;
+  background:#ebf0ee;
   pointer-events: auto;
 }
 form button:hover {
