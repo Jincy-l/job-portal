@@ -20,4 +20,5 @@ urlpatterns = [
     path("regemp",views.regemp,name='regemp'),
     path("otpempr",views.otpempr,name='otpempr'),
     # path("profileemlr",views.profileemplr,name='profileemlr'),
+    path("postajob",views.postajob,name='postajob')
 ]

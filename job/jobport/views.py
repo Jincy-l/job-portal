@@ -107,5 +107,7 @@ def otpempr(request):
      
 def profileemplr(request):
     return render(request,'profileemplr.html')
+def postajob(request):
+    return render(request,'postajob.html')
 
 
