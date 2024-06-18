@@ -106,8 +106,22 @@ def otpempr(request):
         return render(request,'otpempr.html')
      
 def profileemplr(request):
+    
     return render(request,'profileemplr.html')
-def postajob(request):
-    return render(request,'postajob.html')
-
-
+def postajobs(request):
+ if request.method=="POST":
+    Image = request.FILES.get('photo')
+    location=request.POST['place']
+    city=request.POST['city']
+    area=request.POST['Area']
+    pincode=request.POST['pincode']
+    address=request.POST['address']
+    jobtitle=request.POST['jobtitle']
+    jobdes=request.POST['des']
+    jobtype=request.POST['full']
+    qualification=request.POST['qua']
+    schedule=request.POST['schedule']
+    numberof=request.POST['num']
+    
+    postajob(image=Image,location=location,city=city,area=area,pincode=pincode,address=address,jobtitle=jobtitle,jobdes=jobdes,jobtype=jobtype,quali=qualification,schedule=schedule,numberof=numberof).save()
+    return render(request,'postajobs.html')

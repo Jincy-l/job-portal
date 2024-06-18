@@ -49,23 +49,23 @@
 						</div>
 					</div>
 					<div class="form-row form-row-2">
-						<input type="text" name="skills" id="skills" class="input-text" placeholder="skills" required>
+						<input type="text" name="pincode" id="pincode" class="input-text" placeholder="Pincode" required>
 					</div>
 				    <div class="form-row form-row-2">
-						<input type="text" name="qua" id="qua" class="input-text" placeholder="highest qualification" required>
+						<input type="text" name="address" id="address" class="input-text" placeholder="Street address" required>
 					</div>
-					<div class="form-row form-row-3" id="resume">
+					{% comment %} <div class="form-row form-row-3" id="resume">
 						<label for="company">Upload Resume:</label>
 						<input type="file" name="job" class="business" id="job" placeholder="Job preference" required>
-					</div>
+					</div> {% endcomment %}
 					{% comment %} <div class="form-row">
 						<input type="text" name="company" class="company" id="company" placeholder="Company" required>
 					</div> {% endcomment %}
-					<div class="form-group">
+					{% comment %} <div class="form-group">
 						<div class="form-row form-row-3">
 							<input type="text" name="job" class="business" id="job" placeholder="Job preference
 							" required>
-						</div>
+						</div> {% endcomment %}
 						
 						
 						{% comment %} <div class="form-row form-row-4">
@@ -79,75 +79,92 @@
 							  	<i class="zmdi zmdi-chevron-down"></i>
 							</span>
 						</div> {% endcomment %}
-					</div>
+					
 				</div>
 				<div class="form-right">
-					<h2>Contact Details</h2>
+					{% comment %} <div class="form-row form-row-1"> {% endcomment %}
+					<h2> Job Details</h2>
 					<div class="form-row">
-						<input type="text" name="street" class="street" id="street" placeholder="Street + Nr" required>
+						<input type="text" name="Jobtitle" class="Jobtitle" id="jobtitle" placeholder="Job title" required>
 					</div>
-					<div class="form-row">
-						<input type="text" name="additional" class="additional" id="additional" placeholder="Additional Information" required>
+					<div class="form-row form-row-3" id="resume">
+						<label for="company">Upload Pic</label>
+						<input type="file" name="photo" class="business" id="job" placeholder="Job preference" required>
 					</div>
-					<div class="form-group">
-						<div class="form-row form-row-1">
-							<input type="text" name="zip" class="zip" id="zip" placeholder="Zip Code" required>
+					<div class="form-right">
+						<h4> Job Description</h4>
+						<div class="form-row">
+							<input type="text" name="des" class="des" id="jobtitle" required>
 						</div>
+				    		
+					<div class="form-row form-row-2">
+                        <h4>Job type</h4>
+                        <select name="Full">
+                            <option value="fulltime">Full-time</option>
+                            <option value="permanent">Permanent</option>
+							<option value="fresher">Fresher</option>
+							<option value="parttime">Part-time</option>
+							<option value="Internship">Internship</option>
+							<option value="Temporary">Temporary</option>
+                            
+                        </select>
+                        <span class="select-btn">
+                              <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+					<div class="form-row form-row-2">
+                        <h4>Qualification</h4>
+                        <select name="qua">
+                            <option value="fulltime">Bsc.cs</option>
+                            <option value="permanent">MCA</option>
+							<option value="fresher">BTECH</option>
+							<option value="parttime">MTECH</option>
+							<option value="Internship">DIPLOMA</option>
+							<option value="Temporary">PLUS TWO</option>
+                            
+                        </select>
+                        <span class="select-btn">
+                              <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+					
+						
 						<div class="form-row form-row-2">
-							<select name="place">
-							    <option value="place">Place</option>
-							    <option value="Street">Street</option>
-							    <option value="District">District</option>
-							    <option value="City">City</option>
+							<h4>Schedule</h4>
+							<select name="schedule">
+							    <option value="day">Day-shift</option>
+							    <option value="morning">Morning-shift</option>
+							    <option value="Rotational">Rotational-shift</option>
+							    <option value="Monday">Monday-friday</option>
 							</select>
 							<span class="select-btn">
 							  	<i class="zmdi zmdi-chevron-down"></i>
 							</span>
 						</div>
 					</div>
+					
+					
+				
+						{% comment %} <div class="form-row ">
+							<input type="text" name="number" class="number" id="number" placeholder="Time Schedule" required>
+						</div> {% endcomment %}
+
+						
+			
+						
 					<div class="form-row">
-						<select name="country">
-						    <option value="country">Country</option>
-						    <option value="Vietnam">Vietnam</option>
-						    <option value="Malaysia">Malaysia</option>
-						    <option value="India">India</option>
-						</select>
-						<span class="select-btn">
-						  	<i class="zmdi zmdi-chevron-down"></i>
-						</span>
+						<input type="text" name="num" class="Jobtitle" id="jobtitle" placeholder="Number of Openings" required>
 					</div>
-					<div class="form-group">
-						<div class="form-row form-row-1">
-							<input type="text" name="code" class="code" id="code" placeholder="Code +" required>
-						</div>
-						<div class="form-row form-row-2">
-							<input type="text" name="phone" class="phone" id="phone" placeholder="Phone Number" required>
-						</div>
-					</div>
-					<div class="form-row">
-						<input type="text" name="email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Your Email">
-					</div>
-					<div class="form-row">
-						<input type="password" placeholder="enter password" name="password">
-				    </div>	
-					<div class="form-row">
-						<input type="password" placeholder="confirm password" name="confirm">
-				    </div>	
 					    {% comment %} <div class="form-group">
 						
 							<label for="course" ></label>
                             <input type="file" name="file" placeholder="Upload Resume">
 							
 						</div> {% endcomment %}
-					<div class="form-checkbox">
-						<label class="container"><p>I do accept the <a href="static/#" class="text">Terms and Conditions</a> of your site.</p>
-						  	<input type="checkbox" name="checkbox">
-						  	<span class="checkmark"></span>
-						</label>
-					</div>
+					
 					<div class="form-row-last">
-						<a style="width: 100%;" href="employee">
-						<input type="submit" name="register" class="register" value="Register Badge">
+						<a style="width: 100%;" href="">
+						<input type="submit" name="register" class="register" value="Register ">
 						</a>
 					</div>
 				</div>

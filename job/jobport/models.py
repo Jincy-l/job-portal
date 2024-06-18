@@ -34,4 +34,16 @@ class employee(models.Model):
        email=models.EmailField()
        passworde=models.CharField(max_length=10)
        con=models.CharField(max_length=10)
-          
+class postajob(models.Model):
+       location=models.CharField(max_length=100)
+       city=models.CharField(max_length=20)
+       area=models.CharField(max_length=50)
+       pincode=models.IntegerField() 
+       address=models.CharField(max_length=100)
+       jobtitle=models.CharField(max_length=50)
+       jobdes=models.CharField(max_length=200)
+       jobtype=models.CharField(max_length=20)
+       quali=models.CharField(max_length=50)
+       schedule=models.CharField(max_length=20)
+       numberof=models.IntegerField()
+       image=models.ImageField(upload_to='pj')
