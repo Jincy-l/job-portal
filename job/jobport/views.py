@@ -106,22 +106,57 @@ def otpempr(request):
         return render(request,'otpempr.html')
      
 def profileemplr(request):
+     mail = request.session['email'] 
+     print(mail)
+
+     if request.method =="POST":
+        Name = request.POST['name']
+        Father = request.POST['father_name']
+        Address = request.POST['add']
+        Gender = request.POST['gender']
+        State = request.POST['state']
+        City = request.POST['city']
+        Phone = int(request.POST['number'])
+        Pincode = int(request.POST['code'])
+        Date = request.POST['date']
+        Image = request.FILES.get('photo')
+        File = request.FILES.get('file')
+        Email = request.POST['email']
+        Password = request.POST['password']
+        Confirm = request.POST['confirm']
+        
+        employer(name = Name, fname = Father, address = Address, gender = Gender, state = State, city = City,  phone = Phone, pincode = Pincode, dob = Date, image = Image, file = File, email = Email, password = Password)
+
+        registrations = employer.objects.filter(email = mail)
+        for i in registrations:
+         print(i.name)
+        
+        return render(request,'profileemplr.html',{'registrations': registrations})
     
-    return render(request,'profileemplr.html')
+    
 def postajobs(request):
  if request.method=="POST":
-    Image = request.FILES.get('photo')
-    location=request.POST['place']
-    city=request.POST['city']
-    area=request.POST['Area']
-    pincode=request.POST['pincode']
-    address=request.POST['address']
-    jobtitle=request.POST['jobtitle']
-    jobdes=request.POST['des']
-    jobtype=request.POST['full']
-    qualification=request.POST['qua']
-    schedule=request.POST['schedule']
-    numberof=request.POST['num']
-    
-    postajob(image=Image,location=location,city=city,area=area,pincode=pincode,address=address,jobtitle=jobtitle,jobdes=jobdes,jobtype=jobtype,quali=qualification,schedule=schedule,numberof=numberof).save()
-    return render(request,'postajobs.html')
+  
+     if request.method =="POST":
+        Name = request.POST['firstname']
+        lastname= request.POST['lastname']
+        company = request.POST['company']
+        business = request.POST['business']
+        street = request.POST['street']
+        additional = request.POST['additional']
+        phone = request.POST['phone']
+        place = request.POST['place']
+        country = request.POST['country']
+        code = request.POST['code']
+        email = request.POST['email']
+        password = request.POST['password']
+        Confirm = request.POST['confirm']
+        pin=request.POST['zip']
+            
+        postajob(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional, code = code, phonenumber = phone, email = email, password=password,  confirm=Confirm,pin=pin)
+        
+        registrations = postajob.objects.filter(email = email)
+        for i in registrations:
+          print(i.Name)
+        
+        return render(request,'postajobs.html')
