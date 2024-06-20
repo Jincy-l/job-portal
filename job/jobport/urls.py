@@ -21,6 +21,8 @@ urlpatterns = [
     path("regemplr",views.regemplr,name='regemplr'),
     path("regemp",views.regemp,name='regemp'),
     path("otpempr",views.otpempr,name='otpempr'),
-    path("profileemlr",views.profileemplr,name='profileemlr'),
+    path("profileemlr",views.profileemlr,name='profileemlr'),
     path("postajob",views.postajobs,name='postajob'),
+
+
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
