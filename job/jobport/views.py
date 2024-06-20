@@ -12,7 +12,11 @@ from django.template.loader import render_to_string
 
 # Create your views here.
 def index(request):
-    return render(request,"index.html")
+    jobs=postajob.objects.all()
+    context={
+        'jobs':jobs
+    }
+    return render(request,"index.html",context)
 def error(request):
     return render(request,"error.html")
 def about(request):
@@ -135,28 +139,25 @@ def profileemplr(request):
     
     
 def postajobs(request):
- if request.method=="POST":
-  
-     if request.method =="POST":
-        Name = request.POST['firstname']
-        lastname= request.POST['lastname']
-        company = request.POST['company']
-        business = request.POST['business']
-        street = request.POST['street']
-        additional = request.POST['additional']
-        phone = request.POST['phone']
-        place = request.POST['place']
-        country = request.POST['country']
-        code = request.POST['code']
-        email = request.POST['email']
-        password = request.POST['password']
-        Confirm = request.POST['confirm']
-        pin=request.POST['zip']
-            
-        postajob(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional, code = code, phonenumber = phone, email = email, password=password,  confirm=Confirm,pin=pin)
+    
+    if request.method=="POST":
+        mail=request.session['email']
+        location = request.POST['place']
+        city= request.POST['city']
+        Area = request.POST['Area']
+        pincode = request.POST['pincode']
+        address = request.POST['address']
+        jobtitle = request.POST['Jobtitle']
+        des = request.POST['des']
+        jobtype = request.POST['Full']
+        qua = request.POST['qua']
+        schedule = request.POST['schedule']
+        num = request.POST['num']
+    
+    
         
-        registrations = postajob.objects.filter(email = email)
-        for i in registrations:
-          print(i.Name)
-        
+        postajob(location = location, city = city, area =Area, address = address, pincode = pincode, jobtitle = jobtitle, jobdes = des, jobtype=jobtype,  quali=qua,schedule=schedule,numberof=num,mail=mail).save()
+    
+    
         return render(request,'postajobs.html')
+    return render(request,'postajobs.html')

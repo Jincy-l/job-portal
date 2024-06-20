@@ -85,24 +85,23 @@
                     </div>
                    
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration. }}" name="name"></div>
-                         <div class="col-md-6"><label class="labels">Father Name</label><input type="text" class="form-control" value=" {{ registration.fname }}" name="fathername" ></div>
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname"></div>
+                         <div class="col-md-6"><label class="labels">Latname</label><input type="text" class="form-control" value=" {{ registration.lastname }}" name="lastname" ></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Address</label><input type="text" class="form-control" value=" {{ registration.address }}" name="add"></div>
-                        <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value="{{ registration.gender }}" name="gender"></div>
+                        <div class="col-md-12"><label class="labels">company</label><input type="text" class="form-control" value=" {{ registration.company }}" name="company"></div>
+                        {% comment %} <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value="{{ registration.gender }}" name="gender"></div> {% endcomment %}
                         <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">State</label><input type="text" class="form-control" value="{{ registration.state }}" name="state"></div>
-                            <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" value="{{ registration.city }}" name="city"></div>
+                            <div class="col-md-6"><label class="labels">Business</label><input type="text" class="form-control" value="{{ registration.state }}" name="state"></div>
+                            <div class="col-md-6"><label class="labels">Street</label><input type="text" class="form-control" value="{{ registration.street }}" name="street"></div>
                         </div>
                         <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Phone Number</label><input type="text" class="form-control" value="{{ registration.phone }}" name="number"></div>
-                            <div class="col-md-6"><label class="labels">Pincode</label><input type="text" class="form-control" value="{{ registration.pincode }}" name="code"></div>
+                            <div class="col-md-6"><label class="labels">Phone Number</label><input type="text" class="form-control" value="{{ registration.phone }}" name="phone"></div>
+                            <div class="col-md-6"><label class="labels">Pincode</label><input type="text" class="form-control" value="{{ registration.zip}}" name="zip"></div>
                         </div>
                         
-                        <div class="col-md-12"><label class="labels">DOB</label><input type="text" class="form-control" value="{{ registration.dob }}" name="date"></div>
-                         <div class="col-md-12"><label class="labels">Image</label><input type="file" class="form-control" value="{{ registration.image }}" name="photo"></div>
-                        <div class="col-md-12"><label class="labels">File</label><input type="file" class="form-control" value="{{ registration.file }}" name="file"></div>       
+                       
+                        {% comment %} <div class="col-md-12"><label class="labels">File</label><input type="file" class="form-control" value="{{ registration.file }}" name="file"></div>        {% endcomment %}
                          <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="mailid"></div>
                         <div class="col-md-12"><label class="labels">Password</label><input type="password" class="form-control"value="{{ registration.password }}" name="pswd"></div>
                     </div>
