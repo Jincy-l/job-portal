@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -69,7 +69,7 @@
 
     
 
-    <form action= "{% url 'profileemlr' %}" method="POST" enctype="multipart/form-data">
+    <form action= "{% url 'profileemp' %}" method="POST" enctype="multipart/form-data">
         {% for registration in registrations %}
         {% csrf_token %}
 
@@ -107,7 +107,7 @@
                         </div> {% endcomment %}
                        
                         {% comment %} <div class="col-md-12"><label class="labels">File</label><input type="file" class="form-control" value="{{ registration.file }}" name="file"></div>        {% endcomment %}
-                         <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="mailid"></div>
+                         <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="email"></div>
                         <div class="col-md-12"><label class="labels">Password</label><input type="text" class="form-control"value="{{ registration.password }}" name="pswd"></div>
                     </div>
                     <div class="mt-5 text-center"><button class="btn btn-primary profile-button"><input type="submit" value="Save Profile"></button></div>

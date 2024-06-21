@@ -14,7 +14,7 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="{% url 'employe'%}" method="post" id="myform">
+			<form class="form-detail" action="{% url 'regemp' %}" method="post" id="myform" enctype="multipart/form-data">
 				{% csrf_token %}
 				<div class="form-left">
 					<h2>General Infomation</h2>
@@ -75,14 +75,12 @@
 					<div class="form-row">
 						<input type="text" name="street" class="street" id="street" placeholder="Street + Nr" required>
 					</div>
-					<div class="form-row">
-						<input type="text" name="additional" class="additional" id="additional" placeholder="Additional Information" required>
-					</div>
+					
 					<div class="form-group">
 						<div class="form-row form-row-1">
 							<input type="text" name="zip" class="zip" id="zip" placeholder="Zip Code" required>
 						</div>
-						<div class="form-row form-row-2">
+						{% comment %} <div class="form-row form-row-2">
 							<select name="place">
 							    <option value="place">Place</option>
 							    <option value="Street">Street</option>
@@ -92,6 +90,9 @@
 							<span class="select-btn">
 							  	<i class="zmdi zmdi-chevron-down"></i>
 							</span>
+						</div> {% endcomment %}
+						<div class="form-row form-row-1">
+							<input type="text" name="city" class="city" id="zip" placeholder="city" required>
 						</div>
 					</div>
 					<div class="form-row">
@@ -135,7 +136,7 @@
 						</label>
 					</div>
 					<div class="form-row-last">
-						<a style="width: 100%;" href="employee">
+						<a style="width: 100%;" href="index">
 						<input type="submit" name="register" class="register" value="Register Badge">
 						</a>
 					</div>

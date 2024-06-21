@@ -73,8 +73,23 @@ def employerlogin(request):
      return render(request,"employerlogin.html")    
 
 def employe(request):
+      if request.method == "POST":
+        
+        mail = request.POST['email']
+        pswd = request.POST['password']
+        
+        user = employee.objects.filter(email = mail, password = pswd)
+        
+        if user.exists():
+            request.session['email'] = mail
+            employee.objects.filter(email = mail, password = pswd).update()
+            return redirect("index")
+       
+        else:
+            return redirect('employe')
+        
+      return render(request,"employe.html")
 
-    return render(request,'employe.html')
 
 def regemplr(request):
      
@@ -93,6 +108,7 @@ def regemplr(request):
         password = request.POST['password']
         Confirm = request.POST['confirm']
         pin=request.POST['zip']
+        position=request.POST['postion']
         print(Name)
         print(company)
         image = request.FILES.get('photo')
@@ -100,7 +116,7 @@ def regemplr(request):
             
         employer(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional,
                   code = code, phonenumber = phone, email = email, password=password,  confirm=Confirm,
-                  pin=pin,image=image).save()
+                  pin=pin,image=image,place=place,position=position).save()
         
         otp = random.randint(1000, 9999)
         print(otp)
@@ -110,27 +126,32 @@ def regemplr(request):
 
         return redirect('otpempr')
         
-        
-        
     return render(request,'regemplr.html')
+
+
 
 def regemp(request):
     if request.method=="POST":
-     firstname=request.POST['firstname']
-     lastname=request.POST['lastname']
-     street=request.POST['street']
-     pin=request.POST['zip']
-     skills=request.POST['skills']
-     highqua=request.POST['qua']
-     job=request.POST['job']
-     place=request.POST['place']
-     country=request.POST['country']
-     code=request.POST['code']
-     phonenumber=request.POST['phone']
-     email=request.POST['email']
-     passworde=request.POST['password']
-     con=request.POST['confirm']
-     employee(first_name=firstname,last_name=lastname,Street=street,Pin=pin,skills=skills,highqua=highqua,job=job,place=place,country=country,code=code,phonenumber=phonenumber,email=email,passworde=passworde,con=con).save()
+
+        firstname=request.POST['firstname']
+        lastname=request.POST['lastname']
+        street=request.POST['street']
+        pin=request.POST['zip']
+        skills=request.POST['skills']
+        highqua=request.POST['qua']
+        job=request.POST['job']
+        city=request.POST['city']
+        country=request.POST['country']
+        code=request.POST['code']
+        phonenumber=request.POST['phone']
+        email=request.POST['email']
+        password=request.POST['password']
+        con=request.POST['confirm']
+        employee(first_name=firstname,last_name=lastname,Street=street,Pin=pin,skills=skills,
+                highqua=highqua,job=job,city=city,country=country,code=code,phonenumber=phonenumber,
+                email=email,password=password,con=con).save()
+        return redirect(employe)
+    
     return render(request,'regemp.html')
 
 
@@ -182,3 +203,22 @@ def postajobs(request):
     
         return render(request,'postajobs.html')
     return render(request,'postajobs.html')
+def logout(request):
+    
+    if 'email' in request.session:
+        email = request.session['email']
+        
+        del request.session['email']
+        
+        employer.objects.filter(email = email).update() 
+        
+    return redirect('index')
+def profileemp(request):
+     email = request.session['email']
+     registrations = employee.objects.filter(email =email)
+     context={
+            'registrations':registrations,
+        }
+        
+        
+     return render(request,'profileemp.html',context)

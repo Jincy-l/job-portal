@@ -22,6 +22,8 @@ urlpatterns = [
     path("otpempr",views.otpempr,name='otpempr'),
     path("profileemlr",views.profileemlr,name='profileemlr'),
     path("postajob",views.postajobs,name='postajob'),
+    path("logout",views.logout,name='logout'),
+    path("profileemp",views.profileemp,name='profileemp')
 
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
