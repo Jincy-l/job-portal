@@ -71,15 +71,27 @@
                         </div>
                     </div>
                     <a href="contact" class="nav-item nav-link">Contact</a>
+                    {% if  request.session.email  %}
+                    
 
                     <div class="nav-item dropdown">
-                        <a href="login" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
+
+                        <a href="static/#" class="nav-link" data-bs-toggle="dropdown" >
+                        <img class="rounded-circle me-lg-2" src={{image}} alt="" style="width: 40px; height: 40px;"></a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="profileemlr" class="dropdown-item">Profile</a>
                             <a href="index" class="dropdown-item">Logout</a>
                            
                         </div>
                     </div>
+                    {% else %}
+                    <div class="nav-item dropdown">
+                        <a href="login" class="nav-link ">Login</a>
+                        
+                    </div>
+
+                    
+                    {% endif %}
                   {% comment %} <a href="login" class="nav-item nav-link">login</a> {% endcomment %}
 
                 </div>

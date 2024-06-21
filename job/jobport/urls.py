@@ -14,7 +14,6 @@ urlpatterns = [
     path("jobdetail",views.jobdetail,name='jobdetail'),
     path("joblist",views.joblist,name='joblist'),
     path("testimonial",views.testimonial,name='testimonial'),
-    # path("indexemp",views.indexemp,name='indexemp'),
     path("login",views.login,name='login'),
     path("employerlogin",views.employerlogin,name='employerlogin'),
     path("employe",views.employe,name='employe'),

@@ -17,6 +17,8 @@ class employer(models.Model):
       email=models.EmailField()
       password=models.CharField(max_length=10)
       confirm=models.CharField(max_length=10)
+      image=models.ImageField(upload_to='pic')
+
 
       
 class employee(models.Model):

@@ -16,7 +16,26 @@ def index(request):
     context={
         'jobs':jobs
     }
-    return render(request,"index.html",context)
+    
+
+    try:
+        email= request.session['email']
+        if employer.objects.filter(email=email).exists():
+            image=employer.objects.filter(email=email)
+        else:
+            image=employee.objects.filter(email=email)
+
+        for i in image:
+            img = i.image
+            context={
+                'email':email,
+                'image':img,
+            }        
+
+        return render(request,"index.html",context)
+    except:
+        return render(request,"index.html",context)
+
 def error(request):
     return render(request,"error.html")
 def about(request):
@@ -59,7 +78,7 @@ def employe(request):
 
 def regemplr(request):
      
-     if request.method =="POST":
+    if request.method =="POST":
         Name = request.POST['firstname']
         lastname= request.POST['lastname']
         company = request.POST['company']
@@ -74,10 +93,26 @@ def regemplr(request):
         password = request.POST['password']
         Confirm = request.POST['confirm']
         pin=request.POST['zip']
+        print(Name)
+        print(company)
+        image = request.FILES.get('photo')
+
             
-        employer(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional, code = code, phonenumber = phone, email = email, password=password,  confirm=Confirm,pin=pin).save()
+        employer(firstname = Name, lastname = lastname, company = company, street = street, addimfor = additional,
+                  code = code, phonenumber = phone, email = email, password=password,  confirm=Confirm,
+                  pin=pin,image=image).save()
         
-     return render(request,'regemplr.html')
+        otp = random.randint(1000, 9999)
+        print(otp)
+        subject='project'
+        message=str(otp)
+        send_mail(subject,message,settings.EMAIL_HOST_USER,[email],fail_silently=False)
+
+        return redirect('otpempr')
+        
+        
+        
+    return render(request,'regemplr.html')
 
 def regemp(request):
     if request.method=="POST":
@@ -97,8 +132,11 @@ def regemp(request):
      con=request.POST['confirm']
      employee(first_name=firstname,last_name=lastname,Street=street,Pin=pin,skills=skills,highqua=highqua,job=job,place=place,country=country,code=code,phonenumber=phonenumber,email=email,passworde=passworde,con=con).save()
     return render(request,'regemp.html')
+
+
 def otpempr(request):
-     if request.method=='POST':
+    
+    if request.method=='POST':
         email=request.POST['email']
         print(email)
         otp = random.randint(1000, 9999)
@@ -107,12 +145,15 @@ def otpempr(request):
         message=str(otp)
         send_mail(subject,message,settings.EMAIL_HOST_USER,[email],fail_silently=False)
     
-        return render(request,'otpempr.html')
+    return render(request,'otpempr.html')
      
+
+
 def profileemlr(request):
-        registration=employer.objects.all()
+        email = request.session['email']
+        registrations = employer.objects.filter(email = email)
         context={
-            'registrations':registration,
+            'registrations':registrations,
         }
         
         return render(request,'profileemlr.html',context)
