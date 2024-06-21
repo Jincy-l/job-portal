@@ -24,6 +24,10 @@ body {
 #resume{
 	display: flex;
 }
+#job{
+	margin-left: 60px;
+
+}
 .form-v10-content  {
 	background: #fff;
 	width: 1100px;

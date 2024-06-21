@@ -86,11 +86,12 @@
                     </div>
                    
                     <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname"></div>
-                         <div class="col-md-6"><label class="labels">Latname</label><input type="text" class="form-control" value=" {{ registration.lastname }}" name="lastname" ></div>
+                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration.first_name }}" name="firstname"></div>
+                         <div class="col-md-6"><label class="labels">Latname</label><input type="text" class="form-control" value=" {{ registration.last_name }}" name="lastname" ></div>
                     </div>
                     <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">company</label><input type="text" class="form-control" value=" {{ registration.company }}" name="company"></div>
+                        
+                        <div class="col-md-12"><label class="labels">street</label><input type="text" class="form-control" value=" {{ registration.Street }}" name="street"></div>
                         <div class="col-md-12"><label class="labels">Description</label><input type="text" class="form-control" value=" {{ registration.addimfor }}" name="company"></div>
                         {% comment %} <div class="col-md-12"><label class="labels">Gender</label><input type="text" class="form-control" value="{{ registration.gender }}" name="gender"></div> {% endcomment %}
                         <div class="row mt-3">
