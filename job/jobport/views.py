@@ -29,7 +29,7 @@ def index(request):
             img = i.image
             context={
                 'email':email,
-                'image':img,
+                'image':img,'jobs':jobs
             }        
 
         return render(request,"index.html",context)
@@ -186,23 +186,25 @@ def postajobs(request):
         mail=request.session['email']
         location = request.POST['place']
         city= request.POST['city']
-        Area = request.POST['Area']
+        state = request.POST['state']
         pincode = request.POST['pincode']
-        address = request.POST['address']
+        
         jobtitle = request.POST['Jobtitle']
         des = request.POST['des']
         jobtype = request.POST['Full']
         qua = request.POST['qua']
         schedule = request.POST['schedule']
         num = request.POST['num']
-    
+        company=request.POST['company']
+        pay=request.POST['pay']
+        image = request.FILES.get('photo')
     
         
-        postajob(location = location, city = city, area =Area, address = address, pincode = pincode, jobtitle = jobtitle, jobdes = des, jobtype=jobtype,  quali=qua,schedule=schedule,numberof=num,mail=mail).save()
+        postajob(location = location, city = city, state =state,  pincode = pincode, jobtitle = jobtitle, jobdes = des, jobtype=jobtype,  quali=qua,schedule=schedule,numberof=num,mail=mail,company=company,pay=pay).save()
     
     
-        return render(request,'postajobs.html')
     return render(request,'postajobs.html')
+
 def logout(request):
     
     if 'email' in request.session:
@@ -222,3 +224,13 @@ def profileemp(request):
         
         
      return render(request,'profileemp.html',context)
+
+
+def applyjob(request):
+     if request.method=="POST":
+       mail=request.session['email']
+       name=request.POST['company']
+       userid=request.POST['jobid']
+       jobid=request.POST['jobtitle']
+       apply(name=name,userid=userid,jobid=jobid).save()
+     
