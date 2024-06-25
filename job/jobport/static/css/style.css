@@ -391,3 +391,10 @@
     padding-right: 0;
     border-right: none;
 }
+.font{
+    font-family: monospace;
+    /* box-sizing: border-box;
+    
+    font-size: 1rem;
+    min-width: 0 */
+}

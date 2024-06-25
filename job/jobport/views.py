@@ -29,7 +29,8 @@ def index(request):
             img = i.image
             context={
                 'email':email,
-                'image':img,'jobs':jobs
+                'image':img,
+                'jobs':jobs,
             }        
 
         return render(request,"index.html",context)

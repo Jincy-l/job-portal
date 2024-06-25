@@ -349,86 +349,82 @@
 
     
     
-  <form>
-  <div class="body">
+  <form >
+  <div class="body" class="font">
     <!--   Top title box   -->
     <div id="title">
-      <h2 class="title">{{job.jobtitle}}</h2>
-      <p class="title" id="location">{{job.company}}</p>
-      <p class="title" id="email">{{job.city}}</p>
-      <p class="title" id="phone">{{job.pincode}}</p>
-      <p class="title" id="phone">{{job.state}}</p>
+      <h2 class="font">{{job.jobtitle}}</h2>
+      <p class="font" id="location">{{job.company}}</p>
+      <p class="font" id="email">{{job.city}}</p>
+      <p class="font" id="phone">{{job.pincode}}</p>
+      <p class="font" id="phone">{{job.state}}</p>
     </div>
     <div id="quote">
-      <blockquote><em>After exploring my interests, I finally found my passion: programming!</em></blockquote>
+      <blockquote><em> ₹{{job.pay}}</em></blockquote>
     </div>
-    <hr/>
+    <hr>
     <!--   Stories of work   -->
-    <div id="stories">
-      <h5 class="stories">Stories</h5>
+    <div id="stories" class="font">
+      <h5 class="stories">Profile insights</h5>
+      <P > Education</P>
+
       <ul>
-        <li>Created an <a data-toggle="tooltip" title="Book Store" href="https://github.com/ajsherrell/BookStore" target="_blank">Inventory App</a> for a book store using Java &amp Android Studio with SQLite</li>
-        <li>Leveraged JSON and Java loaders in Android Studio to make a <a data-toggle="tooltip" title="News App" href="https://github.com/ajsherrell/NewsApp" target="_blank">News App</a> for delivering specific news stories</li>
+        <li>{{job.quali}} <a data-toggle="tooltip" title="Book Store" href="https://github.com/ajsherrell/BookStore" target="_blank"></a> </li>
+        <!-- <li>Leveraged JSON and Java loaders in Android Studio to make a <a data-toggle="tooltip" title="News App" href="https://github.com/ajsherrell/NewsApp" target="_blank">News App</a> for delivering specific news stories</li>
         <li>Using Java fragments and adapters in Android Studio I made a <a data-toggle="tooltip" title="Tour Guide" href="https://github.com/ajsherrell/TourGuide" target="_blank">Tour Guide App</a> for visitors to my favorite city, San Antonio!</li>
         <li>Created a <a data-toggle="tooltip" title="Guardian Wound Care" href="http://guardianwoundcare.com/index.html" target="_blank">website</a> using Bootstrap, JavaScript, jQuery, CSS, &amp HMTL to leverage a small wound care business</li>
         <li>Made an official <a data-toggle="tooltip" title="Hyperbaric Treatment Record" href="https://codepen.io/ajsherrell/full/prwMJN/" target="_blank">Treatment Record</a> to leverage patient hyperbaric treatment data using only HTML &amp CSS</li>
         <li>Created a <a data-toggle="tooltip" title="Hyperbaric Chamber Timer" href="https://codepen.io/ajsherrell/full/jBeaZQ/" target="_blank">Hyperbaric Chamber Timer</a> in order to deliver hyperbaric treatments efficiently to patients. I used JavaScript,
           jQuery, HTML &amp CSS</li>
-        <li>Made a <a data-toggle="tooltip" title="Memory Game" href="https://codepen.io/ajsherrell/full/ybgxzL/" target="_blank">Memory Game</a> just for fun! I used JavaScript, jQuery, HTML &amp CSS</li>
+        <li>Made a <a data-toggle="tooltip" title="Memory Game" href="https://codepen.io/ajsherrell/full/ybgxzL/" target="_blank">Memory Game</a> just for fun! I used JavaScript, jQuery, HTML &amp CSS</li> -->
       </ul>
+      <hr>
     </div>
     <div id="column-one">
       <!--   portfolio   -->
-      <div id="portfolio">
-        <h5 class="portfolio">Portfolio</h5>
+      <div id="portfolio" class="font">
+        <h5 class="portfolio">Job details</h5>
         <ul>
-          <li>More of my repositories are on <a data-toggle="tooltip" title="AJ's Github" href="https://github.com/ajsherrell" target="_blank">GitHub</a></li>
-          <li>I am also on <a data-toggle="tooltip" title="AJ's Linkedin" href="https://www.linkedin.com/in/ajsherrell" target="_blank">LinkedIn</a></li>
-          <li>Developed a website for a <a data-toggle="tooltip" title="AJ's Portfolio" href="https://ajsherrell.github.io" target="-blank">fun portfolio!</a></li>
-          <li>Here is my <a data-toggle="tooltip" title="AJ's Twitter" href="https://twitter.com/aj_sherrell" target="_blank">Twitter</a></li>
-          <li>If you want to check out my earlier work, look at <a data-toggle="tooltip" title="AJ's CodePen" href="https://codepen.io/ajsherrell/" target="_blank">CodePen</a></li>
+          <li>Pay:₹{{job.pay}} <a data-toggle="tooltip" title="AJ's Github" href="https://github.com/ajsherrell" target="_blank"></a></li>
+          <li>Job Type:{{job.jobtype}}<a data-toggle="tooltip" title="AJ's Linkedin" href="https://www.linkedin.com/in/ajsherrell" target="_blank"></a></li>
+          <li>schedule:{{job.schedule}}<a data-toggle="tooltip" title="AJ's Portfolio" href="https://ajsherrell.github.io" target="-blank"></a></li>
+          <!-- <li>Here is my <a data-toggle="tooltip" title="AJ's Twitter" href="https://twitter.com/aj_sherrell" target="_blank">Twitter</a></li> -->
+          <!-- <li>If you want to check out my earlier work, look at <a data-toggle="tooltip" title="AJ's CodePen" href="https://codepen.io/ajsherrell/" target="_blank">CodePen</a></li> -->
         </ul>
+        <hr>
       </div>
       <!--    Achievements    -->
-      <div id="achievements">
+      <div id="achievements" class="font">
         <ul>
-          <h5 class="achievements">Achievements</h5>
-          <li>Recipient of the <b>Grow with Google Developer Scholarship</b> through Udacity</li>
-          <li>Recipient of the <b>Grow with Google Challenge Scholarship</b> through Udacity</li>
-          <li><b>Valedictorian</b> at CDA Technical Institute</li>
-          <li><b>Dean's List</b> at Johnson County Community College</li>
+          <h5 class="achievements">Location</h5>
+          <li>{{job.city}} </li>
+          <li>{{job.state}} </li>
+          
         </ul>
+        <hr>
       </div>
     </div>
     <div id="column-two">
       <!--   Education   -->
-      <div id="education">
-        <h5 class="education">Education</h5>
+      <div id="education" class="font">
+        <h5 class="education">Job Description</h5>
         <ul>
-          <li><a data-toggle="tooltip" title="Udacity Profile" href="https://profiles.udacity.com/p/6443028752" target="_blank">Udacity</a> - Android Basics Nanodegree</li>
-          <li><a data-toggle="tooltip" title="FreeCodeCamp Profile" href="https://www.freecodecamp.com/ajsherrell" target="_blank">FreeCodeCamp</a> - Front End Development Program &amp Certificate</li>
-          <li><a data-toggle="tooltip" title="CDA Home" href="https://www.commercialdivingacademy.com/" target="_blank">CDA Technical Institute</a> - Commercial Diver Certifications</li>
-          <li><a data-toggle="tooltip" title="UMKC Home" href="https://www.umkc.edu/" target="_blank">University of Missouri - Kansas City</a> - Geography major</li>
-          <li><a data-toggle="tooltip" title="JCCC Home" href="https://www.jccc.edu/" target="_blank">Johnson County Community College</a> - Associate's Degree</li>
-          <li><a data-toggle="tooltip" title="Spartan Home" href="https://www.spartan.edu" target="_blank">Spartan College of Aeronautics</a> - Airframe &amp Powerplant License</li>
-        </ul>
+       
+       <li>{{job.jobdes}}</li>
+          
       </div>
       <!--   Work history   -->
-      <div id="work-history">
-        <h5 class="work-history">Work History</h5>
-        <ul>
-          <li>Web Developer - Freelance - 2014 to Present</li>
-          <li><a data-toggle="tooltip" title="Wellstar Home" href="https://www.wellstar.org/locations/pages/wellstar-north-fulton-hospital.aspx" target="_blank">Wellstar North Fulton Hospital</a> - Lead Hyperbaric Technician - 2016 to Present</li>
-          <li><a data-toggle="tooltip" title="Healogics Home" href="https://www.healogics.com/" target="_blank">Healogics</a> - Hyperbaric Safety Director - 2012 to 2016</li>
-          <li><a data-toggle="tooltip" title="St. Luke's Home" href="https://www.saintlukeskc.org/locations/saint-lukes-hospital-kansas-city" target="_blank">St. Luke's Hospital</a> - Rehab Tech II 2008 - 2011</li>
-        </ul>
-      </div>
+     
     </div>
   </div>
 
                                         <input style="display: none;" type="text" value="{{job.id}}" name="jobid">
                                     <button class="btn btn-secondary" type="button">Apply</button>
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                       {% endfor %}
                                 </div>
                                 <!-- <h1>{{job.jobtitle}}</h1>
                                     <h6>{{job.company}}</h6>
@@ -464,24 +460,11 @@
                                         {% comment %} <div class="col-lg-4 card" style="text-align: center;"> <h4><span class="badge bg-success rounded-pill">Nuggets</span></h4></div> {% endcomment %}
                                     
                         
-                                 <!-- <div class="offcanvas-header">
-                                  <h1 class="offcanvas-title" style="margin-left:500px;">{{job.jobtitle}}</h1 >
-                                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
-                                 </div>
-
-                                <div class="offcanvas-body">
-                                   <p>{{job.pay}}</p>
-                                  <p>{{job.jobdes}}</p>
-                                  <p>{{job.jobtype}}</p>
-                                  <p>{{job.quali}}</P>
-                                  <button class="btn btn-secondary" type="button">A Button</button> -->
-                                <!-- </div>  -->
-                            
-                                <!-- </div>   -->
+      
+                      
                                 
                                 
-                            </div>
-                            {% endfor %}
+<!--                             
                              <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
@@ -561,7 +544,7 @@
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>  -->
                             <a class="btn btn-primary py-3 px-5" href="index">Browse More Jobs</a>
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
