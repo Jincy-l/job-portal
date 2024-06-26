@@ -201,7 +201,7 @@ def postajobs(request):
         image = request.FILES.get('photo')
     
         
-        postajob(location = location, city = city, state =state,  pincode = pincode, jobtitle = jobtitle, jobdes = des, jobtype=jobtype,  quali=qua,schedule=schedule,numberof=num,mail=mail,company=company,pay=pay).save()
+        postajob( image=image,location = location, city = city, state =state,  pincode = pincode, jobtitle = jobtitle, jobdes = des, jobtype=jobtype,  quali=qua,schedule=schedule,numberof=num,mail=mail,company=company,pay=pay).save()
     
     
     return render(request,'postajobs.html')
@@ -234,11 +234,18 @@ def applyjob(request):
        email=request.session['email']
 
        name=request.POST['company']
-       userid=request.POST['Jobtile']
-       jobid=request.POST['jobid']
+       userid=request.POST['jobid']
+       jobid=request.POST['Jobtitle']
+       print("1",userid)
+       print(type(userid))
+       userids=int(userid)
+       print(type(userids))
 
-       apply(name=name,userid=userid,jobid=jobid).save()
+
+       apply(name=name,userid=userids,jobid=jobid).save()
 
 
        return redirect(index) 
      
+def Applied(request):
+    return render (request,"Applied.html")

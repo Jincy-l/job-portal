@@ -77,7 +77,7 @@
                     <div class="nav-item dropdown">
 
                         <a href="static/#" class="nav-link" data-bs-toggle="dropdown" >
-                        <img class="rounded-circle me-lg-2" src={{image}} alt="" style="width: 40px; height: 40px;"></a>
+                        <img class="rounded-circle me-lg-2" src={{image}} alt="" style="width: 40px;height: 40px;"></a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="profileemlr" class="dropdown-item">Profile</a>
                             <a href="logout" class="dropdown-item" name='logout'>Logout</a>
@@ -315,7 +315,7 @@
                             <div class="job-item p-4 mb-4">
                                 <div class="row g-4">
                                     <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="static/img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                        <img class="flex-shrink-0 img-fluid border rounded" src="{{job.image}}" alt="" style="width: 80px; height: 80px;">
                                         <div class="text-start ps-4">
                                             <h5 class="mb-3">{{job.jobtitle}}</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{job.location}}</span>
@@ -422,7 +422,7 @@
     </div>
   </div>
 
-                                        <input style="display: none;" type='number' value="{{job.jobid}}" name="jobid">
+                                        <input style="display: none;" type='number' value="{{job.id}}" name="jobid">
                                     <button type="submit" class="btn btn-secondary" type="button">Apply</button>
                                     </form>
                                 </div>

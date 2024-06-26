@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="static/main.css" rel="stylesheet">
+    <link href="static///netdna.bootstrapcdn.com/font-awesome/3.2.1/cssap/font-awesome.css" rel="stylesheet">
+    <meta charset="utf-8">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    </head>
+    <body ng-app="Leave" ng-controller="myCtrl">
+     <span style="font-size:30px;cursor:pointer font-color:#00B074" onclick="openNav()">&#9776; JobEntry</span> 
+    <header>  
+     
+       
+    
+     <div id="Details">
+        <h3>Applicants details</h3>
+        <table style="width:100%">
+          <tr>
+            <th>Jobid</th>
+            <th>Jobtitle</th>
+            <th>Applicants Emailid</th>
+            <th>To Date</th> 
+            <th>Requested Days</th>
+            <th>Resume</th>
+            
+            <th>Update</th>
+          </tr>
+          <tr>
+          <td>1</td>
+            <td>Medical</td>
+            <td>1/2/2017</td>
+            <td>1/3/2017</td>
+            <td>1</td>
+            
+            <td><select>
+              <option value="Pending">Pending</option>
+              <option value="Accept">Accept</option>
+              <option value="Reject">Reject</option>
+             
+            <td> <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModalUpdate">Accept</button><button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myModalDelete">Reject</button></td>
+          </tr>
+        </table>
+      </div>
+      
+      <footer>
+        <h3>All rights reserved @SubashSolutions</h3></footer>
+    </body>
+    </html>
