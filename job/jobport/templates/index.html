@@ -349,11 +349,15 @@
 
     
     
-  <form >
+  <form action="{% url 'applyjob' %}"  method="POST" >
+    {% csrf_token %}
   <div class="body" class="font">
     <!--   Top title box   -->
     <div id="title">
-      <h2 class="font">{{job.jobtitle}}</h2>
+
+      <input type="text" value="{{job.Jobtitle}}" name="Jobtitle" style="display: none;">
+       <h2 class="font">{{job.Jobtitle}}</h2>
+      <input type="text" value="{{job.company}}" name="company" style="display: none;">
       <p class="font" id="location">{{job.company}}</p>
       <p class="font" id="email">{{job.city}}</p>
       <p class="font" id="phone">{{job.pincode}}</p>
@@ -418,8 +422,8 @@
     </div>
   </div>
 
-                                        <input style="display: none;" type="text" value="{{job.id}}" name="jobid">
-                                    <button class="btn btn-secondary" type="button">Apply</button>
+                                        <input style="display: none;" type='number' value="{{job.jobid}}" name="jobid">
+                                    <button type="submit" class="btn btn-secondary" type="button">Apply</button>
                                     </form>
                                 </div>
                             </div>

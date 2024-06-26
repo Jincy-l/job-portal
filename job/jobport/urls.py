@@ -23,8 +23,8 @@ urlpatterns = [
     path("profileemlr",views.profileemlr,name='profileemlr'),
     path("postajob",views.postajobs,name='postajob'),
     path("logout",views.logout,name='logout'),
-    path("profileemp",views.profileemp,name='profileemp')
-    
+    path("profileemp",views.profileemp,name='profileemp'),
+    path("applyjob",views.applyjob,name='applyjob')
 
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

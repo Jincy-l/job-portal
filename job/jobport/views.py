@@ -228,10 +228,17 @@ def profileemp(request):
 
 
 def applyjob(request):
+     
      if request.method=="POST":
-       mail=request.session['email']
+       
+       email=request.session['email']
+
        name=request.POST['company']
        userid=request.POST['jobid']
-       jobid=request.POST['jobtitle']
+       jobid=request.POST['Jobtitle']
+
        apply(name=name,userid=userid,jobid=jobid).save()
+
+
+       return redirect(index) 
      
