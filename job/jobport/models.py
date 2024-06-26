@@ -56,6 +56,6 @@ class postajob(models.Model):
 class apply(models.Model):
        name=models.CharField(max_length=100) 
        userid=models.CharField(max_length=50)
-       jobid=models.CharField(max_length=50)
+       jobid=models.IntegerField()
        approved=models.BooleanField(default=False)
        rejected=models.BooleanField(default=False)

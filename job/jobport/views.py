@@ -234,8 +234,8 @@ def applyjob(request):
        email=request.session['email']
 
        name=request.POST['company']
-       userid=request.POST['jobid']
-       jobid=request.POST['Jobtitle']
+       userid=request.POST['Jobtile']
+       jobid=request.POST['jobid']
 
        apply(name=name,userid=userid,jobid=jobid).save()
 
