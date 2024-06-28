@@ -248,4 +248,7 @@ def applyjob(request):
        return redirect(index) 
      
 def Applied(request):
+    email = request.session['email']
+    print(email)
+    job=apply.objects.filter()
     return render (request,"Applied.html")

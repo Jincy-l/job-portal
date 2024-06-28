@@ -59,3 +59,4 @@ class apply(models.Model):
        jobid=models.CharField(max_length=50)
        approved=models.BooleanField(default=False)
        rejected=models.BooleanField(default=False)
+       applicant=models.ForeignKey(employee,on_delete=models.CASCADE)
