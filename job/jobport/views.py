@@ -148,9 +148,14 @@ def regemp(request):
         email=request.POST['email']
         password=request.POST['password']
         con=request.POST['confirm']
+        resume = request.FILES.get('resume')
+        image = request.FILES.get('photo')
+
+
+        
         employee(first_name=firstname,last_name=lastname,Street=street,Pin=pin,skills=skills,
                 highqua=highqua,job=job,city=city,country=country,code=code,phonenumber=phonenumber,
-                email=email,password=password,con=con).save()
+                email=email,password=password,con=con ,resume=resume,image=image).save()
         return redirect(employe)
     
     return render(request,'regemp.html')
@@ -170,6 +175,17 @@ def otpempr(request):
     return render(request,'otpempr.html')
      
 
+def profileemp(request):
+     email = request.session['email']
+     registrations = employee.objects.filter(email =email)
+     context={
+            'registrations':registrations,
+        }
+        
+        
+     return render(request,'profileemp.html',context)
+
+
 
 def profileemlr(request):
         email = request.session['email']
@@ -181,6 +197,32 @@ def profileemlr(request):
         return render(request,'profileemlr.html',context)
     
     
+def profile(request):
+    
+    try:
+        email = request.session['email']
+        
+        if employee.objects.filter(email=email).exists():
+            user_profile = employee.objects.filter(email=email)
+            context = {
+                ' registrations': user_profile
+            }
+            return render(request, 'profileemp.html', context)
+        
+        elif employer.objects.filter(email=email).exists():
+            emp_profile = employer.objects.filter(email=email)
+            context = {
+                'registrations': emp_profile
+            }
+            return render(request, 'profileemlr.html', context)
+        else:
+            return redirect("index") 
+
+    except:
+        return redirect("index")
+
+
+
 def postajobs(request):
     
     if request.method=="POST":
@@ -216,33 +258,37 @@ def logout(request):
         employer.objects.filter(email = email).update() 
         
     return redirect('index')
-def profileemp(request):
-     email = request.session['email']
-     registrations = employee.objects.filter(email =email)
-     context={
-            'registrations':registrations,
-        }
-        
-        
-     return render(request,'profileemp.html',context)
+
+
 
 
 def applyjob(request):
      
      if request.method=="POST":
        
+       
+       
        email=request.session['email']
 
        name=request.POST['company']
-       userid=request.POST['jobid']
+    #    userid=request.POST['jobid']
        jobid=request.POST['Jobtitle']
-       print("1",userid)
-       print(type(userid))
-       userids=int(userid)
-       print(type(userids))
+    #    userid=int(userid)
+
+       if email and name:
+           try:
+              user=employee.objects.get(email=email)
+              apply.objects.create(applicant=user,name=name)
+
+              return redirect(index)
+           except employee.DoesNotExist:
+               return redirect(index)
+
+               
 
 
-       apply(name=name,userid=userids,jobid=jobid).save()
+
+    #    apply(name=name,userid=userids,jobid=jobid).save()
 
 
        return redirect(index) 

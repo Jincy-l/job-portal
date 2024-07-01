@@ -25,7 +25,8 @@ urlpatterns = [
     path("logout",views.logout,name='logout'),
     path("profileemp",views.profileemp,name='profileemp'),
     path("applyjob",views.applyjob,name='applyjob'),
-    path("Applied",views.Applied,name='Applied')
+    path("Applied",views.Applied,name='Applied'),
+    path("profile",views.profile,name="profile"),
 
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

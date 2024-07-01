@@ -36,6 +36,11 @@ class employee(models.Model):
        email=models.EmailField()
        password=models.CharField(max_length=10)
        con=models.CharField(max_length=10)
+       resume=models.FileField(upload_to='resume')
+       image=models.ImageField(upload_to='p')
+       
+       def __str__(self):
+              return self.email
 class postajob(models.Model):
        location=models.CharField(max_length=100)
        city=models.CharField(max_length=20)
@@ -55,7 +60,7 @@ class postajob(models.Model):
 
 class apply(models.Model):
        name=models.CharField(max_length=100) 
-       userid=models.IntegerField()
+       # userid=models.IntegerField()
        jobid=models.CharField(max_length=50)
        approved=models.BooleanField(default=False)
        rejected=models.BooleanField(default=False)

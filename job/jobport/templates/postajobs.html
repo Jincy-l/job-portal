@@ -14,7 +14,7 @@
 <body class="form-v10">
 	<div class="page-content">
 		<div class="form-v10-content">
-			<form class="form-detail" action="{% url 'postajob' %}" method="post" id="myform">
+			<form class="form-detail" action="{% url 'postajob' %}" method="post" id="myform" enctype="multipart/form-data">
 				{% csrf_token %}
 				<div class="form-left">
 					<h2> job posting location</h2>
@@ -88,7 +88,7 @@
 					</div>
 					<div class="form-row form-row-3" id="resume">
 						<label for="company">Upload Pic</label>
-						<input type="file" name="photo" class="pic" id="pic" required>
+						<input type="file" name="photo" accept="Image/*" class="pic" id="pic" required>
 					</div>
 					<div class="form-right">
 						<h4 id="job"> Job Description</h4>

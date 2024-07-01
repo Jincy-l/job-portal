@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,7 +80,7 @@
                         <a href="static/#" class="nav-link" data-bs-toggle="dropdown" >
                         <img class="rounded-circle me-lg-2" src={{image}} alt="" style="width: 40px;height: 40px;"></a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="profileemlr" class="dropdown-item">Profile</a>
+                            <a href="profileemp" class="dropdown-item">Profile</a>
                             <a href="logout" class="dropdown-item" name='logout'>Logout</a>
                            
                         </div>
@@ -356,7 +357,8 @@
     <div id="title">
 
       <input type="text" value="{{job.Jobtitle}}" name="Jobtitle" style="display: none;">
-       <h2 class="font">{{job.Jobtitle}}</h2>
+      <h2 class="font" id="title">{{job.jobtitle}}</h2>
+     
       <input type="text" value="{{job.company}}" name="company" style="display: none;">
       <p class="font" id="location">{{job.company}}</p>
       <p class="font" id="email">{{job.city}}</p>
