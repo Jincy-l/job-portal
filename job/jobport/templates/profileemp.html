@@ -67,7 +67,7 @@
 </style>
 <body>
 
-    
+    <h1>profile</h1>
 
     <form action= "{% url 'profileemp' %}" method="POST" enctype="multipart/form-data">
         {% for registration in registrations %}
@@ -93,14 +93,14 @@
                         
                         <div class="col-md-12"><label class="labels">Job</label><input type="text" class="form-control" value=" {{ registration.job }}" name="street"></div>
                         <div class="col-md-12"><label class="labels">skills</label><input type="text" class="form-control" value=" {{ registration.skills }}" name="company"></div> 
-                        <div class="col-md-12"><label class="labels">Qualification</label><input type="text" class="form-control" value="{{ registration.qualification }}" name="gender"></div>
+                        <div class="col-md-12"><label class="labels">Qualification</label><input type="text" class="form-control" value="{{ registration.highqua  }}" name="qua"></div>
                         <div class="row mt-3">
                             <div class="col-md-6"><label class="labels">city</label><input type="text" class="form-control" value="{{ registration.city}}" name="position"></div>
                             <div class="col-md-6"><label class="labels">contry</label><input type="text" class="form-control" value="{{ registration.country }}" name="street"></div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6"><label class="labels">Phone Number</label><input type="text" class="form-control" value="{{ registration.phonenumber }}" name="phonenumber"></div>
-                            <div class="col-md-6"><label class="labels">Pincode</label><input type="text" class="form-control" value="{{ registration.pin}}" name="zip"></div>
+                            <div class="col-md-6"><label class="labels">Pincode</label><input type="text" class="form-control" value="{{ registration.Pin}}" name="zip"></div>
                         </div>
                         {% comment %} <div class="row mt-3">
                             <div class="col-md-6"><label class="labels">Place</label><input type="text" class="form-control" value="{{ registration.place }}" name="place"></div>

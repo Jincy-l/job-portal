@@ -22,8 +22,8 @@ class employer(models.Model):
 
       
 class employee(models.Model):
-       first_name=models.CharField(max_length=100)
-       last_name=models.CharField(max_length=100)
+       firstname=models.CharField(max_length=100)
+       lastname=models.CharField(max_length=100)
        Street=models.CharField(max_length=50)
        Pin=models.IntegerField()
        skills=models.CharField(max_length=100)

@@ -153,7 +153,7 @@ def regemp(request):
 
 
         
-        employee(first_name=firstname,last_name=lastname,Street=street,Pin=pin,skills=skills,
+        employee(firstname=firstname,lastname=lastname,Street=street,Pin=pin,skills=skills,
                 highqua=highqua,job=job,city=city,country=country,code=code,phonenumber=phonenumber,
                 email=email,password=password,con=con ,resume=resume,image=image).save()
         return redirect(employe)
@@ -177,6 +177,7 @@ def otpempr(request):
 
 def profileemp(request):
      email = request.session['email']
+     print(email)
      registrations = employee.objects.filter(email =email)
      context={
             'registrations':registrations,
@@ -220,6 +221,56 @@ def profile(request):
 
     except:
         return redirect("index")
+    
+
+
+# def edit(request):
+#     if request.method == 'POST':
+        
+#         Firstname = request.POST['firstname']
+#         Lastname = request.POST['lastname']
+#         Address = request.POST['address']
+#         Country = request.POST['country']
+    
+    
+#         Pincode = request.POST['pincode']
+#         Phone = request.POST['phone']
+#         Email = request.POST['email']
+#         Password = request.POST['pswd']
+#         code=request.POST['code']
+
+#         user_type = request.session.get('employee')
+
+#         if user_type == 'employee':
+            
+#             Qualification = request.POST['qua']
+#             skills = request.POST['skills']
+#             Resume = request.FILES.get('resume')
+#             street=request.POST["street"]
+
+#             Email = request.session['email']
+            
+#             employee.objects.filter(email=Email).update(
+#                 first_name=Firstname, last_name=Lastname, highqua=Qualification, skills=skills,
+#                 resume=Resume, address=Address, country=Country, street=street, pincode=Pincode,
+#                  phone=Phone, email=Email, password=Password,code=code)
+            
+
+#         elif user_type == 'employer':
+            
+#             Position = request.POST['position']
+#             Company = request.POST['company']
+#             addimfor = request.POST['additional']
+
+#             Email = request.session['email']
+            
+#             employer.objects.filter(email=Email).update(
+#                 first_name=Firstname, last_name=Lastname, position=Position, company=Company, addimfor=addimfor,
+#                 address=Address, country=Country, code=code, pincode=Pincode, phonenumber=Phone,
+#                 email=Email, password=Password)
+            
+
+#         return redirect(profile)
 
 
 
