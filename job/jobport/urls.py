@@ -28,6 +28,6 @@ urlpatterns = [
     path("Applied",views.Applied,name='Applied'),
     path("profile",views.profile,name="profile"),
     # path("Resume",views.Resume,name='Resume'),
-
+    # path("search",views.search,name='search'),
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

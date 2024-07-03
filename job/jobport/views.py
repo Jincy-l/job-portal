@@ -332,5 +332,10 @@ def Applied(request):
 #         text += page.extract_text()
 #     return text
         
-def search(request):
-    search=None
+# def search(request):
+#     search=None
+#     query=None
+#     if 'q' in request.GET:
+#         query=request.GET.get('q')
+#         postajob.objects.all()
+
