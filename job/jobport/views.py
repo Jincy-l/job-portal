@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from . models import *
 import random
 import PyPDF2
+from PyPDF2 import PdfReader
 
 from django.core.mail import settings,send_mail,EmailMessage
 from django.template.loader import render_to_string
@@ -317,29 +318,19 @@ def Applied(request):
 
 
 # Function to extract text from PDF
-def Resume(pdf_path):
-    # Open the PDF file
-    with open(pdf_path, 'rb') as file:
-        # Create a PDF reader object
-        pdf_reader = PyPDF2.PdfFileReader(file)
-        
-        # Initialize a variable to store the extracted text
-        extracted_text = ''
-        
-        # Iterate through all the pages and extract text
-        for page_num in range(pdf_reader.numPages):
-            # Get the page
-            page = pdf_reader.getPage(page_num)
-            # Extract text from the page
-            extracted_text += page.extract_text()
-        
-    return extracted_text
+# def Resume(request):
+#     pdf_path = 'C:/Users/Lenovo/OneDrive/Desktop/resumejincy.pdf'
 
-# Path to the PDF file
-pdf_path = 'file:///C:/Users/Lenovo/OneDrive/Desktop/resumejincy.pdf'
-
-# Extract text from the PDF
-text = Resume(pdf_path)
-
-# Print the extracted text
-print(text)
+#     # Open the PDF file
+#     if pdf_path.startswith('file:'):
+#         pdf_path = pdf_path[5:]  # Remove 'file:'
+    
+#     # Open and read the PDF file
+#     reader = PdfReader(pdf_path)
+#     text = ""
+#     for page in reader.pages:
+#         text += page.extract_text()
+#     return text
+        
+def search(request):
+    search=None
