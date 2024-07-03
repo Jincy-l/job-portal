@@ -64,6 +64,9 @@ def employerlogin(request):
         user = employer.objects.filter(email = mail, password = pswd)
         
         if user.exists():
+            for i in user:
+                com=i.company
+                request.session['com']=com
             request.session['email'] = mail
             employer.objects.filter(email = mail, password = pswd).update()
             return redirect("index")
@@ -178,24 +181,30 @@ def otpempr(request):
 def profileemp(request):
      email = request.session['email']
      print(email)
-     registrations = employee.objects.filter(email =email)
-     context={
-            'registrations':registrations,
-        }
-        
-        
-     return render(request,'profileemp.html',context)
+     if employee.objects.filter(email =email).exists():
+        registrations = employee.objects.filter(email =email)
+        context={
+                'registrations':registrations,
+            }
+            
+            
+        return render(request,'profileemp.html',context)
+     elif employer.objects.filter(email =email).exists():
+         
+        registrations = employer.objects.filter(email =email)
+        context={
+                'registrations':registrations,
+            }
+            
+            
+        return render(request,'profileemlr.html',context)
 
 
 
 def profileemlr(request):
-        email = request.session['email']
-        registrations = employer.objects.filter(email = email)
-        context={
-            'registrations':registrations,
-        }
+       
         
-        return render(request,'profileemlr.html',context)
+        return render(request,'profileemlr.html')
     
     
 def profile(request):
@@ -222,55 +231,6 @@ def profile(request):
     except:
         return redirect("index")
     
-
-
-# def edit(request):
-#     if request.method == 'POST':
-        
-#         Firstname = request.POST['firstname']
-#         Lastname = request.POST['lastname']
-#         Address = request.POST['address']
-#         Country = request.POST['country']
-    
-    
-#         Pincode = request.POST['pincode']
-#         Phone = request.POST['phone']
-#         Email = request.POST['email']
-#         Password = request.POST['pswd']
-#         code=request.POST['code']
-
-#         user_type = request.session.get('employee')
-
-#         if user_type == 'employee':
-            
-#             Qualification = request.POST['qua']
-#             skills = request.POST['skills']
-#             Resume = request.FILES.get('resume')
-#             street=request.POST["street"]
-
-#             Email = request.session['email']
-            
-#             employee.objects.filter(email=Email).update(
-#                 first_name=Firstname, last_name=Lastname, highqua=Qualification, skills=skills,
-#                 resume=Resume, address=Address, country=Country, street=street, pincode=Pincode,
-#                  phone=Phone, email=Email, password=Password,code=code)
-            
-
-#         elif user_type == 'employer':
-            
-#             Position = request.POST['position']
-#             Company = request.POST['company']
-#             addimfor = request.POST['additional']
-
-#             Email = request.session['email']
-            
-#             employer.objects.filter(email=Email).update(
-#                 first_name=Firstname, last_name=Lastname, position=Position, company=Company, addimfor=addimfor,
-#                 address=Address, country=Country, code=code, pincode=Pincode, phonenumber=Phone,
-#                 email=Email, password=Password)
-            
-
-#         return redirect(profile)
 
 
 
@@ -346,6 +306,10 @@ def applyjob(request):
      
 def Applied(request):
     email = request.session['email']
+    com=request.session['com']
     print(email)
-    job=apply.objects.filter()
-    return render (request,"Applied.html")
+    job=apply.objects.filter(name=com)
+    context={
+        'job':job
+    }
+    return render (request,"Applied.html",context)
