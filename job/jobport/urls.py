@@ -27,6 +27,7 @@ urlpatterns = [
     path("applyjob",views.applyjob,name='applyjob'),
     path("Applied",views.Applied,name='Applied'),
     path("profile",views.profile,name="profile"),
+    path("Resume",views.Resume,name='Resume'),
 
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
