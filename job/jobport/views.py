@@ -317,7 +317,6 @@ def Applied(request):
     return render (request,"Applied.html",context)
 def myjobs(request):
     email = request.session['email']
-    # com=request.session['com']
     print(email)
     job=apply.objects.filter(email=email)
     context={
