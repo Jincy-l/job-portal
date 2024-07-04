@@ -291,7 +291,7 @@ def applyjob(request):
        if email and name:
            try:
               user=employee.objects.get(email=email)
-              apply.objects.create(applicant=user,name=name)
+              apply.objects.create(applicant=user,name=name,jobid=jobid)
 
               return redirect(index)
            except employee.DoesNotExist:
@@ -316,7 +316,14 @@ def Applied(request):
     }
     return render (request,"Applied.html",context)
 def myjobs(request):
-    return render(request,"myjobs.html")
+    email = request.session['email']
+    com=request.session['com']
+    print(email)
+    job=apply.objects.filter(name=com)
+    context={
+        'job':job
+    }
+    return render(request,"myjobs.html",context)
 
 
 # Function to extract text from PDF
@@ -341,6 +348,13 @@ def myjobs(request):
 #         query=request.GET.get('q')
 #         postajob.objects.all()
 def approvedlist(request):
+    email = request.session['email']
+    com=request.session['com']
+    print(email)
+    job=apply.objects.filter(name=com)
+    context={
+        'job':job
+    }
     return render(request,"approvedlist.html")
 def rejected(request):
     return render(request,"rejected.html")

@@ -22,7 +22,9 @@
           <tr>
             <th>Jobid</th>
             <th>Company's name</th>
+            <th>Job title</th>
             <th>Applicants Emailid</th>
+            {% comment %} <th>Job title</th> {% endcomment %}
             
            
             <th>Resume</th>
@@ -33,6 +35,7 @@
           <tr>
             <td>{{i.id}}</td>
             <td>{{i.name}}</td>
+            <td>{{i.jobid}}</td>
            
             <td>{{i.applicant}}</td>
            

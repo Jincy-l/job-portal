@@ -73,25 +73,21 @@
           <tr class="no-hover">
             <th>ID</th>
             <th>Companies Name</th>
-            <th><span>Job title</span></th>
+            <th>Jobtitle</th>
+            <th><span>Emailid</span></th>
             
-  
+          </tr>
+          {% for i in job %}
           <tr>
            
             
-            <td>1</td>
-            <td>Esme</td>
-            <td>Omond</td>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.jobid}}</td>
+            <td>{{i.applicant}}</td>
             
           </tr>
   
-          <tr>
-           
-            <td>2</td>
-            <td>Lars</td>
-            <td>Piniur</td>
-           
-          </tr>
   
          
   
@@ -100,7 +96,7 @@
   
          
   
-          
+          {% endfor %}
         </table>
   
        
