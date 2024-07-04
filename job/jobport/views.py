@@ -340,4 +340,8 @@ def myjobs(request):
 #     if 'q' in request.GET:
 #         query=request.GET.get('q')
 #         postajob.objects.all()
+def approvedlist(request):
+    return render(request,"approvedlist.html")
+def rejected(request):
+    return render(request,"rejected.html")
 

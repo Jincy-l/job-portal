@@ -30,5 +30,7 @@ urlpatterns = [
     # path("Resume",views.Resume,name='Resume'),
     # path("search",views.search,name='search'),
     path("myjobs",views.myjobs,name='myjobs'),
+    path("approvedlist",views.approvedlist,name='approvedlist'),
+    path("rejected",views.rejected,name='rejected'),
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

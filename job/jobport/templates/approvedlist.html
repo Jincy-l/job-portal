@@ -25,9 +25,6 @@
       <span style="font-size:30px;cursor:pointer font-color:#00B074" onclick="openNav()">&#9776; JobEntry</span>
       <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 256 256">
        
-             {% comment %} <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"
-              ></path> {% endcomment %}
-              
       </svg>
     </header>
   
@@ -53,19 +50,19 @@
           </i>
         </div>
   
-        <h3 id="title" class="leading-none">My jobs</h3>
-  
+        <h3 id="title" class="leading-none">Approved Jobs</h3>
+{% comment %}   
         <div class="flex gap-1 items-center">
           
   
-          <button class="leading-none"><a href="approvedlist">Approved</a></button>
+          <button class="leading-none"><a href="">Approved</a></button>
             
           
   
           
-        <button class="leading-none"><a href="rejected">Rejected</a></button>
+        <div><button class="leading-none"><a href="">Rejected</a></button></div>
         
-        </div>
+        </div> {% endcomment %}
       </section>
   
       <section class="flex flex-column gap-2">

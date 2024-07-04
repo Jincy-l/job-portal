@@ -316,8 +316,8 @@ td {
 .gap-05 { gap: .5rem; }
 .gap-1 { gap: 1rem; }
 .gap-15 { gap: 1.5rem; }
-.gap-2 { gap: 2rem; }
-.gap-3 { gap: 3rem; }
+.gap-2 { gap: 20rem; }
+.gap-3 { gap: 6rem; }
 .grow { flex-grow: 1; }
 .hidden { display: none; }
 .items-center { align-items: center; }
