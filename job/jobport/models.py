@@ -62,6 +62,7 @@ class apply(models.Model):
        name=models.CharField(max_length=100) 
        # userid=models.IntegerField()
        jobid=models.CharField(max_length=50)
+       email=models.EmailField()
        approved=models.BooleanField(default=False)
        rejected=models.BooleanField(default=False)
        applicant=models.ForeignKey(employee,on_delete=models.CASCADE)
