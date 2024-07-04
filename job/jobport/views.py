@@ -315,6 +315,8 @@ def Applied(request):
         'job':job
     }
     return render (request,"Applied.html",context)
+def myjobs(request):
+    return render(request,"myjobs.html")
 
 
 # Function to extract text from PDF
