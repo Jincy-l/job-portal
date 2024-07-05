@@ -349,23 +349,24 @@ def myjobs(request):
 #         query=request.GET.get('q')
 #         postajob.objects.all()
 def approvedlist(request):
-    email = request.session['email']
-    print(email)
-    job=apply.objects.filter(email=email,approved=True)
-    context={
-        'job':job
-    }
-   
-    return render(request,"approvedlist.html",context)
-def rejected(request):
-    email = request.session['email']
-    print(email)
-    job=apply.objects.filter(email=email,rejected=True)
-    context={
-        'job':job
-    }
+  
+    approved_applications = apply.objects.filter(approved=True)
+    
+    return render(request, 'approvedlist.html', {'approved_applications': approved_applications})
 
-    return render(request,"rejected.html",context)
+def rejected(request):
+    # email = request.session['email']
+    # print(email)
+    # job=apply.objects.filter(email=email,rejected=True)
+    # context={
+    #     'job':job
+    # }
+
+    # return render(request,"rejected.html",context)
+    rejected_applications = apply.objects.filter(rejected=True)
+    
+    return render(request, 'rejected.html', {'rejected_applications': rejected_applications})
+
  
 
 def approvecandidate(request,applicationid):
@@ -376,6 +377,8 @@ def approvecandidate(request,applicationid):
         return HttpResponse("Candidate approved Successfully.")
     except apply.DoesNotExist:
         return HttpResponse("Application not found")
+    
+
 def rejectcandidate(request,applicationid):
     try:
         job=apply.objects.get(id=applicationid)

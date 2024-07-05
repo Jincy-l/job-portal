@@ -32,5 +32,8 @@ urlpatterns = [
     path("myjobs",views.myjobs,name='myjobs'),
     path("approvedlist",views.approvedlist,name='approvedlist'),
     path("rejected",views.rejected,name='rejected'),
+    path("approvecandidate",views.approvecandidate,name='approvecandidate'),
+    path("rejectcandidate",views.rejectcandidate,name='rejectcandidate'),
+    
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
