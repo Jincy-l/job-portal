@@ -3,6 +3,7 @@ from . models import *
 import random
 import PyPDF2
 from PyPDF2 import PdfReader
+from django.http import HttpResponse
 
 from django.core.mail import settings,send_mail,EmailMessage
 from django.template.loader import render_to_string
@@ -367,3 +368,19 @@ def rejected(request):
     return render(request,"rejected.html",context)
  
 
+def approvecandidate(request,applicationid):
+    try:
+        job=apply.objects.get(id=applicationid)
+        job.approved=True
+        job.save()
+        return HttpResponse("Candidate approved Successfully.")
+    except apply.DoesNotExist:
+        return HttpResponse("Application not found")
+def rejectcandidate(request,applicationid):
+    try:
+        job=apply.objects.get(id=applicationid)
+        job.rejected=True
+        job.save()
+        return redirect('approved')
+    except apply.DoesNotExist:
+        return HttpResponse("Application no found")
