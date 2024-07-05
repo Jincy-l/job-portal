@@ -348,10 +348,22 @@ def myjobs(request):
 #         query=request.GET.get('q')
 #         postajob.objects.all()
 def approvedlist(request):
-    
-
+    email = request.session['email']
+    print(email)
+    job=apply.objects.filter(email=email,approved=True)
+    context={
+        'job':job
+    }
    
-    return render(request,"approvedlist.html")
+    return render(request,"approvedlist.html",context)
 def rejected(request):
-    return render(request,"rejected.html")
+    email = request.session['email']
+    print(email)
+    job=apply.objects.filter(email=email,rejected=True)
+    context={
+        'job':job
+    }
+
+    return render(request,"rejected.html",context)
+ 
 

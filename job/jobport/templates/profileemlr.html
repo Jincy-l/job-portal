@@ -111,16 +111,18 @@
                         <div class="col-md-12"><label class="labels">Password</label><input type="text" class="form-control"value="{{ registration.password }}" name="pswd"></div>
                     </div>
                     <div class="mt-5 text-center"><button  class="btn btn-primary profile-button"><input type="submit" value="Save Profile"></button></div>
-                    <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button">  <a href="Applied"> Appplicants </a></button></div>
-
+                    <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button">  <a href="Applied"> Applicants </a></button></div>
+                     {% comment %} <div class="d-flex justify-content-end mt-5"><button type="submit" class="btn btn-primary profile-button">  <a href="Applied"> Applicants </a></button></div> {% endcomment %}
                 </div>
             </div>
             
         </div>
     </div>
     </div>
+    
     </div>
 
+</div>
     {% endfor %}
 </form>
 </body>
