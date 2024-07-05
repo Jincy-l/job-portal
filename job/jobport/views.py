@@ -310,7 +310,8 @@ def Applied(request):
     email = request.session['email']
     com=request.session['com']
     print(email)
-    job=apply.objects.filter(name=com)
+    job=apply.objects.filter(name=com,approved=False,rejected=False)
+
     context={
         'job':job
     }
