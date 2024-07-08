@@ -316,6 +316,7 @@ def Applied(request):
     context={
         'job':job
     }
+     
     return render (request,"Applied.html",context)
 def myjobs(request):
     email = request.session['email']
@@ -351,6 +352,7 @@ def myjobs(request):
 def approvedlist(request):
   
     approved_applications = apply.objects.filter(approved=True)
+
     
     return render(request, 'approvedlist.html', {'approved_applications': approved_applications})
 
@@ -384,6 +386,6 @@ def rejectcandidate(request,applicationid):
         job=apply.objects.get(id=applicationid)
         job.rejected=True
         job.save()
-        return redirect('approved')
+        return HttpResponse("Rejected")
     except apply.DoesNotExist:
         return HttpResponse("Application no found")

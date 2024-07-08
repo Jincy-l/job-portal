@@ -31,6 +31,7 @@
             
             <th>Update</th>
           </tr>
+          
           {% for i in job %}
           <tr>
             <td>{{i.id}}</td>
@@ -41,9 +42,10 @@
            
             
             <td>  <button>resume</button>  </td>
+            
              
-            <td> <button type="button" class="btn btn-xs btn-success" data-toggle="modal" data-target="#myModalUpdate"> <a href=" approvedlist">Accept</a></button>
-              <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myModalDelete"> <a href="rejected">Reject</a></button></td>
+            <td> <button type="submit" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myModalUpdate"> <a href="{% url 'approvecandidate' i.id %}" >Accept</a></button>
+             <button type="submit" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myModalDelete"> <a href="{% url 'rejectcandidate' i.id %}">Reject</a></button></td> 
           </tr>
           {% endfor %}
         </table>
