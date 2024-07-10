@@ -288,6 +288,7 @@ def applyjob(request):
         name=request.POST['company']
     #    userid=request.POST['jobid']
         jobid=request.POST['Jobtitle']
+        print(email,jobid,name)
     #    userid=int(userid)
 
  
@@ -303,7 +304,7 @@ def applyjob(request):
 
 
 
-    #    apply(name=name,userid=userids,jobid=jobid).save()
+
 
 
         return redirect(index) 
