@@ -34,6 +34,7 @@ urlpatterns = [
     path("rejected",views.rejected,name='rejected'),
     path('approvecandidate/<int:applicationid>/', views.approvecandidate, name='approvecandidate'),
     path("rejectcandidate/<int:applicationid>/",views.rejectcandidate,name='rejectcandidate'),
+    path('view_resume/<int:profile_id>/', views.view_resume, name='view_resume'),
 
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

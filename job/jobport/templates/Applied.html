@@ -40,8 +40,11 @@
            
             <td>{{i.applicant}}</td>
            
-            
-            <td>  <button>resume</button>  </td>
+            {% if job.user.resume %}
+            <td>  <a href="{% url 'view_resume' i.applicant.id %}" class="btn btn-xs btn-warning">View Resume</a> </td>
+            {% else %}
+            <td><button type="button"  class="btn btn-xs btn-warning" disabled>No Resume</button></td>
+            {% endif %}
             
              
             <td> <button type="submit" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myModalUpdate"> <a href="{% url 'approvecandidate' i.id %}" >Accept</a></button>

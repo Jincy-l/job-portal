@@ -7,6 +7,7 @@ from django.http import HttpResponse
 
 from django.core.mail import settings,send_mail,EmailMessage
 from django.template.loader import render_to_string
+from django.http import FileResponse
 # Create your views here.
 
 
@@ -389,3 +390,8 @@ def rejectcandidate(request,applicationid):
         return HttpResponse("Rejected")
     except apply.DoesNotExist:
         return HttpResponse("Application no found")
+def view_resume(request, profile_id):
+    
+    pdf_file = employee.objects.get(id=profile_id)
+    
+    return FileResponse(pdf_file.resume, content_type='application/pdf')
