@@ -283,21 +283,21 @@ def applyjob(request):
        
        
        
-       email=request.session['email']
+        email=request.session['email']
 
-       name=request.POST['company']
+        name=request.POST['company']
     #    userid=request.POST['jobid']
-       jobid=request.POST['Jobtitle']
+        jobid=request.POST['Jobtitle']
     #    userid=int(userid)
 
-       if email and name:
-           try:
-              user=employee.objects.get(email=email)
-              apply.objects.create(applicant=user,name=name,jobid=jobid)
+ 
+        try:
+            user=employee.objects.get(email=email)
+            apply.objects.create(applicant=user,name=name,jobid=jobid,email=email)
 
-              return redirect(index)
-           except employee.DoesNotExist:
-               return redirect(index)
+            return redirect('index')
+        except employee.DoesNotExist:
+            return redirect('index')
 
                
 
@@ -306,7 +306,7 @@ def applyjob(request):
     #    apply(name=name,userid=userids,jobid=jobid).save()
 
 
-       return redirect(index) 
+        return redirect(index) 
      
 def Applied(request):
     email = request.session['email']
