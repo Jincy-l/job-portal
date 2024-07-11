@@ -385,6 +385,9 @@ def approvecandidate(request,applicationid):
         return HttpResponse("Candidate approved Successfully.")
     except apply.DoesNotExist:
         return HttpResponse("Application not found")
+
+
+
     
         
     
@@ -406,3 +409,5 @@ def view_resume(request, profile_id):
     pdf_file = employee.objects.get(id=profile_id)
     
     return FileResponse(pdf_file.resume, content_type='application/pdf')
+def  indexadmin(request):
+    return render(request,'indexadmin.html')
