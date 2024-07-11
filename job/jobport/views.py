@@ -287,7 +287,7 @@ def applyjob(request):
 
         name=request.POST['company']
     #    userid=request.POST['jobid']
-        jobid=request.POST['Jobtitle']
+        jobid=request.POST['jobtitle']
         print(email,jobid,name)
     #    userid=int(userid)
 
@@ -352,22 +352,17 @@ def myjobs(request):
 #         query=request.GET.get('q')
 #         postajob.objects.all()
 def approvedlist(request):
+    email = request.session['email']
   
-    approved_applications = apply.objects.filter(approved=True)
+    approved_applications = apply.objects.filter(approved=True,email=email)
 
     
     return render(request, 'approvedlist.html', {'approved_applications': approved_applications})
 
 def rejected(request):
-    # email = request.session['email']
-    # print(email)
-    # job=apply.objects.filter(email=email,rejected=True)
-    # context={
-    #     'job':job
-    # }
-
-    # return render(request,"rejected.html",context)
-    rejected_applications = apply.objects.filter(rejected=True)
+    email = request.session['email']
+    
+    rejected_applications = apply.objects.filter(rejected=True,email=email)
     
     return render(request, 'rejected.html', {'rejected_applications': rejected_applications})
 
@@ -378,9 +373,22 @@ def approvecandidate(request,applicationid):
         job=apply.objects.get(id=applicationid)
         job.approved=True
         job.save()
+        email = job.email  # Adjust this if your model has a different field name for email
+        otp = random.randint(1000, 9999)
+        subject = 'Application Approved'
+        message = f'Your application has been approved. Your OTP is: {otp}'
+        
+        send_mail(subject, message, settings.EMAIL_HOST_USER, [email], fail_silently=False)
+        # email=request.session['email']
+        # send_mail(subject,message,settings.EMAIL_HOST_USER,[email],fail_silently=False)
+    
         return HttpResponse("Candidate approved Successfully.")
     except apply.DoesNotExist:
         return HttpResponse("Application not found")
+    
+        
+    
+    
     
 
 def rejectcandidate(request,applicationid):
@@ -391,6 +399,8 @@ def rejectcandidate(request,applicationid):
         return HttpResponse("Rejected")
     except apply.DoesNotExist:
         return HttpResponse("Application no found")
+    
+
 def view_resume(request, profile_id):
     
     pdf_file = employee.objects.get(id=profile_id)
