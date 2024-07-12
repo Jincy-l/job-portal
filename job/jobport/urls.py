@@ -35,7 +35,15 @@ urlpatterns = [
     path('approvecandidate/<int:applicationid>/', views.approvecandidate, name='approvecandidate'),
     path("rejectcandidate/<int:applicationid>/",views.rejectcandidate,name='rejectcandidate'),
     path('view_resume/<int:profile_id>/', views.view_resume, name='view_resume'),
-    path('indexadmin',views.indexadmin,name='indexadmin'),
+    path("indexadmin",views.indexadmin,name='indexadmin'),
+    path('accountadmin',views.accountadmin,name='accountadmin'),
+    path('chartsadmin',views.chartsadmin,name='chartsadmin'),
+    path('docsadmin',views.docsadmin,name='docsadmin'),
+    path('loginadmin',views.loginadmin,name='loginadmin'),
+    path('resetpassword',views.resetpassword,name='resetpassword'),
+    
+
+    
 
 
 ] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

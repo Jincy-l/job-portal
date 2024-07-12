@@ -4,6 +4,11 @@
     <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
     
     <!-- Meta -->
+	<meta charset="utf-8">
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,10 +18,11 @@
     <link rel="shortcut icon" href="static/favicon.ico"> 
     
     <!-- FontAwesome JS-->
-    <script defer src="static/assets/plugins/fontawesome/js/all.min.js"></script>
+    <script defer src="static/app.js"></script>
     
     <!-- App CSS -->  
-    <link id="theme-style" rel="stylesheet" href="static/cssadmin.css">
+	<link href="static/cssadmin/portal.css" rel="stylesheet">
+    <link id="theme-style" rel="stylesheet" href="static/cssadmin/portal.css">
 
 </head> 
 
@@ -28,7 +34,7 @@
 		            <div class="row justify-content-between align-items-center">
 			        
 				    <div class="col-auto">
-					    <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="static/#">
+					    <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="static/indexadmin">
 						    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg>
 					    </a>
 				    </div><!--//col-->
@@ -44,7 +50,7 @@
 		            
 		            <div class="app-utilities col-auto">
 			            <div class="app-utility-item app-notifications-dropdown dropdown">    
-				            <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle" data-bs-toggle="dropdown" href="static/#" role="button" aria-expanded="false" title="Notifications">
+				            <a class="dropdown-toggle no-toggle-arrow" id="notifications-dropdown-toggle" data-bs-toggle="dropdown" href="indexadmin" role="button" aria-expanded="false" title="Notifications">
 					            <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 					            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bell icon" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2z"/>
@@ -59,9 +65,14 @@
 						        </div><!--//dropdown-menu-title-->
 						        <div class="dropdown-menu-content">
 							       <div class="item p-3">
-								        <div class="row gx-2 justify-content-between align-items-center">
+								        <div class="rounded-circle me-lg-2">
 									        <div class="col-auto">
-										       <img class="profile-image" src="static/static/assets/images/profiles/profile-1.png" alt="">
+										       <img class="profile-image" src="static/imagesadmin/profiles/profile-1.png" alt=""style="width: 40px;height: 40px;">
+											   <div class="dropdown-menu rounded-0 m-0">
+												<a href="profileemp" class="dropdown-item">Profile</a>
+												<a href="logout" class="dropdown-item" name='logout'>Logout</a>
+											   
+											</div>
 									        </div><!--//col-->
 									        <div class="col">
 										        <div class="info"> 
@@ -70,7 +81,7 @@
 										        </div>
 									        </div><!--//col--> 
 								        </div><!--//row-->
-								        <a class="link-mask" href="static/notifications.html"></a>
+								        <a class="link-mask" href="notifications"></a>
 							       </div><!--//item-->
 							       <div class="item p-3">
 								        <div class="row gx-2 justify-content-between align-items-center">
@@ -142,12 +153,12 @@
 					    </div><!--//app-utility-item-->
 			            
 			            <div class="app-utility-item app-user-dropdown dropdown">
-				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="static/#" role="button" aria-expanded="false"><img src="static/assets/images/user.png" alt="user profile"></a>
+				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="indexadmin" role="button" aria-expanded="false"><img src="static/imagesadmin/user.png" alt="Admin profile"></a>
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-								<li><a class="dropdown-item" href="static/account.html">Account</a></li>
-								<li><a class="dropdown-item" href="static/settings.html">Settings</a></li>
+								<li><a class="dropdown-item" href="accountadmin">Account</a></li>
+								<li><a class="dropdown-item" href="settingsadmin">Settings</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="static/login.html">Log Out</a></li>
+								<li><a class="dropdown-item" href="loginadmin">Log Out</a></li>
 							</ul>
 			            </div><!--//app-user-dropdown--> 
 		            </div><!--//app-utilities-->
@@ -158,9 +169,9 @@
         <div id="app-sidepanel" class="app-sidepanel"> 
 	        <div id="sidepanel-drop" class="sidepanel-drop"></div>
 	        <div class="sidepanel-inner d-flex flex-column">
-		        <a href="static/#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
+		        <a href="index" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-		            <a class="app-logo" href="static/index.html"><img class="logo-icon me-2" src="static/assets/images/app-logo.svg" alt="logo"><span class="logo-text">PORTAL</span></a>
+		            <a class="app-logo" href="index"><span>JobEntry</span></a>
 	
 		        </div><!--//app-branding-->  
 		        
@@ -168,7 +179,7 @@
 				    <ul class="app-menu list-unstyled accordion" id="menu-accordion">
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link active" href="static/index.html">
+					        <a class="nav-link active" href="index">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 		  <path fill-rule="evenodd" d="M7.646 1.146a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5H9.5a.5.5 0 0 1-.5-.5v-4H7v4a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6zM2.5 7.707V14H6v-4a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v4h3.5V7.707L8 2.207l-5.5 5.5z"/>
@@ -180,7 +191,7 @@
 					    </li><!--//nav-item-->
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="static/docs.html">
+					        <a class="nav-link" href="docsadmin">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
@@ -192,7 +203,7 @@
 					    </li><!--//nav-item-->
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="static/orders.html">
+					        <a class="nav-link" href="static/static/orders.html">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -207,7 +218,7 @@
 					    </li><!--//nav-item-->
 					    <li class="nav-item has-submenu">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link submenu-toggle" href="static/#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+					        <a class="nav-link submenu-toggle" href="static/static/#" data-bs-toggle="collapse" data-bs-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-files" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -224,15 +235,15 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-1" class="collapse submenu submenu-1" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="static/notifications.html">Notifications</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="static/account.html">Account</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="static/settings.html">Settings</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/notifications.html">Notifications</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/account.html">Account</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/settings.html">Settings</a></li>
 						        </ul>
 					        </div>
 					    </li><!--//nav-item-->
 					    <li class="nav-item has-submenu">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link submenu-toggle" href="static/#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
+					        <a class="nav-link submenu-toggle" href="static/static/#" data-bs-toggle="collapse" data-bs-target="#submenu-2" aria-expanded="false" aria-controls="submenu-2">
 						        <span class="nav-icon">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-columns-gap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -248,10 +259,10 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-2" class="collapse submenu submenu-2" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="static/login.html">Login</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="static/signup.html">Signup</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="static/reset-password.html">Reset password</a></li>
-							        <li class="submenu-item"><a class="submenu-link" href="static/404.html">404 page</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/login.html">Login</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/signup.html">Signup</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/reset-password.html">Reset password</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="static/static/404.html">404 page</a></li>
 						        </ul>
 					        </div>
 					    </li><!--//nav-item-->
@@ -259,7 +270,7 @@
 					   
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="static/charts.html">
+					        <a class="nav-link" href="static/static/charts.html">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
@@ -271,7 +282,7 @@
 					    
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="static/help.html">
+					        <a class="nav-link" href="static/static/help.html">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -288,7 +299,7 @@
 					    <ul class="app-menu footer-menu list-unstyled">
 						    <li class="nav-item">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-						        <a class="nav-link" href="static/settings.html">
+						        <a class="nav-link" href="static/static/settings.html">
 							        <span class="nav-icon">
 							            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
@@ -300,7 +311,7 @@
 						    </li><!--//nav-item-->
 						    <li class="nav-item">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-						        <a class="nav-link" href="static/https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
+						        <a class="nav-link" href="static/static/https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
 							        <span class="nav-icon">
 							            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
@@ -312,7 +323,7 @@
 						    </li><!--//nav-item-->
 						    <li class="nav-item">
 						        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-						        <a class="nav-link" href="static/https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
+						        <a class="nav-link" href="static/static/https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">
 							        <span class="nav-icon">
 							            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v10.755S4 11 8 11s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z"/>
@@ -340,21 +351,14 @@
 			    <div class="app-card alert alert-dismissible shadow-sm mb-4 border-left-decoration" role="alert">
 				    <div class="inner">
 					    <div class="app-card-body p-3 p-lg-4">
-						    <h3 class="mb-3">Welcome, developer!</h3>
+						    <h3 class="mb-3">Welcome, Admin</h3>
 						    <div class="row gx-5 gy-3">
-						        <div class="col-12 col-lg-9">
-							        
-							        <div>Portal is a free Bootstrap 5 admin dashboard template. The design is simple, clean and modular so it's a great base for building any modern web app.</div>
-							    </div><!--//col-->
+						       <!--//col-->
 							    <div class="col-12 col-lg-3">
-								    <a class="btn app-btn-primary" href="static/https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-earmark-arrow-down me-2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M4 0h5.5v1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h1V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z"/>
-  <path d="M9.5 3V0L14 4.5h-3A1.5 1.5 0 0 1 9.5 3z"/>
-  <path fill-rule="evenodd" d="M8 6a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 10.293V6.5A.5.5 0 0 1 8 6z"/>
-</svg>Free Download</a>
+	 
 							    </div><!--//col-->
 						    </div><!--//row-->
-						    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+						   
 					    </div><!--//app-card-body-->
 					    
 				    </div><!--//inner-->
@@ -364,28 +368,29 @@
 				    <div class="col-6 col-lg-3">
 					    <div class="app-card app-card-stat shadow-sm h-100">
 						    <div class="app-card-body p-3 p-lg-4">
-							    <h4 class="stats-type mb-1">Total Sales</h4>
-							    <div class="stats-figure">$12,628</div>
+							    <h4 class="stats-type mb-1">Total Empolyers</h4>
+							    <div class="stats-figure">{{totalemployer}}</div>
 							    <div class="stats-meta text-success">
 								    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
-</svg> 20%</div>
+  {% comment %} <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/> {% endcomment %}
+</svg> </div>
 						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="static/#"></a>
+						    <a class="app-card-link-mask" href="indexadmin"></a>
 					    </div><!--//app-card-->
 				    </div><!--//col-->
 				    
 				    <div class="col-6 col-lg-3">
+					
 					    <div class="app-card app-card-stat shadow-sm h-100">
 						    <div class="app-card-body p-3 p-lg-4">
-							    <h4 class="stats-type mb-1">Expenses</h4>
-							    <div class="stats-figure">$2,250</div>
+							    <h4 class="stats-type mb-1">Total Employees</h4>
+							    <div class="stats-figure">{{totalemploye}}</div>
 							    <div class="stats-meta text-success">
 								    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
-</svg> 5% </div>
+  
+</svg>  </div>
 						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="static/#"></a>
+						    <a class="app-card-link-mask" href="indexadmin"></a>
 					    </div><!--//app-card-->
 				    </div><!--//col-->
 				    <div class="col-6 col-lg-3">
@@ -396,7 +401,7 @@
 							    <div class="stats-meta">
 								    Open</div>
 						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="static/#"></a>
+						    <a class="app-card-link-mask" href="indexadmin"></a>
 					    </div><!--//app-card-->
 				    </div><!--//col-->
 				    <div class="col-6 col-lg-3">
@@ -406,7 +411,7 @@
 							    <div class="stats-figure">6</div>
 							    <div class="stats-meta">New</div>
 						    </div><!--//app-card-body-->
-						    <a class="app-card-link-mask" href="static/#"></a>
+						    <a class="app-card-link-mask" href="indexadmin"></a>
 					    </div><!--//app-card-->
 				    </div><!--//col-->
 			    </div><!--//row-->
@@ -420,7 +425,7 @@
 							        </div><!--//col-->
 							        <div class="col-auto">
 								        <div class="card-header-action">
-									        <a href="static/charts.html">More charts</a>
+									        <a href="chartsadmin">More charts</a>
 								        </div><!--//card-header-actions-->
 							        </div><!--//col-->
 						        </div><!--//row-->
@@ -449,7 +454,7 @@
 							        </div><!--//col-->
 							        <div class="col-auto">
 								        <div class="card-header-action">
-									        <a href="static/charts.html">More charts</a>
+									        <a href="static/static/charts.html">More charts</a>
 								        </div><!--//card-header-actions-->
 							        </div><!--//col-->
 						        </div><!--//row-->
@@ -481,7 +486,7 @@
 							        </div><!--//col-->
 							        <div class="col-auto">
 								        <div class="card-header-action">
-									        <a href="static/#">All projects</a>
+									        <a href="indexadmin">All projects</a>
 								        </div><!--//card-header-actions-->
 							        </div><!--//col-->
 						        </div><!--//row-->
@@ -501,7 +506,7 @@
 </svg>
 									    </div><!--//col-->
 								    </div><!--//row-->
-								    <a class="item-link-mask" href="static/#"></a>
+								    <a class="item-link-mask" href="indexadmin"></a>
 							    </div><!--//item-->
 							    
 							    
@@ -519,7 +524,7 @@
 </svg>
 									    </div><!--//col-->
 								    </div><!--//row-->
-								    <a class="item-link-mask" href="static/#"></a>
+								    <a class="item-link-mask" href="indexadmin"></a>
 							    </div><!--//item-->
 							    
 							    <div class="item p-3">
@@ -536,7 +541,7 @@
 </svg>
 									    </div><!--//col-->
 								    </div><!--//row-->
-								    <a class="item-link-mask" href="static/#"></a>
+								    <a class="item-link-mask" href="indexadmin"></a>
 							    </div><!--//item-->
 							    
 							    <div class="item p-3">
@@ -553,7 +558,7 @@
 </svg>
 									    </div><!--//col-->
 								    </div><!--//row-->
-								    <a class="item-link-mask" href="static/#"></a>
+								    <a class="item-link-mask" href="indexadmin"></a>
 							    </div><!--//item-->
 		
 					        </div><!--//app-card-body-->
@@ -568,7 +573,7 @@
 							        </div><!--//col-->
 							        <div class="col-auto">
 								        <div class="card-header-action">
-									        <a href="static/#">View report</a>
+									        <a href="static/static/#">View report</a>
 								        </div><!--//card-header-actions-->
 							        </div><!--//col-->
 						        </div><!--//row-->
@@ -585,7 +590,7 @@
 										</thead>
 										<tbody>
 											<tr>
-												<td><a href="static/#">google.com</a></td>
+												<td><a href="static/static/#">google.com</a></td>
 												<td class="stat-cell">110</td>
 												<td class="stat-cell">
 													<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up text-success" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -595,12 +600,12 @@
 									            </td>
 											</tr>
 											<tr>
-												<td><a href="static/#">getbootstrap.com</a></td>
+												<td><a href="static/static/#">getbootstrap.com</a></td>
 												<td class="stat-cell">67</td>
 												<td class="stat-cell">23%</td>
 											</tr>
 											<tr>
-												<td><a href="static/#">w3schools.com</a></td>
+												<td><a href="static/static/#">w3schools.com</a></td>
 												<td class="stat-cell">56</td>
 												<td class="stat-cell">
 													<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -610,12 +615,12 @@
 											    </td>
 											</tr>
 											<tr>
-												<td><a href="static/#">javascript.com </a></td>
+												<td><a href="indexadmin">javascript.com </a></td>
 												<td class="stat-cell">24</td>
 												<td class="stat-cell">-</td>
 											</tr>
 											<tr>
-												<td><a href="static/#">github.com </a></td>
+												<td><a href="indexadmin">github.com </a></td>
 												<td class="stat-cell">17</td>
 												<td class="stat-cell">15%</td>
 											</tr>
@@ -650,7 +655,7 @@
 							    <div class="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet eros vel diam semper mollis.</div>
 						    </div><!--//app-card-body-->
 						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="static/#">Create New</a>
+							   <a class="btn app-btn-secondary" href="indexadmin">Create New</a>
 						    </div><!--//app-card-footer-->
 						</div><!--//app-card-->
 				    </div><!--//col-->
@@ -677,7 +682,7 @@
 							    <div class="intro">Pellentesque varius, elit vel volutpat sollicitudin, lacus quam efficitur augue</div>
 						    </div><!--//app-card-body-->
 						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="static/#">Create New</a>
+							   <a class="btn app-btn-secondary" href="indexadmin">Create New</a>
 						    </div><!--//app-card-footer-->
 						</div><!--//app-card-->
 				    </div><!--//col-->
@@ -704,7 +709,7 @@
 							    <div class="intro">Sed maximus, libero ac pharetra elementum, turpis nisi molestie neque, et tincidunt velit turpis non enim.</div>
 						    </div><!--//app-card-body-->
 						    <div class="app-card-footer p-4 mt-auto">
-							   <a class="btn app-btn-secondary" href="static/#">Create New</a>
+							   <a class="btn app-btn-secondary" href="indexadmin">Create New</a>
 						    </div><!--//app-card-footer-->
 						</div><!--//app-card-->
 				    </div><!--//col-->
@@ -716,7 +721,7 @@
 	    <footer class="app-footer">
 		    <div class="container text-center py-3">
 		         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="app-link" href="static/http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
+            <small class="copyright">Designed with <span class="sr-only">love</span><i class="fas fa-heart" style="color: #fb866a;"></i> by <a class="app-link" href="static/static/http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
 		       
 		    </div>
 	    </footer><!--//app-footer-->
@@ -729,11 +734,11 @@
     <script src="static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>  
 
     <!-- Charts JS -->
-    <script src="static/assets/plugins/chart.js/chart.min.js"></script> 
-    <script src="static/assets/js/index-charts.js"></script> 
+    <script src="static/jsadmin/chart.js/chart.min.js"></script> 
+    <script src="static/jsadmin/index-charts.js"></script> 
     
     <!-- Page Specific JS -->
-    <script src="static/assets/js/app.js"></script> 
+    <script src="static/jsadmin/app.js"></script> 
 
 </body>
 </html> 

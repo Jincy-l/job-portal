@@ -410,4 +410,29 @@ def view_resume(request, profile_id):
     
     return FileResponse(pdf_file.resume, content_type='application/pdf')
 def  indexadmin(request):
-    return render(request,'indexadmin.html')
+    empr=employer.objects.all()
+    totalemployer=len(empr)
+    emp=employee.objects.all()
+    totalemployee=len(emp)
+    context={
+        'empr':empr,
+        'totalemployer':totalemployer,
+        'emp':emp,
+        'totalemploye':totalemployee
+
+    } 
+    
+  
+
+    return render(request,'indexadmin.html',context)
+def  accountadmin(request):
+    return render(request,'accountadmin.html')
+def  chartsadmin(request):
+    return render(request,'chartsadmin.html')
+def  docsadmin(request):
+    return render(request,'docsadmin.html')
+def  loginadmin(request):
+    return render(request,'loginadmin.html')
+def  resetpassword(request):
+    return render(request,'resetpassword.html')
+
