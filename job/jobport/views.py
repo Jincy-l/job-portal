@@ -435,4 +435,8 @@ def  loginadmin(request):
     return render(request,'loginadmin.html')
 def  resetpassword(request):
     return render(request,'resetpassword.html')
+def indextable(request):
+    return render(request,'indextable.html')
+def emptable(request):
+    return render(request,'emptable.html')
 

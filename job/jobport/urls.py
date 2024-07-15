@@ -41,6 +41,8 @@ urlpatterns = [
     path('docsadmin',views.docsadmin,name='docsadmin'),
     path('loginadmin',views.loginadmin,name='loginadmin'),
     path('resetpassword',views.resetpassword,name='resetpassword'),
+    path('indextable',views.indextable,name='indextable'),
+    path('emptable',views.emptable,name='emptable'),
     
 
     
