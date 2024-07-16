@@ -13884,25 +13884,25 @@ hr {
 
 .table-dark {
     background: #252930;
-    color: #fff
+    color: #00B074;
 }
 
 .table-bordered th,
 .table-bordered td {
-    border-color: #e7e9ed
+    border-color:  #00B074;
 }
 
 .table th,
 .table td {
-    border-color: #e7e9ed
+    border-color:  #00B074;
 }
 
 .table thead th {
-    border-color: #e7e9ed
+    border-color:  #00B074;
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f5f5f5
+    background-color:  #00B074;
 }
 
 .table-dark th,
@@ -13912,33 +13912,33 @@ hr {
 }
 
 .table-hover>tbody>tr:hover {
-    background-color: #fff
+    background-color:  #00B074;
 }
 
 .popover {
-    border-color: #dee1fc
+    border-color:  #00B074;
 }
 
 .bs-popover-left>.arrow::before,
 .bs-popover-auto[x-placement^=left]>.arrow::before {
-    border-left-color: #dee1fc
+    border-left-color:  #00B074;
 }
 
 .bs-popover-right>.arrow::before,
 .bs-popover-auto[x-placement^=right]>.arrow::before {
-    border-right-color: #dee1fc
+    border-right-color:  #00B074;
 }
 
 .bs-popover-top>.arrow::before,
 .bs-popover-auto[data-popper-placement^=top]>.arrow::before,
 .bs-popover-auto[x-placement^=top]>.arrow::before {
-    border-top-color: #dee1fc
+    border-top-color:  #00B074;
 }
 
 .bs-popover-bottom>.arrow::before,
 .bs-popover-auto[data-popper-placement^=bottom]>.arrow::before,
 .bs-popover-auto[x-placement^=bottom]>.arrow::before {
-    border-bottom-color: #dee1fc
+    border-bottom-color:#00B074
 }
 
 a.app-link {
@@ -13982,7 +13982,7 @@ button.close:focus {
 
 .app-btn-primary {
     background: #15a362;
-    color: #fff;
+    color: #00B074;
     border-color: #15a362
 }
 
@@ -14002,7 +14002,7 @@ button.close:focus {
 .app-btn-secondary:hover {
     color: #15a362;
     border: 1px solid #15a362;
-    background: #fff
+    background: #00B074
 }
 
 .btn-light {
@@ -14730,7 +14730,7 @@ button.close:focus {
 .app-card .app-icon-holder {
     display: inline-block;
     background: #edfdf6;
-    color: #15a362;
+    color: #00B074;;
     width: 50px;
     height: 50px;
     padding-top: 10px;
@@ -14740,8 +14740,8 @@ button.close:focus {
 }
 
 .app-card .app-icon-holder.icon-holder-mono {
-    background: #f5f6fe;
-    color: #828d9f
+    background: #00B074;
+    color: #00B074;
 }
 
 .app-card .app-icon-holder svg {
@@ -14767,7 +14767,7 @@ button.close:focus {
 }
 
 .app-card .app-card-body .app-card-actions:hover {
-    background: #f5f6fe
+    background: #00B074;
 }
 
 .app-card .app-card-body .app-card-actions .dropdown-menu {
@@ -14804,7 +14804,7 @@ button.close:focus {
 }
 
 .app-card-doc .app-card-thumb-holder:hover {
-    background: #fafbff
+    background: #00B074;
 }
 
 .app-card-doc .app-card-thumb-holder:hover .thumb-image {
@@ -14826,32 +14826,32 @@ button.close:focus {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: #fff;
+    background: #00B074;
     padding-top: 10px
 }
 
 .app-card-doc .app-card-thumb-holder .icon-holder .pdf-file {
-    color: #da2d27
+    color:#00B074;
 }
 
 .app-card-doc .app-card-thumb-holder .icon-holder .text-file {
-    color: #66a0fd
+    color: #00B074;
 }
 
 .app-card-doc .app-card-thumb-holder .icon-holder .excel-file {
-    color: #0da95f
+    color: #00B074;
 }
 
 .app-card-doc .app-card-thumb-holder .icon-holder .ppt-file {
-    color: #f4b400
+    color: #00B074;
 }
 
 .app-card-doc .app-card-thumb-holder .icon-holder .video-file {
-    color: #935dc1
+    color: #00B074;
 }
 
 .app-card-doc .app-card-thumb-holder .icon-holder .zip-file {
-    color: #252930
+    color:#00B074;
 }
 
 .app-card-doc .app-doc-title {
@@ -14859,7 +14859,7 @@ button.close:focus {
 }
 
 .app-card-doc .app-doc-title a {
-    color: #252930
+    color: #00B074;
 }
 
 .app-card-doc .app-doc-title.truncate {
@@ -14888,8 +14888,8 @@ button.close:focus {
 }
 
 .app-card-orders-table .table .cell {
-    border-color: #e7e9ed;
-    color: #5d6778;
+    border-color: #00B074;
+    color: #00B074;
     vertical-align: middle
 }
 
@@ -14899,7 +14899,7 @@ button.close:focus {
 
 .app-card-orders-table .cell .note {
     display: block;
-    color: #828d9f;
+    color: #00B074;
     font-size: .75rem
 }
 
@@ -14918,18 +14918,18 @@ button.close:focus {
 }
 
 .app-nav-tabs {
-    background: #fff;
+    background: #00B074;
     padding: 0
 }
 
 .app-nav-tabs .nav-link {
-    color: #5d6778;
+    color: #00B074;
     font-size: .875rem;
     font-weight: bold
 }
 
 .app-nav-tabs .nav-link.active {
-    color: #15a362;
+    color: #00B074;
     border-bottom: 2px solid #15a362
 }
 
@@ -14938,8 +14938,8 @@ button.close:focus {
 }
 
 .app-nav-tabs .nav-link:hover {
-    background: #edfdf6;
-    color: #15a362
+    background:  #00B074;
+    color: #00B074;
 }
 
 .app-pagination .pagination {
@@ -14947,18 +14947,18 @@ button.close:focus {
 }
 
 .app-pagination .pagination .page-link {
-    color: #5d6778;
+    color:  #00B074;
     padding: .25rem .5rem
 }
 
 .app-pagination .pagination .page-item.active .page-link {
-    background: #747f94;
-    color: #fff;
-    border-color: #747f94
+    background:  #00B074;
+    color:  #00B074;
+    border-color: #00B074;
 }
 
 .app-pagination .pagination .page-item.disabled .page-link {
-    color: #9fa7b5
+    color:  #00B074;
 }
 
 .app-card-accordion .app-card-title {
@@ -14968,7 +14968,7 @@ button.close:focus {
 .app-card-accordion .faq-accordion .accordion-item {
     border-radius: 0;
     border: none;
-    border-bottom: 1px solid #e7e9ed
+    border-bottom: 1px solid  #00B074;
 }
 
 .app-card-accordion .faq-accordion .accordion-item:last-child {
@@ -14988,7 +14988,7 @@ button.close:focus {
     padding-left: 0;
     font-size: 1rem;
     text-decoration: none;
-    color: #15a362
+    color:  #00B074;
 }
 
 .app-card-accordion .faq-accordion .accordion-button:after {
@@ -15060,7 +15060,7 @@ button.close:focus {
 }
 
 .app-table-hover>tbody>tr:hover {
-    background-color: #fafbff
+    background-color:  #00B074;
 }
 
 .app-card-notification .notification-type .badge {
@@ -15083,7 +15083,7 @@ button.close:focus {
 
 .app-card-notification .notification-meta {
     font-size: .75rem;
-    color: #828d9f
+    color:  #00B074;
 }
 
 .app-card-notification .action-link {
@@ -15091,7 +15091,7 @@ button.close:focus {
 }
 
 .app-card-notification .app-card-footer {
-    background: #fafbff
+    background:  #00B074;
 }
 
 @media(min-width: 1200px) {
@@ -15163,12 +15163,12 @@ button.close:focus {
 
 .auth-background-overlay .overlay-content {
     background: rgba(37, 41, 48, .6);
-    color: #fff
+    color:   #00B074;
 }
 
 .auth-background-overlay .overlay-content a {
     text-decoration: underline;
-    color: #fff
+    color:  #00B074;
 }
 
 .app-auth-footer {
@@ -15179,7 +15179,7 @@ button.close:focus {
 }
 
 .app-auth-wrapper {
-    background: #fff;
+    background:  #00B074;;
     height: 100vh
 }
 
@@ -15197,19 +15197,19 @@ button.close:focus {
 }
 
 .app-auth-wrapper .form-control::-webkit-input-placeholder {
-    color: #828d9f
+    color:  #00B074;
 }
 
 .app-auth-wrapper .form-control:-moz-placeholder {
-    color: #828d9f
+    color:  #00B074;
 }
 
 .app-auth-wrapper .form-control::-moz-placeholder {
-    color: #828d9f
+    color:  #00B074;
 }
 
 .app-auth-wrapper .form-control:-ms-input-placeholder {
-    color: #828d9f
+    color:  #00B074;
 }
 
 .app-auth-wrapper .legal-note {
@@ -15222,11 +15222,11 @@ button.close:focus {
 
 .app-auth-wrapper .extra a {
     text-decoration: underline;
-    color: #828d9f
+    color:  #00B074;
 }
 
 .app-auth-wrapper .extra a:hover {
-    color: #5d6778
+    color:  #00B074;
 }
 
 .app-auth-wrapper .auth-heading-desc {
@@ -15254,4 +15254,53 @@ button.close:focus {
     .app-auth-wrapper .app-auth-body {
         width: 100%
     }
+}
+/* Add some basic styling to center the dropdown on the page */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

@@ -436,7 +436,30 @@ def  loginadmin(request):
 def  resetpassword(request):
     return render(request,'resetpassword.html')
 def indextable(request):
-    return render(request,'indextable.html')
-def emptable(request):
-    return render(request,'emptable.html')
 
+    
+    empr=employer.objects.all()
+
+    context={
+        'empr':empr
+    }
+     
+    return render (request,"indextable.html",context)
+
+    
+def emptable(request):
+    emp=employee.objects.all()
+    context={
+        'emp' :emp
+    }
+    # cl=employee.objects.get(id=id)
+
+    return render(request,'emptable.html',context)
+
+def deletedata(request,id):
+    
+    de=employee.objects.get(id=id)
+    de.delete()
+
+    return redirect(emptable)
+        

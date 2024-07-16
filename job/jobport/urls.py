@@ -14,6 +14,7 @@ urlpatterns = [
     path("jobdetail",views.jobdetail,name='jobdetail'),
     path("joblist",views.joblist,name='joblist'),
     path("testimonial",views.testimonial,name='testimonial'),
+    path("contact",views.contact,name='contact'),
     path("login",views.login,name='login'),
     path("employerlogin",views.employerlogin,name='employerlogin'),
     path("employe",views.employe,name='employe'),
@@ -43,6 +44,7 @@ urlpatterns = [
     path('resetpassword',views.resetpassword,name='resetpassword'),
     path('indextable',views.indextable,name='indextable'),
     path('emptable',views.emptable,name='emptable'),
+    path('deletedate/<int:id>',views.deletedata,name='deletedata'),
     
 
     
