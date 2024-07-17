@@ -414,11 +414,13 @@ def  indexadmin(request):
     totalemployer=len(empr)
     emp=employee.objects.all()
     totalemployee=len(emp)
+    sus=employee.objects.filter(sus=False)
     context={
         'empr':empr,
         'totalemployer':totalemployer,
         'emp':emp,
-        'totalemploye':totalemployee
+        'totalemploye':totalemployee,
+        'sus':sus
 
     } 
     
@@ -448,7 +450,7 @@ def indextable(request):
 
     
 def emptable(request):
-    emp=employee.objects.all()
+    emp=employee.objects.filter(sus=True)
     sus= employee.objects.filter(sus=False)
     context={
         'emp' :emp,
