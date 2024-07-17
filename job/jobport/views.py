@@ -415,12 +415,20 @@ def  indexadmin(request):
     emp=employee.objects.all()
     totalemployee=len(emp)
     sus=employee.objects.filter(sus=False)
+    totalsus=len(sus)
+    rsus=employer.objects.filter(sus=False)
+    totalrsus=len(rsus)
     context={
         'empr':empr,
         'totalemployer':totalemployer,
         'emp':emp,
         'totalemploye':totalemployee,
-        'sus':sus
+        'sus':sus,
+        'totalsus':totalsus,
+        'rsus':rsus,
+        'totalrsus':totalrsus,
+        
+
 
     } 
     
@@ -457,7 +465,7 @@ def emptable(request):
         'sus':sus
     }
     
-    email = request.session['email']
+
     
     
 
