@@ -449,17 +449,23 @@ def indextable(request):
     
 def emptable(request):
     emp=employee.objects.all()
+    sus= employee.objects.filter(sus=False)
     context={
-        'emp' :emp
+        'emp' :emp,
+        'sus':sus
     }
-    # cl=employee.objects.get(id=id)
+    
+    email = request.session['email']
+    
+    
 
     return render(request,'emptable.html',context)
 
 def deletedata(request,id):
     
     de=employee.objects.get(id=id)
-    de.delete()
+    de.sus=False
+    de.save()
     email=de.email
     # otp = random.randint(1000, 9999)
     subject = 'Deleted account'

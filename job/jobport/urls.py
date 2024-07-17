@@ -43,7 +43,7 @@ urlpatterns = [
     path('loginadmin',views.loginadmin,name='loginadmin'),
     path('resetpassword',views.resetpassword,name='resetpassword'),
     path('indextable',views.indextable,name='indextable'),
-    path('emptable',views.emptable,name='emptable'),
+    path('emptable<int:sus>',views.emptable,name='emptable'),
     path('deletedata/<int:id>',views.deletedata,name='deletedata'),
     
 
