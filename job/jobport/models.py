@@ -18,6 +18,7 @@ class employer(models.Model):
       password=models.CharField(max_length=10)
       confirm=models.CharField(max_length=10)
       image=models.ImageField(upload_to='pic')
+      sus=models.BooleanField(default=True)
 
 
       
@@ -38,6 +39,7 @@ class employee(models.Model):
        con=models.CharField(max_length=10)
        resume=models.FileField(upload_to='resume')
        image=models.ImageField(upload_to='p')
+       sus=models.BooleanField(default=True)
        
        def __str__(self):
               return self.email

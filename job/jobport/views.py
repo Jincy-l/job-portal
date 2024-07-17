@@ -460,6 +460,10 @@ def deletedata(request,id):
     
     de=employee.objects.get(id=id)
     de.delete()
-
+    email=de.email
+    # otp = random.randint(1000, 9999)
+    subject = 'Deleted account'
+    message = f'Your account was deleted  '
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [email], fail_silently=False)
     return redirect(emptable)
         
