@@ -4,7 +4,7 @@ import random
 import PyPDF2
 from PyPDF2 import PdfReader
 from django.http import HttpResponse
-
+from django.contrib.auth import authenticate,login
 from django.core.mail import settings,send_mail,EmailMessage
 from django.template.loader import render_to_string
 from django.http import FileResponse
@@ -78,6 +78,9 @@ def employerlogin(request):
             return redirect("index")
        
         else:
+            super_admin=authenticate(username=mail,password=pswd)
+            if super and super_admin.is_superuser:
+                return redirect(indexadmin)
             return redirect('employerlogin')
         
      return render(request,"employerlogin.html")    
@@ -509,3 +512,17 @@ def deletedata(request,id):
     send_mail(subject, message, settings.EMAIL_HOST_USER, [email], fail_silently=False)
     return redirect(emptable)
         
+def search_job(request):
+    if request.method=="POST":
+        jobid=request.POST['jobtitle']
+        jobtype=request.POST['full']
+        city=request.POST['city']
+        print(jobid,jobtype,city)
+        sr=postajob.objects.filter(jobtitle=jobid,jobtype=jobtype,city=city)
+        context={
+            'jobs':sr
+        }
+        return render(request,'search_jobs.html',context)
+
+
+    return redirect(index)        

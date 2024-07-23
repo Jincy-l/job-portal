@@ -46,6 +46,7 @@ urlpatterns = [
     path('emptable',views.emptable,name='emptable'),
     path('deletedata/<int:id>',views.deletedata,name='deletedata'),
     path('signupadmin',views.signupadmin,name='signupadmin'),
+    path('search_job',views.search_job,name='search_job'),
     
 
     
