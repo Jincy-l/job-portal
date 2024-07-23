@@ -16,9 +16,11 @@ from django.http import FileResponse
 
 # Create your views here.
 def index(request):
+    sample_jobs = postajob.objects.order_by('?')[:5]
     jobs=postajob.objects.all()
     context={
-        'jobs':jobs
+        'jobs':jobs,
+        'sample_jobs':sample_jobs
     }
     
 
@@ -442,9 +444,33 @@ def  chartsadmin(request):
 def  docsadmin(request):
     return render(request,'docsadmin.html')
 def  loginadmin(request):
+    if request.method == "POST":
+        
+        mail = request.POST['email']
+        pswd = request.POST['password']
+        
+        admin = adminn.objects.filter(email = mail, password = pswd)
+        if admin.exists():
+            for i in admin:
+                 request.session['email'] = mail
+            adminn.objects.filter(email = mail, password = pswd).update()
+            return redirect("indexadmin")
+       
+        else:
+           return redirect('loginadmin')
+
     return render(request,'loginadmin.html')
 def  resetpassword(request):
     return render(request,'resetpassword.html')
+def signupadmin(request):
+    if request.method =="POST":
+        name= request.POST['fullname']
+        email= request.POST['email']
+        password= request.POST['password']
+        adminn( name=name,email=email, password=password ).save()
+
+
+    return render(request,'signupadmin.html')
 def indextable(request):
 
     

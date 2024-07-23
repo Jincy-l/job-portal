@@ -68,3 +68,8 @@ class apply(models.Model):
        approved=models.BooleanField(default=False)
        rejected=models.BooleanField(default=False)
        applicant=models.ForeignKey(employee,on_delete=models.CASCADE)
+
+class adminn(models.Model):
+       name=models.CharField(max_length=100)
+       email=models.EmailField()
+       password=models.CharField(max_length=100)       

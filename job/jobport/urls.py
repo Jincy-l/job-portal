@@ -45,6 +45,7 @@ urlpatterns = [
     path('indextable',views.indextable,name='indextable'),
     path('emptable',views.emptable,name='emptable'),
     path('deletedata/<int:id>',views.deletedata,name='deletedata'),
+    path('signupadmin',views.signupadmin,name='signupadmin'),
     
 
     
