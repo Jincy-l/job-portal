@@ -38,20 +38,20 @@
             right: 20px;
             display: none; /* Initially hidden */
             z-index: 1000; /* Ensure it appears above other content */
-            background-color: #007bff;
+            background-color:  #00B074;
             color: white;
             border-radius: 50%;
             padding: 10px;
         }
         
         .back-to-top:hover {
-            background-color: #0056b3;
+            background-color: #00B074;
         }
     </style>    
 </head>
 
 <body>
-    <div class="container-xxl bg-white p-0">
+    <div class="container-xxl bg-white p-0" id="home">
         {% comment %} <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -172,17 +172,17 @@
                             <div class="col-md-4">
                                 <select class="form-select border-0" name='full'>
                                     <option selected>Job type</option>
-                                    <option value="1">Full time</option>
-                                    <option value="2">Fresher</option>
-                                    <option value="3">Part-time</option>
-                                    <option value="3">permanent</option>
-                                    <option value="3">Internship</option>
+                                    <option value="Full time">Full time</option>
+                                    <option value="Fresher">Fresher</option>
+                                    <option value="Part-time">Part-time</option>
+                                    <option value="permanent">permanent</option>
+                                    <option value="Internship">Internship</option>
                                 </select>
                             </div>
                             <div class="col-md-4">
                                 <select class="form-select border-0" name='city'>
                                     <option selected>Delhi</option>
-                                    <option value="1">Thiruvananthapuram</option>
+                                    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
                                     <option value="2">Kochi</option>
                                     <option value="3">Chennai</option>
                                 </select>
@@ -686,7 +686,7 @@
 
         <!-- Back to Top -->
         {% comment %} <a href="index" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> {% endcomment %}
-        <a href="index" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <a href="#home" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
         <script>
         // Show the button when the user scrolls down 100px from the top of the document
         window.onscroll = function() {

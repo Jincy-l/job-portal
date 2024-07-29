@@ -73,3 +73,11 @@ class adminn(models.Model):
        name=models.CharField(max_length=100)
        email=models.EmailField()
        password=models.CharField(max_length=100)       
+
+
+class msg(models.Model):
+       name=models.CharField(max_length=100)
+       email=models.EmailField()
+       message=models.CharField(max_length=100)
+       type=models.CharField(max_length=100)
+       

@@ -1,17 +1,19 @@
 {% extends "index.html" %}
 {% block content %}
-{% if job %}
-<div class="tab-content" style='display:none;' id="displayspc">
+{% if jobs %}
+<h1>jobs</h1>
+
+<div class="tab-content">
     <div id="tab-1" class="tab-pane fade show p-0 active">
-        {% for job in jobs %}
+        {% for i in jobs %}
         <div class="job-item p-4 mb-4">
             <div class="row g-4">
                 <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                    <img class="flex-shrink-0 img-fluid border rounded" src="{{job.image}}" alt="" style="width: 80px; height: 80px;">
+                    <img class="flex-shrink-0 img-fluid border rounded" src="{{i.image}}" alt="" style="width: 80px; height: 80px;">
                     <div class="text-start ps-4">
-                        <h5 class="mb-3">{{job.jobtitle}}</h5>
-                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{job.location}}</span>
-                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{job.jobtype}}</span>
+                        <h5 class="mb-3">{{i.jobtitle}}</h5>
+                        <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{i.location}}</span>
+                        <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{i.jobtype}}</span>
                         <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
                     </div>
                 </div>
@@ -19,7 +21,7 @@
                     <div class="d-flex mb-3">
                         <a class="btn btn-light btn-square me-3" href="index"><i class="far fa-heart text-primary"></i></a>
                         <form>
-                            <input style="display: none;" type="text" value="{{job.id}}" name="jobid">
+                            <input style="display: none;" type="text" value="{{i.id}}" name="jobid">
                         <a class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#demo{{forloop.counter}}">Apply Now</a>
                     </form>
                     </div>
@@ -47,17 +49,17 @@
     <!--   Top title box   -->
     <div id="title">
 
-    <input type="text" value="{{job.jobtitle}}" name="jobtitle" style="display: none;">
-    <h2 class="font" id="title">{{job.jobtitle}}</h2>
+    <input type="text" value="{{i.jobtitle}}" name="jobtitle" style="display: none;">
+    <h2 class="font" id="title">{{i.jobtitle}}</h2>
     
-    <input type="text" value="{{job.company}}" name="company" style="display: none;">
-    <p class="font" id="location">{{job.company}}</p>
-    <p class="font" id="email">{{job.city}}</p>
-    <p class="font" id="phone">{{job.pincode}}</p>
-    <p class="font" id="phone">{{job.state}}</p>
+    <input type="text" value="{{i.company}}" name="company" style="display: none;">
+    <p class="font" id="location">{{i.company}}</p>
+    <p class="font" id="email">{{i.city}}</p>
+    <p class="font" id="phone">{{i.pincode}}</p>
+    <p class="font" id="phone">{{i.state}}</p>
     </div>
     <div id="quote">
-    <blockquote><em> ₹{{job.pay}}</em></blockquote>
+    <blockquote><em> ₹{{i.pay}}</em></blockquote>
     </div>
     <hr>
     <!--   Stories of work   -->
@@ -66,7 +68,7 @@
     <P > Education</P>
 
     <ul>
-        <li>{{job.quali}} <a data-toggle="tooltip" title="Book Store" href="https://github.com/ajsherrell/BookStore" target="_blank"></a> </li>
+        <li>{{i.quali}} <a data-toggle="tooltip" title="Book Store" href="https://github.com/ajsherrell/BookStore" target="_blank"></a> </li>
     
     </ul>
     <hr>
@@ -76,9 +78,9 @@
     <div id="portfolio" class="font">
         <h5 class="portfolio">Job details</h5>
         <ul>
-        <li>Pay:₹{{job.pay}} <a data-toggle="tooltip" title="AJ's Github" href="https://github.com/ajsherrell" target="_blank"></a></li>
-        <li>Job Type:{{job.jobtype}}<a data-toggle="tooltip" title="AJ's Linkedin" href="https://www.linkedin.com/in/ajsherrell" target="_blank"></a></li>
-        <li>schedule:{{job.schedule}}<a data-toggle="tooltip" title="AJ's Portfolio" href="https://ajsherrell.github.io" target="-blank"></a></li>
+        <li>Pay:₹{{i.pay}} <a data-toggle="tooltip" title="AJ's Github" href="https://github.com/ajsherrell" target="_blank"></a></li>
+        <li>Job Type:{{i.jobtype}}<a data-toggle="tooltip" title="AJ's Linkedin" href="https://www.linkedin.com/in/ajsherrell" target="_blank"></a></li>
+        <li>schedule:{{i.schedule}}<a data-toggle="tooltip" title="AJ's Portfolio" href="https://ajsherrell.github.io" target="-blank"></a></li>
         
         <hr>
     </div>
@@ -86,8 +88,8 @@
     <div id="achievements" class="font">
         <ul>
         <h5 class="achievements">Location</h5>
-        <li>{{job.city}} </li>
-        <li>{{job.state}} </li>
+        <li>{{i.city}} </li>
+        <li>{{i.state}} </li>
         
         </ul>
         <hr>
@@ -99,7 +101,7 @@
         <h5 class="education">Job Description</h5>
         <ul>
     
-    <li>{{job.jobdes}}</li>
+    <li>{{i.jobdes}}</li>
         
     </div>
     <!--   Work history   -->

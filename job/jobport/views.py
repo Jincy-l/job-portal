@@ -50,11 +50,35 @@ def about(request):
 def category(request):
     return render(request,"category.html")
 def contact(request):
+    email= request.session['email']
+    t=''
+    if employee.objects.filter(em=email).exists():
+        t='employee'
+    else:
+        t='employer'
+    if request.method=="POST":
+        name = request.POST['name']
+        email=request.POST['email']
+        message=request.POST['msg']
+
+        msg(name=name,email=email,message=message,type=t).save()
+        
     return render(request,"contact.html")
 def jobdetail(request):
-    return render(request,"jobdetail.html")
+     jobs=postajob.objects.all()
+     context={
+        'jobs':jobs,
+     }
+
+
+     return render(request,"jobdetail.html",context)
 def joblist(request):
-    return render(request,"joblist.html")
+    jobs=postajob.objects.all()
+    context={
+        'jobs':jobs,
+    }
+
+    return render(request,"joblist.html",context)
 def testimonial(request):
     return render(request,"testimonial.html")
 
@@ -423,6 +447,15 @@ def  indexadmin(request):
     totalsus=len(sus)
     rsus=employer.objects.filter(sus=False)
     totalrsus=len(rsus)
+    # email= request.session['email']
+    # t=''
+    # if employee.objects.filter(em=email).exists():
+    #     t='employee'
+    # else:
+    #     t='employer'
+
+    mess = msg.objects.all()
+      
     context={
         'empr':empr,
         'totalemployer':totalemployer,
@@ -432,6 +465,7 @@ def  indexadmin(request):
         'totalsus':totalsus,
         'rsus':rsus,
         'totalrsus':totalrsus,
+        'mess':mess,
         
 
 
@@ -446,6 +480,8 @@ def  chartsadmin(request):
     return render(request,'chartsadmin.html')
 def  docsadmin(request):
     return render(request,'docsadmin.html')
+def ordersadmin(request):
+    return render(request,'ordersadmin.html')
 def  loginadmin(request):
     if request.method == "POST":
         
@@ -518,11 +554,29 @@ def search_job(request):
         jobtype=request.POST['full']
         city=request.POST['city']
         print(jobid,jobtype,city)
-        sr=postajob.objects.filter(jobtitle=jobid,jobtype=jobtype,city=city)
+        jobs=postajob.objects.filter(jobtitle=jobid,jobtype=jobtype,city=city)
+        print(jobs,'===================================')
         context={
-            'jobs':sr
+            'jobs':jobs
         }
         return render(request,'search_jobs.html',context)
 
 
-    return redirect(index)        
+    return redirect(index)      
+def message(request):
+    # mess = msg.objects.all()
+    mess= msg.objects.filter(type='employer')
+    context={
+        'mess':mess,
+    }
+    return render(request,'message.html',context)
+
+       
+def msgemp(request):
+     mess= msg.objects.filter(type='employee')
+    # mess = msg.objects.all()
+     context={
+        'mess':mess,
+    }
+
+     return render(request,'msgemp.html',context)

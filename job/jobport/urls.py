@@ -47,6 +47,9 @@ urlpatterns = [
     path('deletedata/<int:id>',views.deletedata,name='deletedata'),
     path('signupadmin',views.signupadmin,name='signupadmin'),
     path('search_job',views.search_job,name='search_job'),
+    path('message',views.message,name='message'),
+    path('msgemp',views.msgemp,name='msgemp'),
+    path('ordersadmin',views.ordersadmin,name='ordersadmin')
     
 
     
