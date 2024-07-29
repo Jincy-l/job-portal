@@ -117,7 +117,7 @@
                                             <h5 class="mb-3">{{job.jobtitle}}</h5>
                                             <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{job.location}}</span>
                                             <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{job.jobtype}}</span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>{{job.pay}}</span>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
@@ -125,15 +125,15 @@
                                             <a class="btn btn-light btn-square me-3" href="index"><i class="far fa-heart text-primary"></i></a>
                                             <form>
                                                 <input style="display:none;" type="text" value="{{job.id}}" name="jobid">
-                                            <a class="btn btn-primary" href="jobdetail" data-bs-target="#demo{{forloop.counter}}">Apply Now</a>
+                                            {% comment %} <a class="btn btn-primary" href="jobdetail" data-bs-target="#demo{{forloop.counter}}">Apply Now</a> {% endcomment %}
                                         </div>
-                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                        {% comment %} <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small> {% endcomment %}
                                     </div>
                                 </div>
                             </div>
                             {% endfor %}
                             
-                            <a class="btn btn-primary py-3 px-5" href="index">Browse More Jobs</a>
+                            {% comment %} <a class="btn btn-primary py-3 px-5" href="index">Browse More Jobs</a> {% endcomment %}
                         </div>
                         <div id="tab-2" class="tab-pane fade show p-0">
                             <div class="job-item p-4 mb-4">

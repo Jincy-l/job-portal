@@ -65,7 +65,7 @@ def contact(request):
         
     return render(request,"contact.html")
 def jobdetail(request):
-     id = postajob.objects.get(id=id)
+    #  jobs= postajob.objects.get(id=id)
      jobs=postajob.objects.all()
      context={
         'jobs':jobs,
