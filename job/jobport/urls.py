@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("",views.index,name='index'),
-    # path("index",views.index,name='index'),
+    path("index",views.index,name='index'),
     path("about",views.about,name='about'),
    
     path("error",views.error,name='error'),
@@ -49,7 +49,8 @@ urlpatterns = [
     path('search_job',views.search_job,name='search_job'),
     path('message',views.message,name='message'),
     path('msgemp',views.msgemp,name='msgemp'),
-    path('ordersadmin',views.ordersadmin,name='ordersadmin')
+    path('ordersadmin',views.ordersadmin,name='ordersadmin'),
+    path('updateprofile',views.updateprofile,name='updateprofile'),
     
 
     

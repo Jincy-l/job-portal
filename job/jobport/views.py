@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
 from . models import *
 import random
-import PyPDF2
-from PyPDF2 import PdfReader
+# import PyPDF2
+# from PyPDF2 import PdfReader
 from django.http import HttpResponse
 from django.contrib.auth import authenticate,login
 from django.core.mail import settings,send_mail,EmailMessage
@@ -584,3 +584,26 @@ def msgemp(request):
     }
 
      return render(request,'msgemp.html',context)
+def updateprofile(request):
+    
+    if request.method=='POST': 
+        firstname=request.POST['firstname']
+        lastname=request.POST['lastname']
+        position=request.POST['position']
+        company=request.POST['company']
+        street=request.POST['street']
+       
+        pin=request.POST['zip']
+        
+        code=request.POST['zip']
+        phonenumber=request.POST['phonenumber']
+        email=request.POST['email']
+        password=request.POST['password']
+        # confirm=request.POST['confirm']
+        # image=request.POST['photo']
+        
+        
+        email = request.session['email'] 
+        employer.objects.filter(email=email).update(firstname= firstname, lastname = lastname, position = position, company = company, street=street,   code=code, password = password,phonenumber=phonenumber,email=email)
+       
+    return redirect(profileemlr)
