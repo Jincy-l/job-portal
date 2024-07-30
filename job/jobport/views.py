@@ -47,23 +47,26 @@ def error(request):
     return render(request,"error.html")
 def about(request):
     return render(request,"about.html")
-def category(request):
-    return render(request,"category.html")
-def contact(request):
-    email= request.session['email']
-    t=''
-    if employee.objects.filter(em=email).exists():
-        t='employee'
-    else:
-        t='employer'
-    if request.method=="POST":
-        name = request.POST['name']
-        email=request.POST['email']
-        message=request.POST['msg']
 
-        msg(name=name,email=email,message=message,type=t).save()
-        
-    return render(request,"contact.html")
+def contact(request):
+    try:
+        email= request.session['email']
+        t=''
+        if employee.objects.filter(email=email).exists():
+            t='employee'
+        else:
+            t='employer'
+        if request.method=="POST":
+            name = request.POST['name']
+            email=request.POST['email']
+            message=request.POST['msg']
+
+            msg(name=name,email=email,message=message,type=t).save()
+            
+        return render(request,"contact.html",{'email':email})
+    except:
+        return render(request,"contact.html")
+
 def jobdetail(request):
     #  jobs= postajob.objects.get(id=id)
      jobs=postajob.objects.all()

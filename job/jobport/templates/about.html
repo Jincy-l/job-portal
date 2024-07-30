@@ -64,7 +64,7 @@
                     <div class="nav-item dropdown">
                         <a href="index" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="category" class="dropdown-item">Job Category</a>
+                            {% comment %} <a href="category" class="dropdown-item">Job Category</a> {% endcomment %}
                             <a href="testimonial" class="dropdown-item">Testimonial</a>
                             <a href="error" class="dropdown-item">404</a>
                         </div>
@@ -80,11 +80,11 @@
         <!-- Header End -->
         <div class="container-xxl py-5 bg-dark page-header mb-5">
             <div class="container my-5 pt-5 pb-4">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                {% comment %} <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1> {% endcomment %}
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb text-uppercase">
-                        <li class="breadcrumb-item"><a href="index">Home</a></li>
-                        <li class="breadcrumb-item"><a href="index">Pages</a></li>
+                        {% comment %} <li class="breadcrumb-item"><a href="index">Home</a></li> {% endcomment %}
+                        {% comment %} <li class="breadcrumb-item"><a href="">Pages</a></li> {% endcomment %}
                         <li class="breadcrumb-item text-white active" aria-current="page">About</li>
                     </ol>
                 </nav>
@@ -115,11 +115,12 @@
                     </div>
                     <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                         <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                        <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                        <a class="btn btn-primary py-3 px-5 mt-3" href="index">Read More</a>
+                        <p class="mb-4">
+                             JobEntry is an online platform that connects job seekers with potential employers. It serves as a digital marketplace where employers post job vacancies, and job seekers search and apply for these opportunities.</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Wide Range of Opportunities</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Convenience and Accessibility</p>
+                        <p><i class="fa fa-check text-primary me-3"></i>Resources and Support</p>
+                        {% comment %} <a class="btn btn-primary py-3 px-5 mt-3" href="index">Read More</a> {% endcomment %}
                     </div>
                 </div>
             </div>
@@ -133,58 +134,58 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Company</h5>
-                        <a class="btn btn-link text-white-50" href="index">About Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="about">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact">Contact Us</a>
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Our Services</a>
                         <a class="btn btn-link text-white-50" href="index">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a> {% endcomment %}
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="index">About Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="about">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact">Contact Us</a>
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Our Services</a>
                         <a class="btn btn-link text-white-50" href="index">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a> {% endcomment %}
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Contact</h5>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>Admin@gmail.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/twitter.com"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/facebook.com"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/youtube.com"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/linkedin.com"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    {% comment %} <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Newsletter</h5>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
                             <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
             <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="index">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="index">JobEntry</a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="static/https://htmlcodex.com">HTML Codex</a>
+							{% comment %} Designed B <a class="border-bottom" href="static/https://htmlcodex.com">HTML Codex</a> {% endcomment %}
                         </div>
                         <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
+                            {% comment %} <div class="footer-menu">
                                 <a href="index">Home</a>
                                 <a href="index">Cookies</a>
                                 <a href="index">Help</a>
                                 <a href="index">FQAs</a>
-                            </div>
+                            </div> {% endcomment %}
                         </div>
                     </div>
                 </div>

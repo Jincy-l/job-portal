@@ -83,7 +83,7 @@
                     <div class="nav-item dropdown">
                         <a href="index" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 m-0">
-                            <a href="category" class="dropdown-item">Job Category</a>
+                            {% comment %} <a href="category" class="dropdown-item">Job Category</a> {% endcomment %}
                             <a href="testimonial" class="dropdown-item">Testimonial</a>
                             <a href="error" class="dropdown-item">404</a>
                         </div>
@@ -183,8 +183,8 @@
                                 <select class="form-select border-0" name='city'>
                                     <option selected>Delhi</option>
                                     <option value="Thiruvananthapuram">Thiruvananthapuram</option>
-                                    <option value="2">Kochi</option>
-                                    <option value="3">Chennai</option>
+                                    <option value="Kochi">Kochi</option>
+                                    <option value="Chennai">Chennai</option>
                                 </select>
                             </div>
                       </div>
@@ -282,12 +282,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="static/#tab-2">
-                                <h6 class="mt-n1 mb-0">Full Time</h6>
+                                {% comment %} <h6 class="mt-n1 mb-0">Full Time</h6> {% endcomment %}
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="static/#tab-3">
-                                <h6 class="mt-n1 mb-0">Part Time</h6>
+                                {% comment %} <h6 class="mt-n1 mb-0">Part Time</h6> {% endcomment %}
                             </a>
                         </li>
                     </ul>
@@ -624,57 +624,55 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Company</h5>
-                        <a class="btn btn-link text-white-50" href="index">About Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="index">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="about">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact">Contact Us</a>
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Our Services</a> {% endcomment %}
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Privacy Policy</a> {% endcomment %}
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Terms & Condition</a> {% endcomment %}
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="index">About Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="index">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="index">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="index">Terms & Condition</a>
+                        <a class="btn btn-link text-white-50" href="about">About Us</a>
+                        <a class="btn btn-link text-white-50" href="contact">Contact Us</a>
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Our Services</a> {% endcomment %}
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Privacy Policy</a> {% endcomment %}
+                        {% comment %} <a class="btn btn-link text-white-50" href="index">Terms & Condition</a> {% endcomment %}
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Contact</h5>
                         <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>Admin@gmail.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="index"><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/twitter.com"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/facebook.com"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/youtube.com"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https:/linkedin.com"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    {% comment %} <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Newsletter</h5>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
                             <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                             <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
             <div class="container">
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="index">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="https:/jobportal">JobEntry</a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="static/https://htmlcodex.com">HTML Codex</a>
+							{% comment %} Designed By <a class="border-bottom" href="static/https://htmlcodex.com">HTML Codex</a> {% endcomment %}
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="index">Home</a>
-                                <a href="index">Cookies</a>
-                                <a href="index">Help</a>
-                                <a href="index">FQAs</a>
+                                {% comment %} <a href="index">Home</a> {% endcomment %}
+                                
                             </div>
                         </div>
                     </div>
