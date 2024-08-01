@@ -113,7 +113,9 @@
                   {% comment %} <a href="login" class="nav-item nav-link">login</a> {% endcomment %}
 
                 </div>
+                {% if employer == True %}
                 <a href="postajob" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+                {% endif %}
             </div>
         </nav>
         <!-- Navbar End -->
@@ -129,9 +131,9 @@
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You Deserved</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="index" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="index" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Discover opportunities that align with your skills and aspirations. Whether you're starting your career or seeking a new challenge, we provide resources and support to help you reach your professional goals. Unlock your potential and take the next step towards a fulfilling career with us..</p>
+                                    {% comment %} <a href="index" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a> {% endcomment %}
+                                    {% comment %} <a href="index" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a> {% endcomment %}
                                 </div>
                             </div>
                         </div>
@@ -144,9 +146,9 @@
                             <div class="row justify-content-start">
                                 <div class="col-10 col-lg-8">
                                     <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That Fit You</h1>
-                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
-                                    <a href="index" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a>
-                                    <a href="index" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                                    <p class="fs-5 fw-medium text-white mb-4 pb-2">Embark on an exciting career journey with a dynamic startup that matches your passion and skills. Explore innovative opportunities that challenge the status quo and offer immense growth potential. Join a vibrant community of trailblazers and make a significant impact from day one. Discover your ideal startup job and shape your future with us.</p>
+                                    {% comment %} <a href="index" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A Job</a> {% endcomment %}
+                                    {% comment %} <a href="index" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a> {% endcomment %}
                                 </div>
                             </div>
                         </div>
@@ -268,7 +270,7 @@
         </div>
         <!-- About End -->
 
-
+        {% if employee == True %}
         <!-- Jobs Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -291,6 +293,8 @@
                             </a>
                         </li>
                     </ul>
+                    
+
                     <div class="tab-content" id="displayall">
                         <div id="tab-1" class="tab-pane fade show p-0 active">
                             {% for job in sample_jobs %}
@@ -546,7 +550,7 @@
                                                                                 
                                           
 
-
+{% endif %}
 
 
 
@@ -562,7 +566,7 @@
 
 
         <!-- Testimonial Start -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        {% comment %} <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
             <div class="container">
                 <h1 class="text-center mb-5"></h1>
                 <div class="owl-carousel testimonial-carousel">
@@ -613,7 +617,7 @@
                 </div>
             </div>
         </div>
-        <!-- Testimonial End -->
+        <!-- Testimonial End --> {% endcomment %}
         
 
 {% endblock %}
@@ -708,8 +712,8 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="static/https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="static/https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="static/lib/wow/wow.min.js"></script>
     <script src="static/lib/easing/easing.min.js"></script>
     <script src="static/lib/waypoints/waypoints.min.js"></script>

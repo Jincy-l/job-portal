@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate,login
 from django.core.mail import settings,send_mail,EmailMessage
 from django.template.loader import render_to_string
 from django.http import FileResponse
+from django.contrib import messages
 # Create your views here.
 
 
@@ -28,16 +29,30 @@ def index(request):
         email= request.session['email']
         if employer.objects.filter(email=email).exists():
             image=employer.objects.filter(email=email)
-        else:
-            image=employee.objects.filter(email=email)
-
-        for i in image:
-            img = i.image
+            for i in image:
+                img = i.image
             context={
                 'email':email,
                 'image':img,
                 'jobs':jobs,
-            }        
+                'sample_jobs':sample_jobs,
+                'employer':True
+            } 
+        else:
+            image=employee.objects.filter(email=email)
+            for i in image:
+                img = i.image
+            context={
+                'email':email,
+                'image':img,
+                'jobs':jobs,
+                'sample_jobs':sample_jobs,
+                'employee':True
+            } 
+
+         
+
+            print(sample_jobs)      
 
         return render(request,"index.html",context)
     except:
@@ -96,6 +111,10 @@ def employerlogin(request):
         pswd = request.POST['password']
         
         user = employer.objects.filter(email = mail, password = pswd)
+
+        if  employee.objects.filter(email = mail, password = pswd).exists():
+            messages.error(request, 'user not an employer')
+            return redirect('employerlogin')
         
         if user.exists():
             for i in user:
@@ -107,9 +126,17 @@ def employerlogin(request):
        
         else:
             super_admin=authenticate(username=mail,password=pswd)
-            if super and super_admin.is_superuser:
-                return redirect(indexadmin)
-            return redirect('employerlogin')
+            
+
+            if super_admin is not None:
+                if super_admin.is_superuser:
+                    return redirect(indexadmin)
+            else:
+
+                messages.error(request, 'invalid credintiols')
+                return redirect('employerlogin')
+            
+        
         
      return render(request,"employerlogin.html")    
 
@@ -120,6 +147,14 @@ def employe(request):
         pswd = request.POST['password']
         
         user = employee.objects.filter(email = mail, password = pswd)
+
+        if  employer.objects.filter(email = mail, password = pswd).exists():
+            messages.error(request, 'user not an employee')
+            return redirect('employe')
+
+
+        
+
         
         if user.exists():
             request.session['email'] = mail
@@ -127,7 +162,8 @@ def employe(request):
             return redirect("index")
        
         else:
-            return redirect('employe')
+            messages.error(request, 'invalid credintiols')
+            return redirect('employerlogin')
         
       return render(request,"employe.html")
 
@@ -149,7 +185,7 @@ def regemplr(request):
         password = request.POST['password']
         Confirm = request.POST['confirm']
         pin=request.POST['zip']
-        position=request.POST['postion']
+        position=request.POST['position']
         print(Name)
         print(company)
         image = request.FILES.get('photo')
