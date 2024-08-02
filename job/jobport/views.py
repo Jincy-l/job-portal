@@ -623,23 +623,61 @@ def msgemp(request):
 def updateprofile(request):
     
     if request.method=='POST': 
-        firstname=request.POST['firstname']
-        lastname=request.POST['lastname']
-        position=request.POST['position']
-        company=request.POST['company']
-        street=request.POST['street']
-       
-        pin=request.POST['zip']
         
-        code=request.POST['zip']
-        phonenumber=request.POST['phonenumber']
-        email=request.POST['email']
-        password=request.POST['password']
         # confirm=request.POST['confirm']
         # image=request.POST['photo']
         
         
         email = request.session['email'] 
-        employer.objects.filter(email=email).update(firstname= firstname, lastname = lastname, position = position, company = company, street=street,   code=code, password = password,phonenumber=phonenumber,email=email)
-       
-    return redirect(profileemlr)
+        if employee.objects.filter(email=email).exists():
+            firstname=request.POST['firstname']
+            lastname=request.POST['lastname']
+            position=request.POST['position']
+            company=request.POST['company']
+            street=request.POST['street']
+        
+            pin=request.POST['zip']
+            
+            code=request.POST['zip']
+            phonenumber=request.POST['phonenumber']
+            email=request.POST['email']
+            password=request.POST['password']
+            print(email)
+            empee=employee.objects.get(email=email)
+            empee.firstname= firstname
+            empee.lastname = lastname
+            empee.position = position
+            empee.company = company
+            empee.street=street   
+            empee.code=code 
+            empee.password = password
+            empee.phonenumber=phonenumber
+            empee.email=email
+            empee.save()
+        elif employer.objects.filter(email=email).exists():
+            firstname=request.POST['firstname']
+            lastname=request.POST['lastname']
+            position=request.POST['position']
+            company=request.POST['company']
+            street=request.POST['street']
+        
+            pin=request.POST['zip']
+            
+            code=request.POST['zip']
+            phonenumber=request.POST['phonenumber']
+            email=request.POST['email']
+            password=request.POST['password']
+            print(email)
+
+            emply=employer.objects.get(email=email)
+            emply.firstname= firstname
+            emply.lastname = lastname
+            emply.position = position 
+            emply.company = company
+            emply.street=street   
+            emply.code=code 
+            emply.password = password
+            emply.phonenumber=phonenumber
+            emply.email=email
+            emply.save()
+    return redirect(profileemp)
