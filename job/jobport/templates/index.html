@@ -329,11 +329,7 @@
                             <div class="card">
                             <div class="card-header  " >
                                                             
-                                                            
-                                        <!-- <!DOCTYPE html> -->
-<!-- <html> -->
-
-                        
+                       
                         
                     <form action="{% url 'applyjob' %}"  method="POST" >
                         {% csrf_token %}
@@ -427,15 +423,15 @@
 
                                             <div class="tab-content" style='display:none;' id="displayspc">
                                                 <div id="tab-1" class="tab-pane fade show p-0 active">
-                                                    {% for job in jobs %}
+                                                    {% for jo in jobs %}
                                                     <div class="job-item p-4 mb-4">
                                                         <div class="row g-4">
                                                             <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                                                <img class="flex-shrink-0 img-fluid border rounded" src="{{job.image}}" alt="" style="width: 80px; height: 80px;">
+                                                                <img class="flex-shrink-0 img-fluid border rounded" src="{{jo.image}}" alt="" style="width: 80px; height: 80px;">
                                                                 <div class="text-start ps-4">
-                                                                    <h5 class="mb-3">{{job.jobtitle}}</h5>
-                                                                    <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{job.location}}</span>
-                                                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{job.jobtype}}</span>
+                                                                    <h5 class="mb-3">{{jo.jobtitle}}</h5>
+                                                                    <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{jo.location}}</span>
+                                                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{jo.jobtype}}</span>
                                                                     <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
                                                                 </div>
                                                             </div>
@@ -443,7 +439,7 @@
                                                                 <div class="d-flex mb-3">
                                                                     <a class="btn btn-light btn-square me-3" href="index"><i class="far fa-heart text-primary"></i></a>
                                                                     <form>
-                                                                        <input style="display: none;" type="text" value="{{job.id}}" name="jobid">
+                                                                        <input style="display: none;" type="text" value="{{jo.id}}" name="jobid">
                                                                     <a class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#demo{{forloop.counter}}">Apply Now</a>
                                                                 </form>
                                                                 </div>
@@ -459,11 +455,7 @@
                                                     <div class="card">
                                                     <div class="card-header  " >
                                                                                     
-                                                                                    
-                                                                <!-- <!DOCTYPE html> -->
-                        <!-- <html> -->
-                        
-                                                
+                                                                            
                                                 
                                             <form action="{% url 'applyjob' %}"  method="POST" >
                                                 {% csrf_token %}
@@ -471,17 +463,17 @@
                                                 <!--   Top title box   -->
                                                 <div id="title">
                         
-                                                <input type="text" value="{{job.jobtitle}}" name="jobtitle" style="display: none;">
-                                                <h2 class="font" id="title">{{job.jobtitle}}</h2>
+                                                <input type="text" value="{{jo.jobtitle}}" name="jobtitle" style="display: none;">
+                                                <h2 class="font" id="title">{{jo.jobtitle}}</h2>
                                                 
                                                 <input type="text" value="{{job.company}}" name="company" style="display: none;">
-                                                <p class="font" id="location">{{job.company}}</p>
-                                                <p class="font" id="email">{{job.city}}</p>
-                                                <p class="font" id="phone">{{job.pincode}}</p>
-                                                <p class="font" id="phone">{{job.state}}</p>
+                                                <p class="font" id="location">{{jo.company}}</p>
+                                                <p class="font" id="email">{{jo.city}}</p>
+                                                <p class="font" id="phone">{{jo.pincode}}</p>
+                                                <p class="font" id="phone">{{jo.state}}</p>
                                                 </div>
                                                 <div id="quote">
-                                                <blockquote><em> ₹{{job.pay}}</em></blockquote>
+                                                <blockquote><em> ₹{{jo.pay}}</em></blockquote>
                                                 </div>
                                                 <hr>
                                                 <!--   Stories of work   -->
@@ -490,7 +482,7 @@
                                                 <P > Education</P>
                         
                                                 <ul>
-                                                    <li>{{job.quali}} <a data-toggle="tooltip" title="Book Store" href="https://github.com/ajsherrell/BookStore" target="_blank"></a> </li>
+                                                    <li>{{jo.quali}} <a data-toggle="tooltip" title="Book Store" href="https://github.com/ajsherrell/BookStore" target="_blank"></a> </li>
                                                 
                                                 </ul>
                                                 <hr>
@@ -500,9 +492,9 @@
                                                 <div id="portfolio" class="font">
                                                     <h5 class="portfolio">Job details</h5>
                                                     <ul>
-                                                    <li>Pay:₹{{job.pay}} <a data-toggle="tooltip" title="AJ's Github" href="https://github.com/ajsherrell" target="_blank"></a></li>
-                                                    <li>Job Type:{{job.jobtype}}<a data-toggle="tooltip" title="AJ's Linkedin" href="https://www.linkedin.com/in/ajsherrell" target="_blank"></a></li>
-                                                    <li>schedule:{{job.schedule}}<a data-toggle="tooltip" title="AJ's Portfolio" href="https://ajsherrell.github.io" target="-blank"></a></li>
+                                                    <li>Pay:₹{{jo.pay}} <a data-toggle="tooltip" title="AJ's Github" href="https://github.com/ajsherrell" target="_blank"></a></li>
+                                                    <li>Job Type:{{jo.jobtype}}<a data-toggle="tooltip" title="AJ's Linkedin" href="https://www.linkedin.com/in/ajsherrell" target="_blank"></a></li>
+                                                    <li>schedule:{{jo.schedule}}<a data-toggle="tooltip" title="AJ's Portfolio" href="https://ajsherrell.github.io" target="-blank"></a></li>
                                                     
                                                     <hr>
                                                 </div>
@@ -510,8 +502,8 @@
                                                 <div id="achievements" class="font">
                                                     <ul>
                                                     <h5 class="achievements">Location</h5>
-                                                    <li>{{job.city}} </li>
-                                                    <li>{{job.state}} </li>
+                                                    <li>{{jo.city}} </li>
+                                                    <li>{{jo.state}} </li>
                                                     
                                                     </ul>
                                                     <hr>
@@ -523,7 +515,7 @@
                                                     <h5 class="education">Job Description</h5>
                                                     <ul>
                                                 
-                                                <li>{{job.jobdes}}</li>
+                                                <li>{{jo.jobdes}}</li>
                                                     
                                                 </div>
                                                 <!--   Work history   -->
@@ -531,7 +523,7 @@
                                                 </div>
                                             </div>
                         
-                                                                                    <input style="display: none;" type='number' value="{{job.id}}" name="jobid">
+                                                                                    <input style="display: none;" type='number' value="{{jo.id}}" name="jobid">
                                                                                 <button type="submit" class="btn btn-secondary" type="button">Apply</button>
                                                                                 </form>
                                                                             </div>

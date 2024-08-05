@@ -10,6 +10,34 @@
 	<link rel="stylesheet" type="text/css" href="static/fonts1/material-design-iconic-font/css/material-design-iconic-font.min.css">
 	<!-- Main Style Css -->
     <link rel="stylesheet" href="static/css6/style.css"/>
+	<style>
+		.register {
+			display: inline-block;
+			width: 48%;
+			padding: 12px 20px;
+			font-size: 16px;
+			color: #fff;
+			background-color: #4CAF50;
+			border: none;
+			border-radius: 5px;
+			text-align: center;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			box-sizing: border-box;
+		}
+		
+		.register:hover {
+			background-color: #45a049;
+		}
+		
+		button {
+			border: none;
+			background: none;
+			padding: 0;
+			margin: 0;
+			cursor: pointer;
+		}
+	</style>
 </head>
 <body class="form-v10">
 	<div class="page-content">
@@ -165,14 +193,13 @@
 							
 						</div> {% endcomment %}
 					
-					<div class="form-row-last">
-						<a style="width: 100%;" href="">
-						<input type="submit" name="register" class="register" value="Register ">
-						</a>
-					</div>
+						<div class="form-row-last">
+							<input type="submit" name="register" class="register" value="Register">
+							<button type="button" class="register" onclick="window.location.href='index';">Home</button>
+						</div>
 				</div>
 			</form>
 		</div>
 	</div>
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 </html>

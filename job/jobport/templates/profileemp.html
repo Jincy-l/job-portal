@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile Page</title>
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
-    <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
 </head>
 <style>
     body {
@@ -17,110 +16,175 @@
         font-weight: bold;
         font-size: 14px;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        line-height: 1.8;  
+        line-height: 1.8;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #BA68C8;  
-     
+
+    .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        align-items: center;
     }
-    
+
+    .profile-header {
+        text-align: center;
+        margin-right: 20px;
+    }
+
+    .profile-header img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+    }
+
+    .profile-header h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .profile-header p {
+        color: #6c757d;
+        margin-bottom: 5px;
+    }
+
+    .profile-details {
+        flex-grow: 1;
+    }
+
+    .labels {
+        font-size: 12px;
+        color: #495057;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        margin-bottom: 20px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px;
+    }
+
     .profile-button {
         background: rgb(99, 39, 120);
-        box-shadow: none;
         border: none;
     }
-    
+
     .profile-button:hover {
         background: #682773;
     }
-    
-    .profile-button:focus {
-        background: #682773;
-        box-shadow: none;
-    }
-    
-    .profile-button:active {
-        background: #682773;
-        box-shadow: none;
-    }
-    
-    .back:hover {
-        color: #682773;
-        cursor: pointer;
-    }
-    
-    .labels {
-        font-size: 11px;
-    }
-    input{
-        background: rgb(99, 39, 120);
-        border: none; 
-    }
-    form{
-        margin: auto;
 
+    .profile-button a {
+        color: white;
+        text-decoration: none;
     }
-
-
 </style>
 <body>
-
-    <h1>profile</h1>
-
-    <form action= "{% url 'profileemp' %}" method="POST" enctype="multipart/form-data">
-        {% for registration in registrations %}
+    <form action="{% url 'profileemp' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-
-        <div class="container rounded bg-white mt-4 mb-5">
-            <div class="row ml-5">
-                <div class="col-md-5 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-6 py-5"><img class="rounded-circle mt-3" width="180px" name="photo" type="file" src="{{registration.image}}"><span class="font-weight-bold">{{ registration.name }}</span><span class="text-black-50">{{ registration.email }}</span><span> </span><div class="mt-5 text-center"><button class="btn btn-primary profile-button"><a href="myjobs">My Jobs</a></button></div>
-</div>
-                </div>
-
-            <div class="col-md-5 border-right"> 
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile</h4>
-                    </div>
-                   
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname"></div>
-                         <div class="col-md-6"><label class="labels">Latname</label><input type="text" class="form-control" value=" {{ registration.lastname }}" name="lastname" ></div>
-                    </div>
-                    <div class="row mt-3">
-                        
-                        <div class="col-md-12"><label class="labels">Job</label><input type="text" class="form-control" value=" {{ registration.job }}" name="street"></div>
-                        <div class="col-md-12"><label class="labels">skills</label><input type="text" class="form-control" value=" {{ registration.skills }}" name="company"></div> 
-                        <div class="col-md-12"><label class="labels">Qualification</label><input type="text" class="form-control" value="{{ registration.highqua  }}" name="qua"></div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">city</label><input type="text" class="form-control" value="{{ registration.city}}" name="position"></div>
-                            <div class="col-md-6"><label class="labels">contry</label><input type="text" class="form-control" value="{{ registration.country }}" name="street"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Phone Number</label><input type="text" class="form-control" value="{{ registration.phonenumber }}" name="phonenumber"></div>
-                            <div class="col-md-6"><label class="labels">Pincode</label><input type="text" class="form-control" value="{{ registration.Pin}}" name="zip"></div>
-                        </div>
-                        {% comment %} <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Place</label><input type="text" class="form-control" value="{{ registration.place }}" name="place"></div>
-                            <div class="col-md-6"><label class="labels">Street</label><input type="text" class="form-control" value="{{ registration.street }}" name="street"></div>
-                        </div> {% endcomment %}
-                       
-                        {% comment %} <div class="col-md-12"><label class="labels">File</label><input type="file" class="form-control" value="{{ registration.file }}" name="file"></div>        {% endcomment %}
-                         <div class="col-md-12"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="email"></div>
-                        <div class="col-md-12"><label class="labels">Password</label><input type="text" class="form-control"value="{{ registration.password }}" name="pswd"></div>
-                    </div>
-                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button"><input type="submit" value="Save Profile"></button></div>
+        {% for registration in registrations %}
+        
+        <div class="container">
+            <div class="profile-header">
+                <img src="{{registration.image}}" alt="Profile Image">
+                <h2>{{ registration.name }}</h2>
+                <p>{{ registration.email }}</p>
+                <div class="btn-container">
+                    <button class="btn btn-primary profile-button">
+                        <a href="myjobs">My Jobs</a>
+                    </button>
+                    <button class="btn btn-primary profile-button ml-3">
+                        <a href=" {% url 'index' %} ">Home</a>
+                    </button>
                 </div>
             </div>
-            
+
+            <div class="profile-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">First Name</label>
+                        <input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Last Name</label>
+                        <input type="text" class="form-control" value="{{ registration.lastname }}" name="lastname">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Job</label>
+                        <input type="text" class="form-control" value="{{ registration.job }}" name="street">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Skills</label>
+                        <input type="text" class="form-control" value="{{ registration.skills }}" name="company">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Qualification</label>
+                        <input type="text" class="form-control" value="{{ registration.highqua }}" name="qua">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">City</label>
+                        <input type="text" class="form-control" value="{{ registration.city }}" name="position">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Country</label>
+                        <input type="text" class="form-control" value="{{ registration.country }}" name="street">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Phone Number</label>
+                        <input type="text" class="form-control" value="{{ registration.phonenumber }}" name="phonenumber">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Pincode</label>
+                        <input type="text" class="form-control" value="{{ registration.Pin }}" name="zip">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Email ID</label>
+                        <input type="email" class="form-control" value="{{ registration.email }}" name="email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="labels">Password</label>
+                        <input type="password" class="form-control" value="{{ registration.password }}" name="pswd">
+                    </div>
+                </div>
+
+                <div class="btn-container mt-5">
+                    <button class="btn btn-primary profile-button">
+                        <input type="submit" value="Save Profile">
+                    </button>
+                </div>
+            </div>
         </div>
-    </div>
-    </div>
-    </div>
-    {% endfor %}
-</form>
+
+        {% endfor %}
+    </form>
 </body>
-</html> 
+</html>

@@ -22,43 +22,73 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
     }
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #BA68C8;
+
+    .container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+        padding: 30px;
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        align-items: center;
     }
+
+    .profile-header {
+        text-align: center;
+        margin-right: 20px;
+    }
+
+    .profile-header img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        object-fit: cover;
+    }
+
+    .profile-header h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .profile-header p {
+        color: #6c757d;
+        margin-bottom: 5px;
+    }
+
+    .profile-details {
+        flex-grow: 1;
+    }
+
+    .labels {
+        font-size: 12px;
+        color: #495057;
+        margin-bottom: 5px;
+    }
+
+    .form-control {
+        margin-bottom: 20px;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px;
+    }
+
     .profile-button {
         background: rgb(99, 39, 120);
-        box-shadow: none;
         border: none;
     }
-    .profile-button:hover, .profile-button:focus, .profile-button:active {
+
+    .profile-button:hover {
         background: #682773;
-        box-shadow: none;
     }
-    .back:hover {
-        color: #682773;
-        cursor: pointer;
-    }
-    .labels {
-        font-size: 11px;
-    }
-    input {
-        background: rgb(99, 39, 120);
-        border: none;
-    }
-    form {
-        margin: auto;
-        width: 100%;
-    }
-    .applicant-button-container {
-        position: absolute;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .applicant-button-container a {
+
+    .profile-button a {
         color: white;
         text-decoration: none;
     }
@@ -68,46 +98,82 @@
         {% csrf_token %}
         {% for registration in registrations %}
         
-        <div class="container rounded bg-white mt-4 mb-5">
-            <div class="row ml-5">
-                <div class="col-md-5 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-6 py-5">
-                        <img class="rounded-circle mt-3" width="180px" name="photo" type="file" src="{{registration.image}}">
-                        <span class="font-weight-bold">{{ registration.name }}</span>
-                        <span class="text-black-50">{{ registration.email }}</span>
-                        <span> </span>
+        <div class="container">
+            <div class="profile-header">
+                <img src="{{registration.image}}" alt="Profile Image">
+                <h2>{{ registration.name }}</h2>
+                <p>{{ registration.email }}</p>
+            </div>
+
+            <div class="profile-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">First Name</label>
+                        <input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Last Name</label>
+                        <input type="text" class="form-control" value="{{ registration.lastname }}" name="lastname">
                     </div>
                 </div>
-                <div class="col-md-5 border-right"> 
-                    <div class="p-3 py-5">
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname"></div>
-                            <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control" value="{{ registration.lastname }}" name="lastname"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Company</label><input type="text" class="form-control" value="{{ registration.company }}" name="company"></div>
-                            <div class="col-md-12"><label class="labels">Description</label><input type="text" class="form-control" value="{{ registration.addimfor }}" name="company"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Position</label><input type="text" class="form-control" value="{{ registration.position }}" name="position"></div>
-                            <div class="col-md-6"><label class="labels">Street</label><input type="text" class="form-control" value="{{ registration.street }}" name="street"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><label class="labels">Phone Number</label><input type="text" class="form-control" value="{{ registration.phonenumber }}" name="phonenumber"></div>
-                            <div class="col-md-6"><label class="labels">Pincode</label><input type="text" class="form-control" value="{{ registration.pin }}" name="zip"></div>
-                        </div>
-                        <div class="col-md-12 mt-3"><label class="labels">Email ID</label><input type="email" class="form-control" value="{{ registration.email }}" name="email"></div>
-                        <div class="col-md-12 mt-3"><label class="labels">Password</label><input type="text" class="form-control" value="{{ registration.password }}" name="password"></div>
-                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button"><input type="submit" value="Save Profile"></button></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Company</label>
+                        <input type="text" class="form-control" value="{{ registration.company }}" name="company">
                     </div>
+                    <div class="col-md-6">
+                        <label class="labels">Position</label>
+                        <input type="text" class="form-control" value="{{ registration.position }}" name="position">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Street</label>
+                        <input type="text" class="form-control" value="{{ registration.street }}" name="street">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Phone Number</label>
+                        <input type="text" class="form-control" value="{{ registration.phonenumber }}" name="phonenumber">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Pincode</label>
+                        <input type="text" class="form-control" value="{{ registration.pin }}" name="zip">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Email ID</label>
+                        <input type="email" class="form-control" value="{{ registration.email }}" name="email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="labels">Description</label>
+                        <input type="text" class="form-control" value="{{ registration.addimfor }}" name="company">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="labels">Password</label>
+                        <input type="password" class="form-control" value="{{ registration.password }}" name="password">
+                    </div>
+                </div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn btn-primary profile-button">Save Profile</button>
+                    <button type="button" class="btn btn-primary profile-button ml-3">
+                        <a href="Applied">Applicants</a>
+                    </button>
+                    <button type="button" class="btn btn-primary profile-button ml-3">
+                        <a href=" {% url 'index'  %} ">Home</a>
+                    </button>
                 </div>
             </div>
-        </div>
-
-        <div class="applicant-button-container">
-            <button type="submit" class="btn btn-primary profile-button">
-                <a href="Applied">Applicants</a>
-            </button>
         </div>
 
         {% endfor %}
