@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . models import *
+from .models import *
 import random
 # import PyPDF2
 # from PyPDF2 import PdfReader
@@ -9,6 +9,9 @@ from django.core.mail import settings,send_mail,EmailMessage
 from django.template.loader import render_to_string
 from django.http import FileResponse
 from django.contrib import messages
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .models import employee, employer
 
 
 
@@ -600,8 +603,7 @@ def search_job(request):
         jobs=postajob.objects.filter(jobtitle=jobid,jobtype=jobtype,city=city)
         print(jobs,'===================================')
         context={
-            'jobs':jobs
-        }
+            'jobs':jobs        }
         return render(request,'search_jobs.html',context)
 
 
@@ -623,64 +625,143 @@ def msgemp(request):
     }
 
      return render(request,'msgemp.html',context)
-def updateprofile(request):
-    
-    if request.method=='POST': 
+
+# def updateprofile(request):    
+#     if request.method=='POST': 
         
         # confirm=request.POST['confirm']
         # image=request.POST['photo']
         
-        
-        email = request.session['email'] 
-        if employee.objects.filter(email=email).exists():
-            firstname=request.POST['firstname']
-            lastname=request.POST['lastname']
-            position=request.POST['position']
-            company=request.POST['company']
-            street=request.POST['street']
-        
-            pin=request.POST['zip']
-            
-            code=request.POST['zip']
-            phonenumber=request.POST['phonenumber']
-            email=request.POST['email']
-            password=request.POST['password']
-            print(email)
-            empee=employee.objects.get(email=email)
-            empee.firstname= firstname
-            empee.lastname = lastname
-            empee.position = position
-            empee.company = company
-            empee.street=street   
-            empee.code=code 
-            empee.password = password
-            empee.phonenumber=phonenumber
-            empee.email=email
-            empee.save()
-        elif employer.objects.filter(email=email).exists():
-            firstname=request.POST['firstname']
-            lastname=request.POST['lastname']
-            position=request.POST['position']
-            company=request.POST['company']
-            street=request.POST['street']
-        
-            pin=request.POST['zip']
-            
-            code=request.POST['zip']
-            phonenumber=request.POST['phonenumber']
-            email=request.POST['email']
-            password=request.POST['password']
-            print(email)
+        # email = request.session['email']
 
-            emply=employer.objects.get(email=email)
-            emply.firstname= firstname
-            emply.lastname = lastname
-            emply.position = position 
-            emply.company = company
-            emply.street=street   
-            emply.code=code 
-            emply.password = password
-            emply.phonenumber=phonenumber
-            emply.email=email
-            emply.save()
-    return redirect(profileemp)
+        # if employee.objects.filter(email=email).exists():
+            # firstname=request.POST['firstname']
+            # lastname=request.POST['lastname']
+            # position=request.POST['position']
+            # company=request.POST['company']
+            # street=request.POST['street']
+        
+            # pin=request.POST['zip']
+            
+            # code=request.POST['zip']
+            # phonenumber=request.POST['phonenumber']
+            # email=request.POST['email']
+            # password=request.POST['password']
+            
+        #     print(email)
+
+        #     empee = employee.objects.get(email=email)
+        #     empee.firstname = request.POST['firstname']
+        #     empee.lastname = request.POST['lastname']
+        #     empee.job = request.POST['position']
+        #     empee.skills = request.POST['company']
+        #     empee.Street = request.POST['street']
+        #     empee.Pin = int(request.POST['zip'])
+        #     empee.highqua = request.POST['qua']
+        #     empee.city = request.POST['position']
+        #     empee.country = request.POST['country']
+        #     empee.code = int(request.POST['zip'])
+        #     empee.phonenumber = int(request.POST['phonenumber'])
+        #     empee.email = request.POST['email']
+        #     empee.password = request.POST['pswd']
+        #     empee.save()
+
+        # elif employer.objects.filter(email=email).exists():
+
+            # emply = employer.objects.get(email=email)
+            # emply.firstname = request.POST['firstname']
+            # emply.lastname = request.POST['lastname']
+            # emply.position = request.POST['position']
+            # emply.company = request.POST['company']
+            # emply.street = request.POST['street']
+            # emply.pin = int(request.POST['zip'])
+            # emply.country = request.POST['country']
+            # emply.code = int(request.POST['zip'])
+            # emply.phonenumber = int(request.POST['phonenumber'])
+            # emply.email = request.POST['email']
+            # emply.password = request.POST['pswd']
+            # emply.save()
+
+
+
+            # firstname=request.POST['firstname']
+            # lastname=request.POST['lastname']
+            # position=request.POST['position']
+            # company=request.POST['company']
+            # street=request.POST['street']
+        
+            # pin=request.POST['zip']
+            
+            # code=request.POST['zip']
+            # phonenumber=request.POST['phonenumber']
+            # email=request.POST['email']
+            # password=request.POST['password']
+            # print(email)
+
+            # emply=employer.objects.get(email=email)
+            # emply.firstname= firstname
+            # emply.lastname = lastname
+            # emply.position = position 
+            # emply.company = company
+            # emply.street=street   
+            # emply.code=code 
+            # emply.password = password
+            # emply.phonenumber=phonenumber
+            # emply.email=email
+            # emply.save()
+    # return redirect(profileemp)
+# def checkemail(request):
+#     email=request
+
+
+
+def updateprofile(request):
+    if request.method == 'POST':
+        email = request.session.get('email')
+        if not email:
+            messages.error(request, "No email found in session.")
+            return redirect('login')
+
+        try:
+            if employee.objects.filter(email=email).exists():
+                empee = employee.objects.get(email=email)
+                empee.firstname = request.POST.get('firstname')
+                empee.lastname = request.POST.get('lastname')
+                empee.job = request.POST.get('job')
+                empee.skills = request.POST.get('skills')
+                empee.Street = request.POST.get('street')
+                empee.Pin = int(request.POST.get('zip', 0))
+                empee.city = request.POST.get('city', '')
+                empee.country = request.POST.get('country', '')
+                empee.code = int(request.POST.get('zip', 0))
+                empee.phonenumber = int(request.POST.get('phonenumber', 0))
+                empee.email = request.POST.get('email')
+                empee.highqua = request.POST.get('qua', '')
+                empee.save()
+                print(f"Employee {email} data saved successfully.")
+            elif employer.objects.filter(email=email).exists():
+                emply = employer.objects.get(email=email)
+                emply.firstname = request.POST.get('firstname')
+                emply.lastname = request.POST.get('lastname')
+                emply.position = request.POST.get('position')
+                emply.company = request.POST.get('company')
+                emply.street = request.POST.get('street')
+                emply.pin = int(request.POST.get('zip', 0))
+                emply.city = request.POST.get('city', '')
+                emply.country = request.POST.get('country', '')
+                emply.code = int(request.POST.get('zip', 0))
+                emply.phonenumber = int(request.POST.get('phonenumber', 0))
+                emply.email = request.POST.get('email')
+                # emply.image=request.POST.get('photo')
+                emply.save()
+                print(f"Employer {email} data saved successfully.")
+            else:
+                messages.error(request, "No matching user found.")
+                print(f"No user found with email {email}")
+
+            # messages.success(request, "Profile updated successfully.")
+        except Exception as e:
+            messages.error(request, f"An error occurred: {str(e)}")
+            print(f"Error saving data for {email}: {str(e)}")
+
+    return redirect('profileemp')

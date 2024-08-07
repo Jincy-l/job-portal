@@ -93,7 +93,104 @@
         text-decoration: none;
     }
 </style>
+
 <body>
+
+
+    <form action="{% url 'updateprofile' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for registration in registrations %}
+       
+        <div class="container">
+            <div class="profile-header">
+                <img src="{{ registration.image.url }}" alt="Profile Image">
+                <h2>{{ registration.firstname }} {{ registration.lastname }}</h2>    
+                <p>{{ registration.email }}</p>
+                <div class="btn-container">
+                    <button class="btn btn-primary profile-button">
+                        <a href="{% url 'myjobs' %}">My Jobs</a>
+                    </button>
+                    <button class="btn btn-primary profile-button ml-3">
+                        <a href="{% url 'index' %}">Home</a>
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-details">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">First Name</label>
+                        <input type="text" class="form-control" value="{{ registration.firstname }}" name="firstname">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Last Name</label>
+                        <input type="text" class="form-control" value="{{ registration.lastname }}" name="lastname">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Job</label>
+                        <input type="text" class="form-control" value="{{ registration.job }}" name="job">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Skills</label>
+                        <input type="text" class="form-control" value="{{ registration.skills }}" name="skills">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Qualification</label>
+                        <input type="text" class="form-control" value="{{ registration.highqua }}" name="qua">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">City</label>
+                        <input type="text" class="form-control" value="{{ registration.city }}" name="city">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Country</label>
+                        <input type="text" class="form-control" value="{{ registration.country }}" name="country">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Phone Number</label>
+                        <input type="text" class="form-control" value="{{ registration.phonenumber }}" name="phonenumber">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="labels">Pincode</label>
+                        <input type="text" class="form-control" value="{{ registration.Pin }}" name="zip">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels">Email ID</label>
+                        <input type="email" class="form-control" value="{{ registration.email }}" name="email">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="labels">Street</label>
+                        <input type="text" class="form-control" value="{{ registration.Street }}" name="street">
+                    </div>
+                </div>
+
+                <div class="btn-container mt-5">
+                    <button type="submit" class="btn btn-primary profile-button">Save Profile</button>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </form>
+</body>
+
+
+{% comment %} <body>
     <form action="{% url 'profileemp' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {% for registration in registrations %}
@@ -101,7 +198,7 @@
         <div class="container">
             <div class="profile-header">
                 <img src="{{registration.image}}" alt="Profile Image">
-                <h2>{{ registration.name }}</h2>
+                <h2>{{ registration.name }}</h2>    
                 <p>{{ registration.email }}</p>
                 <div class="btn-container">
                     <button class="btn btn-primary profile-button">
@@ -186,5 +283,5 @@
 
         {% endfor %}
     </form>
-</body>
+</body> {% endcomment %}
 </html>

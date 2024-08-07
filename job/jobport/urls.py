@@ -5,6 +5,8 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
+
+
 urlpatterns = [
     path("",views.index,name='index'),
     path("index",views.index,name='index'),
@@ -50,7 +52,10 @@ urlpatterns = [
     path('message',views.message,name='message'),
     path('msgemp',views.msgemp,name='msgemp'),
     path('ordersadmin',views.ordersadmin,name='ordersadmin'),
-    path('updateprofile',views.updateprofile,name='updateprofile'),
+    # path('updateprofile',views.updateprofile,name='updateprofile'),
+
+    path('profile/', views.profileemp, name='profileemp'),
+    path('updateprofile/', views.updateprofile, name='updateprofile'),
     
 
     
