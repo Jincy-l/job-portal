@@ -547,6 +547,8 @@ def  loginadmin(request):
     return render(request,'loginadmin.html')
 def  resetpassword(request):
     return render(request,'resetpassword.html')
+def settingsadmin(request):
+    return render(request,'settingsadmin.html')
 def signupadmin(request):
     if request.method =="POST":
         name= request.POST['fullname']
@@ -739,12 +741,21 @@ def updateprofile(request):
                 empee.highqua = request.POST.get('qua', '')
                 empee.save()
                 print(f"Employee {email} data saved successfully.")
+
+
             elif employer.objects.filter(email=email).exists():
                 emply = employer.objects.get(email=email)
+
+                if 'photo' in request.FILES:
+                    emply.image = request.FILES['photo']
+                else:
+                    print("FAILED TO UPDATE PIC")
+
                 emply.firstname = request.POST.get('firstname')
                 emply.lastname = request.POST.get('lastname')
                 emply.position = request.POST.get('position')
                 emply.company = request.POST.get('company')
+                emply.addimfor=request.POST.get('additional')
                 emply.street = request.POST.get('street')
                 emply.pin = int(request.POST.get('zip', 0))
                 emply.city = request.POST.get('city', '')
@@ -765,3 +776,5 @@ def updateprofile(request):
             print(f"Error saving data for {email}: {str(e)}")
 
     return redirect('profileemp')
+
+

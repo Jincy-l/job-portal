@@ -38,6 +38,7 @@ urlpatterns = [
     path('approvecandidate/<int:applicationid>/', views.approvecandidate, name='approvecandidate'),
     path("rejectcandidate/<int:applicationid>/",views.rejectcandidate,name='rejectcandidate'),
     path('view_resume/<int:profile_id>/', views.view_resume, name='view_resume'),
+    path("",views.indexadmin,name='indexadmin'),
     path("indexadmin",views.indexadmin,name='indexadmin'),
     path('accountadmin',views.accountadmin,name='accountadmin'),
     path('chartsadmin',views.chartsadmin,name='chartsadmin'),
@@ -56,6 +57,7 @@ urlpatterns = [
 
     path('profile/', views.profileemp, name='profileemp'),
     path('updateprofile/', views.updateprofile, name='updateprofile'),
+    path('settingsadmin',views.settingsadmin,name='settingsadmin'),
     
 
     

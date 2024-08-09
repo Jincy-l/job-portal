@@ -16,7 +16,11 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
+
 				<div class="col-md-6 text-center mb-5">
+					<a href="indexadmin" class="login100-form-social-item flex-c-m bg2 m-r-5">
+						<i class="fa fa-home" aria-hidden="true"></i>
+					</a>
 					<h2 class="heading-section">Empolyers  Table</h2>
 				</div>
 			</div>
@@ -34,6 +38,7 @@
 						    </tr>
 						  </thead>
 						  <tbody>
+							{% for empr in empr %}
 						    <tr class="alert" role="alert">
 						    	<td>
 						    		{% comment %} <label class="checkbox-wrap checkbox-primary">
@@ -42,7 +47,7 @@
 										</label> {% endcomment %}
 						    	</td>
 						      <td class="d-flex align-items-center">
-								{% for empr in empr %}
+								{% comment %} {% for empr in empr %} {% endcomment %}
 						      	<img class="img" src= {{empr.image}}>
 								{% comment %} {% for empr in empr %} {% endcomment %}
 						      	<div class="pl-3 email">
@@ -53,10 +58,11 @@
 						      <td>{{empr.firstname}}</td>
 						      <td><span >{{empr.company}}</span></td>
 						      <td>
-							   {% endfor%}
+							   {% comment %} {% endfor%} {% endcomment %}
 						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>
 				          	</button>
+							  {% endfor%}
 				        	</td>
 						    </tr>
 						    <tr class="alert" role="alert">

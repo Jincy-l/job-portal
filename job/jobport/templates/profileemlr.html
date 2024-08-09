@@ -100,7 +100,7 @@
         
         <div class="container">
             <div class="profile-header">
-                <img src="{{registration.image}}" alt="Profile Image" name='photo'>
+                <img src="{{registration.image.url}}" alt="Profile Image" name='photo'>
                 <h2>{{ registration.name }}</h2>
                 <p>{{ registration.email }}</p>
             </div>
@@ -153,7 +153,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <label class="labels">Description</label>
-                        <input type="text" class="form-control" value="{{ registration.addimfor }}" name="company">
+                        <input type="text" class="form-control" value="{{ registration.addimfor }}" name="additional">
                     </div>
                 </div>
 
