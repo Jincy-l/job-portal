@@ -58,7 +58,7 @@
                         <a href="index" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="joblist" class="dropdown-item active">Job List</a>
-                            <a href="jobdetail" class="dropdown-item">Job Detail</a>
+                            {% comment %} <a href="jobdetail" class="dropdown-item">Job Detail</a> {% endcomment %}
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -71,7 +71,7 @@
                     </div>
                     <a href="contact" class="nav-item nav-link">Contact</a>
                 </div>
-                <a href="index" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
+                {% comment %} <a href="index" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a> {% endcomment %}
             </div>
         </nav>
         <!-- Navbar End -->
@@ -122,11 +122,46 @@
                                     </div>
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href="index"><i class="far fa-heart text-primary"></i></a>
+                                            <a class="btn btn-light btn-square me-3" href="index">
+                                                <i class="far fa-heart text-primary"></i>
+                                            </a>
+                                            
                                             <form>
                                                 <input style="display:none;" type="text" value="{{job.id}}" name="jobid">
-                                            {% comment %} <a class="btn btn-primary" href="jobdetail" data-bs-target="#demo{{forloop.counter}}">Apply Now</a> {% endcomment %}
+                                                <!-- Apply button to open the modal -->
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Apply</button>
+                                                
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Please login
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button> 
+                                                                  <a href='login'>ok</a> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
                                         </div>
+                                        
+                                        <script>
+                                            document.getElementById('applyButton').addEventListener('click', function() {
+                                                var userLoggedIn = {{ request.user.is_authenticated|yesno:"true,false" }};
+                                                if (!userLoggedIn) {
+                                                    document.getElementById('errorMessage').style.display = 'block';
+                                                } else {
+                                                    document.getElementById('applyForm').submit();
+                                                }
+                                            });
+                                        </script>
                                         {% comment %} <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small> {% endcomment %}
                                     </div>
                                 </div>

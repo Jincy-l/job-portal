@@ -12,6 +12,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .models import employee, employer
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -561,10 +562,12 @@ def signupadmin(request):
 def indextable(request):
 
     
-    empr=employer.objects.all()
+    empr=employer.objects.filter(sus=True)
+    sus=employer.objects.filter(sus=False)
 
     context={
-        'empr':empr
+        'empr':empr,
+        'sus':sus
     }
      
     return render (request,"indextable.html",context)
@@ -595,6 +598,15 @@ def deletedata(request,id):
     message = f'Your account was deleted  '
     send_mail(subject, message, settings.EMAIL_HOST_USER, [email], fail_silently=False)
     return redirect(emptable)
+def deletedataempr(request,id):
+    de=employer.objects.get(id=id)
+    de.sus=False
+    de.save()
+    email=de.email
+    subject = 'Deleted account'
+    message = f'Your account was deleted  '
+    send_mail(subject, message, settings.EMAIL_HOST_USER, [email], fail_silently=False)
+    return redirect(indextable)
         
 def search_job(request):
     if request.method=="POST":
@@ -777,4 +789,9 @@ def updateprofile(request):
 
     return redirect('profileemp')
 
-
+def errorjob(request):
+    if request.method == 'POST':
+        job_id = request.POST.get('jobid')
+        # Your logic to apply for the job here
+        return redirect('success_page')
+    return redirect('error_page')

@@ -58,6 +58,8 @@ urlpatterns = [
     path('profile/', views.profileemp, name='profileemp'),
     path('updateprofile/', views.updateprofile, name='updateprofile'),
     path('settingsadmin',views.settingsadmin,name='settingsadmin'),
+    path('errorjob',views.errorjob,name='errorjob'),
+    path('deletedataempr/<int:id>',views. deletedataempr,name= 'deletedataempr'),
     
 
     

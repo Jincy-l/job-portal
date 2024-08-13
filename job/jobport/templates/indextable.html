@@ -59,9 +59,9 @@
 						      <td><span >{{empr.company}}</span></td>
 						      <td>
 							   {% comment %} {% endfor%} {% endcomment %}
-						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						      	<a href="{% url 'deletedataempr' empr.id %}"><button type="button" class="close" >
 				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>
-				          	</button>
+				          	</button></a>
 							  {% endfor%}
 				        	</td>
 						    </tr>
@@ -75,11 +75,11 @@
 						     
 						    
 						    
-						      	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				            	<span aria-hidden="true"><i class="fa fa-close"></i></span>
-				          	</button>
-				        	</td>
-						    </tr>
+						      	{% comment %} <button type="button" class="close" data-dismiss="alert" aria-label="Close"> {% endcomment %}
+				            	{% comment %} <span aria-hidden="true"><i class="fa fa-close"></i></span> {% endcomment %}
+				          	{% comment %} </button> {% endcomment %}
+				        	{% comment %} </td> {% endcomment %}
+						    {% comment %} </tr> {% endcomment %}
 						  </tbody>
 						</table>
 					</div>

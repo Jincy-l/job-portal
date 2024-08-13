@@ -46,6 +46,16 @@
         .back-to-top:hover {
             background-color: #00B074;
         }
+        #title {
+            position: relative;
+        }
+        
+        #title .btn-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        
     </style>    
 </head>
 
@@ -76,7 +86,7 @@
                         <a href="index" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
                         <div class="dropdown-menu rounded-0 m-0">
                             <a href="joblist" class="dropdown-item">Job List</a>
-                            <a href="jobdetail" class="dropdown-item">Job Detail</a>
+                            {% comment %} <a href="jobdetail" class="dropdown-item">Job Detail</a> {% endcomment %}
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -84,7 +94,7 @@
                         <div class="dropdown-menu rounded-0 m-0">
                             {% comment %} <a href="category" class="dropdown-item">Job Category</a> {% endcomment %}
                             <a href="testimonial" class="dropdown-item">Testimonial</a>
-                            <a href="error" class="dropdown-item">404</a>
+                            {% comment %} <a href="error" class="dropdown-item">404</a> {% endcomment %}
                         </div>
                     </div>
                     <a href="contact" class="nav-item nav-link">Contact</a>
@@ -333,11 +343,24 @@
                     <form action="{% url 'applyjob' %}"  method="POST" >
                         {% csrf_token %}
                     <div class="body" class="font">
+
                         <!--   Top title box   -->
                         <div id="title">
+                            <!-- Top title box -->
+<div id="title" style="position: relative;">
 
-                        <input type="text" value="{{job.jobtitle}}" name="jobtitle" style="display: none;">
-                        <h2 class="font" id="title">{{job.jobtitle}}</h2>
+    <input type="text" value="{{job.jobtitle}}" name="jobtitle" style="display: none;">
+    <h2 class="font" id="title">{{job.jobtitle}}</h2>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" style="position: absolute; right: 0; top: 0;"></button>
+</div>
+
+                        
+                        {% comment %} <input type="text" value="{{job.jobtitle}}" name="jobtitle" style="display: none;">
+                        <h2 class="font" id="title">{{job.jobtitle}}</h2>                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> {% endcomment %}
+
+
+
+                    
                         
                         <input type="text" value="{{job.company}}" name="company" style="display: none;">
                         <p class="font" id="location">{{job.company}}</p>
@@ -398,6 +421,7 @@
 
                                                             <input style="display: none;" type='number' value="{{job.id}}" name="jobid">
                                                         <button type="submit" class="btn btn-secondary" type="button">Apply</button>
+                                                        
                                                         </form>
                                                     </div>
                                                 </div>
@@ -525,19 +549,20 @@
                                                                                     <input style="display: none;" type='number' value="{{jo.id}}" name="jobid">
                                                                                 <button type="submit" class="btn btn-secondary" type="button">Apply</button>
                                                                                 </form>
+                                                                               
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 {% endfor %}
-                                                                            </div>
+                                                                    </div>
                                                                         
                                                                         
                                                                     
                                                 
                                                                 
-                                                                        </div>
+                                                                </div>
                                                                        
-                                                                    </div>              
+                                                             </div>              
                                                                                 
                                           
 
@@ -704,7 +729,7 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> {% endcomment %}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="static/lib/wow/wow.min.js"></script>
     <script src="static/lib/easing/easing.min.js"></script>
