@@ -120,10 +120,11 @@
 						<input type="text" name="email" id="your_email" class="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" placeholder="Your Email">
 					</div>
 					<div class="form-row">
-						<input type="password" placeholder="enter password" name="password">
+						<input type="password" placeholder="enter password" name="password" id="password1" oninput="checkPasswordMatch">
 				    </div>	
 					<div class="form-row">
-						<input type="password" placeholder="confirm password" name="confirm">
+						<input type="password" placeholder="confirm password" name="confirm"id="password2" oninput="checkPasswordMatch" >
+						<p id="matchText"></p>
 				    </div>	
 					<div class="form-checkbox">
 						<label class="container"><p>I do accept the <a href="static/#" class="text">Terms and Conditions</a> of your site.</p>
@@ -140,5 +141,23 @@
 			</form>
 		</div>
 	</div>
+	<script>
+		function checkPasswordMatch() {
+			var password = document.getElementById('password1').value;
+			var confirmPassword = document.getElementById('password2').value;
+			var matchText = document.getElementById('matchText');
+		
+			if (password !== confirm) {
+				matchText.innerHTML = 'Passwords do not match';
+				matchText.style.color = 'red';
+			} else if (password.length > 0) { // Ensure match message is only shown if the user has entered a password
+				matchText.innerHTML = 'Passwords match';
+				matchText.style.color = 'green';
+			} else {
+				matchText.innerHTML = ''; // Clear text when passwords are empty
+			}
+		}
+		
+	</script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
